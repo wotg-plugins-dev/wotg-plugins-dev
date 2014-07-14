@@ -1,5 +1,5 @@
 Wotg_Utils_Api_Plugins.get().addRepository({
-  title: 'main',
+	title: 'main',
 	plugins: [
 		'TestPlugin'
 	]
