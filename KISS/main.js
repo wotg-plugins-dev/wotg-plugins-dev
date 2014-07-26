@@ -2,6 +2,8 @@
 
 ﻿	api.events.add('beforeLaunch', function () {
 		//SET SIZE
+		
+		//BIG CARDS
 		//Art
 		Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290];
 		//Type
@@ -17,6 +19,14 @@
 		//Text
 		//TODO: Hell of a lot to do
 		Wotg.Card.Markup.Big.markup.children[9].rect = [72, 375, 290, 160];
+		
+		//HAND CARDS
+		//Art
+		Wotg.Card.Markup.Hand.markup.children[0].rect = [15, 35, 150, 150];
+		//Title
+		Wotg.Card.Markup.Hand.markup.children[5].rect = [45, 15, 103, 17];
+		//Subtype
+		Wotg.Card.Markup.Hand.markup.children[7].rect = [40, 11, 21, 27];
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
