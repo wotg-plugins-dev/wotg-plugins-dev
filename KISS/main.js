@@ -4,12 +4,12 @@
 		console.log("KISS2!!!")
 ﻿	});
 
-	//api.refactor( 'Wotg.Images.PreLoader', {
-		//preload: function method (onComplete) {
-			//console.log("KISS Preloader");
-			//console.log(Wotg.Images.PreLoader.list);
-			//method.previous.apply( this, arguments );
-		//},
-	//});
+	api.refactor( 'Wotg.Images.PreLoader', {
+		preload: function (onComplete) {
+			console.log("KISS Preloader");
+			console.log(Wotg.Images.PreLoader.list);			
+			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
+		},
+	});
 
 });
