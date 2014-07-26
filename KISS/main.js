@@ -17,17 +17,15 @@
 		//Text
 		//TODO: Hell of a lot to do
 		Wotg.Card.Markup.Big.markup.children[9].rect = [72, 330, 290, 160];
-
-		Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
 ﻿	});
 
-	/*api.refactor( 'Wotg.Images.PreLoader', {
+	api.refactor( 'Wotg.Images.PreLoader', {
 		preload: function (onComplete) {
 			//Replace Frame
-			
+			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
 			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
 		},
-	});*/
+	});
 	
 	api.refactor( 'Wotg.Card.Views.Big',  {
 	
