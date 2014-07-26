@@ -21,8 +21,8 @@
 
 	api.refactor( 'Wotg.Images.PreLoader', {
 		preload: function (onComplete) {
+			//Replace Frame
 			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
-			Wotg.Images.PreLoader.list['dava-card-icons'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/9c555aff382f760d777c16f5fd812d57.png';
 			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
 		},
 	});
@@ -30,6 +30,7 @@
 	api.refactor( 'Wotg.Card.Views.Big',  {
 	
 		redraw: function method () {
+			//Hide NationFlag
 			this.hide('NationFlag');
 			method.previous.apply( this, arguments );
 		}
