@@ -96,6 +96,10 @@
 			this.hide('Power');
 			this.hide('Toughness');
 			this.hide('NationFlag');
+			this.hide('Type');
+			this.hide('Cost');
+			this.hide('Title');
+			this.hide('Description');
 	
 			this.dava.redraw(this.buffer.ctx);
 	
