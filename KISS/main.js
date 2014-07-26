@@ -95,6 +95,7 @@
 			this.hide('Increase');
 			this.hide('Power');
 			this.hide('Toughness');
+			this.hide('NationFlag');
 	
 			this.dava.redraw(this.buffer.ctx);
 	
