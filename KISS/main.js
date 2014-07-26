@@ -2,8 +2,6 @@
 
 ﻿	api.events.add('beforeLaunch', function () {
 		console.log("KISS 3!!!")
-		//SET SIZE
-		Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290]		
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
@@ -22,7 +20,11 @@
 	
 		redraw: function () {
 			
-
+			//SET SIZE
+			Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290]
+			console.log(markup);
+			markup.markup.children[0].rect = [25, 85, 347, 290]
+			console.log(markup);
 			
 			var model = this.model, proto = model.proto;
 	
