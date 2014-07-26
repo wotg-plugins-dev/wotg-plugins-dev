@@ -10,6 +10,6 @@
 			console.log(Wotg.Images.PreLoader.list);
 			method.previous.apply( this, arguments );
 		},
-	},
+	}),
 
 });
