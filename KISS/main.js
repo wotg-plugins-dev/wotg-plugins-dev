@@ -11,9 +11,9 @@
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
-		preload: function method (onComplete) {
+		preload: function (onComplete) {
 			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
-			method.previous.apply( this, arguments );
+			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
 		},
 	});
 	
