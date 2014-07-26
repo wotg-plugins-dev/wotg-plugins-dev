@@ -1,7 +1,7 @@
 ﻿Wotg_Plugins.get().addSimplePlugin('KISS', '0.2.2', function (api) {
 
 ﻿	api.events.add('beforeLaunch', function () {
-		console.log("KISS!!!")
+		console.log("KISS2!!!")
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
