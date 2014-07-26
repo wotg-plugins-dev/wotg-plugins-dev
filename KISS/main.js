@@ -1,7 +1,7 @@
 ﻿Wotg_Plugins.get().addSimplePlugin('KISS', '0.2.2', function (api) {
 
 ﻿	api.events.add('beforeLaunch', function () {
-		console.log("KISS 3!!!")
+		console.log("KISS 4!!!")
 		
 		//SET SIZE
 		//Art
@@ -22,6 +22,7 @@
 	api.refactor( 'Wotg.Images.PreLoader', {
 		preload: function (onComplete) {
 			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
+			Wotg.Images.PreLoader.list['dava-card-icons'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/30d79f8bdf1dac59f95d4679b3ec2043.png';
 			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
 		},
 	});
