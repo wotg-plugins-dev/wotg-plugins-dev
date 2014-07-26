@@ -6,8 +6,8 @@
 
 	api.refactor( 'Wotg.Images.PreLoader', {
 		preload: function method (onComplete) {
-			console.log("KISS Preloader");
-			console.log(Wotg.Images.PreLoader.list);
+			//console.log("KISS Preloader");
+			//console.log(Wotg.Images.PreLoader.list);
 			method.previous.apply( this, arguments );
 		},
 	});
