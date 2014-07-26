@@ -3,6 +3,7 @@ Wotg_Plugins.get().addRepository({
 	plugins: [
 		'TestPlugin',
 		'Katusha',
-		'InPain'
+		'InPain',
+		'KISS'
 	]
 });
