@@ -16,7 +16,7 @@
 		Wotg.Card.Markup.Big.markup.children[15].rect = [25, 465, 61, 75];
 		//Text
 		//TODO: Hell of a lot to do
-		Wotg.Card.Markup.Big.markup.children[9].rect = [72, 330, 290, 160];
+		Wotg.Card.Markup.Big.markup.children[9].rect = [72, 360, 290, 160];
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
