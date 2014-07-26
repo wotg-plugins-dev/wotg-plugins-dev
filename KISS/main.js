@@ -5,11 +5,11 @@
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
-		preload: function method (onComplete) {
+		//preload: function method (onComplete) {
 			//console.log("KISS Preloader");
 			//console.log(Wotg.Images.PreLoader.list);
-			method.previous.apply( this, arguments );
-		},
+			//method.previous.apply( this, arguments );
+		//},
 	});
 
 });
