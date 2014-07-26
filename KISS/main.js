@@ -1,7 +1,7 @@
 ﻿Wotg_Plugins.get().addSimplePlugin('KISS', '0.2.2', function (api) {
 
 ﻿	api.events.add('beforeLaunch', function () {
-		console.log("KISS 1!!!")
+		console.log("KISS 2!!!")
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
@@ -41,29 +41,29 @@
 			this.setFrame('Background'  , 1);
 	
 			//TITLE
-			//this.setText ('Title'       , Wotg.lang('cards.' + proto.idC + '.short') );
+			this.setText ('Title'       , Wotg.lang('cards.' + proto.idC + '.short') );
 			
 			//DESCRIPTION
-			//this.setText ('Description' , Wotg.lang('cards.' + proto.idC + '.full') );
+			this.setText ('Description' , Wotg.lang('cards.' + proto.idC + '.full') );
 	
 			//RESOURCES
-			/*if (proto.resources) {
+			if (proto.resources) {
 				this.show('Increase');
 				this.setValue('Increase', proto.resources, true);
 			} else {
 				this.hide('Increase');
-			}*/
+			}
 	
 			//VALUES
-			//this.setValue('Power'       , proto.power);
-			//this.setValue('Toughness'   , proto.toughness);
-			//this.setValue('Cost'        , proto.cost);
+			this.setValue('Power'       , proto.power);
+			this.setValue('Toughness'   , proto.toughness);
+			this.setValue('Cost'        , proto.cost);
 	
 			//NATION
-			//this.setFrame('NationFlag'  , this.flagFrames[proto.country]);
+			this.setFrame('NationFlag'  , this.flagFrames[proto.country]);
 			
 			//TYPE
-			//this.setFrame('Type'     , this.getSubtypeFrame(model.isOpponent));
+			this.setFrame('Type'     , this.getSubtypeFrame(model.isOpponent));
 			
 			this.hide('Amount');
 			this.setFrame('Power', 0);
@@ -90,6 +90,11 @@
 					this.setFrame('Power', 3);
 				}
 			}
+			
+			//HIDE VALUES
+			this.hide('Increase');
+			this.hide('Power');
+			this.hide('Toughness');
 	
 			this.dava.redraw(this.buffer.ctx);
 	
