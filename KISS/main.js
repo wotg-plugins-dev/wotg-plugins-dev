@@ -48,5 +48,15 @@
 		}
 	
 	});	
+	
+	api.refactor( 'Wotg.Card.Views.Hand', {
+	
+		redraw: function method () {
+			//Hide NationFlag
+			this.hide('NationFlag');
+			method.previous.apply( this, arguments );
+		}
+	
+	});	
 
 });
