@@ -57,6 +57,16 @@
 			method.previous.apply( this, arguments );
 		}
 	
+	});
+	
+	api.refactor( 'Wotg.Card.Views.Battle', {
+	
+		redraw: function method () {
+			//Hide NationFlag
+			this.hide('NationFlag');
+			method.previous.apply( this, arguments );
+		}
+	
 	});	
 
 });
