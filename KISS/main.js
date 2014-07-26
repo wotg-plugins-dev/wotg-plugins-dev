@@ -32,7 +32,7 @@
 	api.refactor( 'Wotg.Images.PreLoader', {
 		preload: function (onComplete) {
 			//Replace Frame
-			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ef0cd793c2d089bf9d0d36b686403177.png';
+			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/742f2efc0179044ceb2ab0e8724bbe3f.png';
 			//Replace Icons
 			Wotg.Images.PreLoader.list['dava-card-icons'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/331909e2d0461ea9e42f71e717fe4c79.png';
 			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
