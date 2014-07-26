@@ -22,9 +22,9 @@
 			
 			//SET SIZE
 			Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290]
-			console.log(markup);
-			markup.markup.children[0].rect = [25, 85, 347, 290]
-			console.log(markup);
+			console.log(this.markup);
+			this.markup.markup.children[0].rect = [25, 85, 347, 290]
+			console.log(this.markup);
 			
 			var model = this.model, proto = model.proto;
 	
