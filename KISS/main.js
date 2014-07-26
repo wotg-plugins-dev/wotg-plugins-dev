@@ -15,7 +15,10 @@
 		//Power
 		Wotg.Card.Markup.Big.markup.children[14].rect = [19, 385, 75, 75];
 		//Toughness
-		Wotg.Card.Markup.Big.markup.children[15].rect = [25, 465, 61, 75];		
+		Wotg.Card.Markup.Big.markup.children[15].rect = [25, 465, 61, 75];
+		//Text
+		//TODO: Hell of a lot to do
+		Wotg.Card.Markup.Big.markup.children[9].rect = [72, 330, 290, 160];
 
 ﻿	});
 
