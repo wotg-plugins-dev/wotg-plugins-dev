@@ -9,7 +9,7 @@
 			console.log("KISS Preloader");
 			console.log(Wotg.Images.PreLoader.list);	
 			console.log(Wotg.Images.PreLoader.list['dava-card']);
-			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/79a2c3b96b565f9625d765cdb1c5de10.png';
+			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
 			console.log(Wotg.Images.PreLoader.list);	
 			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
 		},
@@ -98,7 +98,7 @@
 			this.hide('NationFlag');
 			this.hide('Type');
 			this.hide('Cost');
-			this.hide('Title');
+			//this.hide('Title');
 			this.hide('Description');
 	
 			this.dava.redraw(this.buffer.ctx);
