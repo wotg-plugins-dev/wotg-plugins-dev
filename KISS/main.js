@@ -1,7 +1,7 @@
 ﻿Wotg_Plugins.get().addSimplePlugin('KISS', '0.2.2', function (api) {
 
 ﻿	api.events.add('beforeLaunch', function () {
-		console.log("KISS 2!!!")
+		console.log("KISS 1!!!")
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
@@ -19,6 +19,10 @@
 	api.refactor( 'Wotg.Card.Views.Big', {
 	
 		redraw: function () {
+			
+			//SET SIZE
+			Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 300, 250]
+			
 			var model = this.model, proto = model.proto;
 	
 			this.buffer.ctx.clearAll();
