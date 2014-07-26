@@ -4,10 +4,11 @@
 		console.log("KISS 2!!!")
 		
 		//SET SIZE
-		console.log(Wotg.Card.Markup.Big.markup.children[0]);
+		//Art
 		Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290]
-		console.log(Wotg.Card.Markup.Big.markup.children[0]);
-			
+		//Type
+		Wotg.Card.Markup.Big.markup.children[11].rect = [75, 25, 51, 61]
+
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
