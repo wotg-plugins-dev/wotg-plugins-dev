@@ -8,6 +8,10 @@
 		Wotg.Card.Markup.Big.markup.children[0].rect = [25, 85, 347, 290]
 		//Type
 		Wotg.Card.Markup.Big.markup.children[11].rect = [75, 25, 51, 61]
+		//Title
+		Wotg.Card.Markup.Big.markup.children[5].rect = [125, 28, 228, 30]
+		//Description
+		Wotg.Card.Markup.Big.markup.children[6].rect = [125, 59, 241, 22]
 
 ﻿	});
 
