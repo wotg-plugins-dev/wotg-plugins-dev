@@ -24,7 +24,7 @@
 		//Art
 		Wotg.Card.Markup.Hand.markup.children[0].rect = [15, 35, 150, 150];
 		//Title
-		Wotg.Card.Markup.Hand.markup.children[5].rect = [60, 15, 103, 17];
+		Wotg.Card.Markup.Hand.markup.children[5].rect = [60, 14, 103, 17];
 		//Subtype
 		Wotg.Card.Markup.Hand.markup.children[7].rect = [40, 11, 21, 27];
 ﻿	});
