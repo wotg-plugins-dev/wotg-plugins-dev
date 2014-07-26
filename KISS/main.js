@@ -11,14 +11,19 @@
 ﻿	});
 
 	api.refactor( 'Wotg.Images.PreLoader', {
-		preload: function (onComplete) {
-			console.log("KISS Preloader");
-			console.log(Wotg.Images.PreLoader.list);	
-			console.log(Wotg.Images.PreLoader.list['dava-card']);
+		preload: function method (onComplete) {
 			Wotg.Images.PreLoader.list['dava-card'] = 'http://s7.hostingkartinok.com/uploads/images/2014/07/ad409f6fa1c6466dd5701fbb6422c30c.png';
-			console.log(Wotg.Images.PreLoader.list);	
-			return this.preloader = this.makePreloader( Wotg.Images.PreLoader.list, onComplete );
+			method.previous.apply( this, arguments );
 		},
 	});
+	
+	api.refactor( 'Wotg.Card.Views.Big',  {
+	
+		redraw: function method () {
+			this.hide('NationFlag');
+			method.previous.apply( this, arguments );
+		}
+	
+	});	
 
 });
