@@ -1,5 +1,5 @@
 Wotg_Plugins.get().addRepository({
-	title: 'sandrem',
+	title: 'wotg-plugins-dev',
 	plugins: [
 		'TestPlugin',
 		'Katusha',
