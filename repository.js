@@ -1,8 +1,8 @@
 Wotg_Plugins.get().addRepository({
-	title: 'wotg-plugins-dev',
-	plugins: [
-		'TestPlugin',
-		'Katusha',
-		'InPain',
-	]
+    title: 'Isk1n',
+    plugins: [
+        'TestPlugin',
+        'Katusha',
+        'InPain',
+    ]
 });
