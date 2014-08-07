@@ -2,8 +2,8 @@
 ﻿	
 ﻿	console.log(api);
 
-﻿	api.events.add('beforeLaunch', function () {
-		Wotg.controller().lang.set({'hangar.battleButton' : 'В Боль!'});
-﻿	});
+﻿	//api.events.add('beforeLaunch', function () {
+	//	Wotg.controller().lang.set({'hangar.battleButton' : 'В Боль!'});
+﻿	//});
 
 });
