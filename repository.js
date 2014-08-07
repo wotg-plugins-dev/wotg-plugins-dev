@@ -4,5 +4,6 @@ Wotg_Plugins.get().addRepository({
         'TestPlugin',
         'Katusha',
         'InPain',
+        'altSounds',
     ]
 });
