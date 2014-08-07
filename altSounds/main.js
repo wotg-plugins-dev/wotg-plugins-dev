@@ -431,7 +431,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         }
         var len = soundUrls[trigger].length;
         if (!len) return;
-        // api.controller.utils.dialogs.info('Sound of ' + trigger);
+        // console.info('Sound of ' + trigger);
         var idx = Math.floor(Math.random() * len);
 
         htmlAudio[trigger][idx].play();
@@ -452,7 +452,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
             }
         }
         if (!unbuffered) everythingBuffered = true;
-        api.controller.utils.dialogs.info('Sounds buffered: ' + Math.round(buffered / (buffered + unbuffered) * 100) + '%');
+        console.info('Sounds buffered: ' + Math.round(buffered / (buffered + unbuffered) * 100) + '%');
     }
 
     function rebuffer() {
@@ -508,46 +508,46 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
     =            Изменение громкости звуков игры            =
     =======================================================*/
 
-    api.refactor('Wotg.Utils.Sound', {
-        initialize: function(controller) {
-            this.controller = controller;
+    // api.refactor('Wotg.Utils.Sound', {
+    //     initialize: function(controller) {
+    //         this.controller = controller;
 
-            this.sounds = new Howl({
-                urls: this.getUrls('sound'),
-                volume: wotgSoundVolume,
-                sprite: this.soundMapping
-            });
-        },
+    //         this.sounds = new Howl({
+    //             urls: this.getUrls('sound'),
+    //             volume: wotgSoundVolume,
+    //             sprite: this.soundMapping
+    //         });
+    //     },
 
-        music: function(name, onEnd, force) {
-            if (!force && this.needAudio && this.needAudio[0] == name) {
-                return null;
-            }
+    //     music: function(name, onEnd, force) {
+    //         if (!force && this.needAudio && this.needAudio[0] == name) {
+    //             return null;
+    //         }
 
-            this.needAudio = name ? [name, onEnd] : null;
+    //         this.needAudio = name ? [name, onEnd] : null;
 
-            if (!this.getStatus('music')) {
-                return null;
-            }
+    //         if (!this.getStatus('music')) {
+    //             return null;
+    //         }
 
-            this.stopCurrentMusic();
+    //         this.stopCurrentMusic();
 
-            if (name) {
-                this.currentAudio = new Howl({
-                    urls: this.getUrls('music/' + name),
-                    volume: wotgMusicVolume,
-                    buffer: true,
-                    onend: onEnd
-                });
+    //         if (name) {
+    //             this.currentAudio = new Howl({
+    //                 urls: this.getUrls('music/' + name),
+    //                 volume: wotgMusicVolume,
+    //                 buffer: true,
+    //                 onend: onEnd
+    //             });
 
-                this.currentAudio.play();
+    //             this.currentAudio.play();
 
-                return this.currentAudio;
-            } else {
-                return null;
-            }
-        }
-    });
+    //             return this.currentAudio;
+    //         } else {
+    //             return null;
+    //         }
+    //     }
+    // });
 
     /*===========================================
     =            Инициализация аудио            =
@@ -592,7 +592,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
     api.events.add('afterLaunch', function() {
 
         // Инициализация наций
-        api.controller.screens.events.add('change', function(screen) {
+        Wotg.controller().screens.events.add('change', function(screen) {
             // Когда будет озвучка экранов, отличных от боевого, эту часть надо будет переделать
             if (screen.name !== 'Battle') return;
             var battle = Wotg.battle();
@@ -603,13 +603,13 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         });
 
         // Начало боя
-        api.controller.connection.events.add('message/game/start', function(message) {
+        Wotg.controller().connection.events.add('message/game/start', function(message) {
             hear(message.player.country + '_start');
 
         });
 
         // Конец боя
-        api.controller.connection.events.add('message/game/results', function(message) {
+        Wotg.controller().connection.events.add('message/game/results', function(message) {
             if (message.player.playerno === message.winnerno) {
                 hear(message.player.country + '_victory');
             } else {
@@ -619,7 +619,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         });
 
         // Действия во время боя
-        api.controller.connection.events.add('message/game/stackresolved', function(message) {
+        Wotg.controller().connection.events.add('message/game/stackresolved', function(message) {
             var duelist, duelistno;
 
             for (var i = 0; i < message.activities.length; i++) {
@@ -701,7 +701,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         });
 
         // Действие абилок
-        api.controller.connection.events.add('message/game/abilityresolved', function(message) {
+        Wotg.controller().connection.events.add('message/game/abilityresolved', function(message) {
 
             for (var i = 0; i < message.activities.length; i++) {
 
@@ -722,7 +722,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         });
 
         // Использование расходников
-        api.controller.connection.events.add('message/consumables/use', function(message) {
+        Wotg.controller().connection.events.add('message/consumables/use', function(message) {
 
             var playerno = message.player.playerno;
             for (i = 0; i < message.activities.length; i++) {
@@ -737,7 +737,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         });
 
         // Переход хода
-        api.controller.connection.events.add('message/game/turnbegin', function(message) {
+        Wotg.controller().connection.events.add('message/game/turnbegin', function(message) {
             if (message.active == true) {
                 hear('myTurn');
             } else { //Ход противника
