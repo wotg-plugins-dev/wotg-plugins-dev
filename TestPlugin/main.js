@@ -7,10 +7,18 @@ if (window.Wotg_Plugins) {
 		title  : 'TestPlugin',
 		version: '0.2.3'
 	}, function (plugin, events) {
+		plugin.addImagesPreload({
+			'test': 'image.png'
+		});
+		
 		console.log('TestPlugin', { Wotg: Wotg, plugin: plugin, atom: atom });
 	
 		events.add('initialize', function () {
 			console.log('TestPlugin initialized');
+		});
+	
+		events.add('afterLaunch', function () {
+			console.log(plugin.getImage('test'));
 		});
 	});
 }
