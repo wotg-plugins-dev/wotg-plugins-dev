@@ -4,13 +4,13 @@ if (Wotg_Plugins) {
 	});	
 } else {
 	new Wotg.Plugins.Simple({
-		title  : 'MyPluginTitle',
+		title  : 'TestPlugin',
 		version: '0.2.3'
 	}, function (plugin, events) {
-		console.log('MyPluginTitle', { Wotg: Wotg, plugin: plugin, atom: atom });
+		console.log('TestPlugin', { Wotg: Wotg, plugin: plugin, atom: atom });
 	
 		events.add('initialize', function () {
-			console.log('MyPluginTitle initialized');
+			console.log('TestPlugin initialized');
 		});
 	});
 }
