@@ -18,6 +18,7 @@ if (window.Wotg_Plugins) {
 		});
 	
 		events.add('afterLaunch', function () {
+			atom.dom(plugin.getImage('test')).appendTo('body');
 			console.log(plugin.getImage('test'));
 		});
 	});
