@@ -1,6 +1,6 @@
 
 
-if (Wotg_Plugins) {
+if (window.Wotg_Plugins) {
 	Wotg_Plugins.get().addRepository({
 		title: 'wotg-plugins-dev',
 		plugins: [
