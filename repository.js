@@ -1,5 +1,3 @@
-
-
 if (window.Wotg_Plugins) {
 	Wotg_Plugins.get().addRepository({
 		title: 'wotg-plugins-dev',
