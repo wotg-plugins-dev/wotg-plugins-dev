@@ -1,7 +1,7 @@
 new Wotg.Plugins.Simple({
     title  : 'SoundsOfHS',
     version: '0.2.3'
-}, function (api) {
+}, function (plugin, events) {
     events.add('initialize', function () {
         console.log('SoundsOfHS initialized');
     });
