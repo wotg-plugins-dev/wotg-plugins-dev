@@ -1,4 +1,10 @@
-Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.3', function (api) {
+new Wotg.Plugins.Simple({
+    title  : 'SoundsOfHS',
+    version: '0.2.3'
+}, function (api) {
+    events.add('initialize', function () {
+        console.log('SoundsOfHS initialized');
+    });
 
 ﻿   /*===============================================
     =            Подстроечные переменные            =
