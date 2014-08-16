@@ -503,7 +503,7 @@ new Wotg.Plugins.Simple({
     =            Инициализация аудио            =
     ===========================================*/
 
-    api.events.add('beforeLaunch', function() {
+    events.add('beforeLaunch', function() {
 
         for (var trigger in soundUrls) {
             if (!soundUrls[trigger]) continue;
@@ -539,7 +539,7 @@ new Wotg.Plugins.Simple({
     =            Обработка событий            =
     =========================================*/
 
-    api.events.add('afterLaunch', function() {
+    events.add('afterLaunch', function() {
 
         // Инициализация наций
         Wotg.controller().screens.events.add('change', function(screen) {
