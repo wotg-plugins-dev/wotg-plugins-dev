@@ -1,16 +1,10 @@
-Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
+Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.3', function (api) {
 
 ﻿   /*===============================================
     =            Подстроечные переменные            =
     ===============================================*/
 
-    var wotgSoundVolume = 0.17; // Громкость звуков игры (от 0 до 1)
-    var wotgMusicVolume = wotgSoundVolume / 2; // Громкость музыки игры (от 0 до 1)
     var modDefaultVolume = 0.25; // Громкость звуков мода (от 0 до 1)
-    // Громкость отдельных звуков
-    var soundVolumes = {
-        'http://k007.kiwi6.com/hotlink/ug5zbzkxgl/myturn.ogg': 0.2
-    };
 
     /*=======================================
     =            Подборка звуков            =
@@ -18,11 +12,6 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
 
 
     var soundUrls = {
-        // Начало хода игрока
-        myTurn: ['http://k007.kiwi6.com/hotlink/uy3cmjdzjy/arena.ogg'],
-        // Начало хода оппонента
-        // hisTurn: ['http://k007.kiwi6.com/hotlink/ug5zbzkxgl/myturn.ogg'],
-
         /*==================================
         =            Начало боя            =
         ==================================*/
@@ -504,51 +493,6 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
         }
     }
 
-    /*=======================================================
-    =            Изменение громкости звуков игры            =
-    =======================================================*/
-
-    // api.refactor('Wotg.Utils.Sound', {
-    //     initialize: function(controller) {
-    //         this.controller = controller;
-
-    //         this.sounds = new Howl({
-    //             urls: this.getUrls('sound'),
-    //             volume: wotgSoundVolume,
-    //             sprite: this.soundMapping
-    //         });
-    //     },
-
-    //     music: function(name, onEnd, force) {
-    //         if (!force && this.needAudio && this.needAudio[0] == name) {
-    //             return null;
-    //         }
-
-    //         this.needAudio = name ? [name, onEnd] : null;
-
-    //         if (!this.getStatus('music')) {
-    //             return null;
-    //         }
-
-    //         this.stopCurrentMusic();
-
-    //         if (name) {
-    //             this.currentAudio = new Howl({
-    //                 urls: this.getUrls('music/' + name),
-    //                 volume: wotgMusicVolume,
-    //                 buffer: true,
-    //                 onend: onEnd
-    //             });
-
-    //             this.currentAudio.play();
-
-    //             return this.currentAudio;
-    //         } else {
-    //             return null;
-    //         }
-    //     }
-    // });
-
     /*===========================================
     =            Инициализация аудио            =
     ===========================================*/
@@ -564,7 +508,7 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
                 var currentAudio = htmlAudio[trigger][i] = new Audio();
                 currentAudio.src = soundUrls[trigger][i];
                 currentAudio.preload = 'auto';
-                currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
+                currentAudio.volume = modDefaultVolume;
                 // currentAudio.playbackRate = 0.5;
             }
         }
@@ -738,11 +682,6 @@ Wotg_Plugins.get().addSimplePlugin('altSounds', '0.2.2', function (api) {
 
         // Переход хода
         Wotg.controller().connection.events.add('message/game/turnbegin', function(message) {
-            if (message.active == true) {
-                hear('myTurn');
-            } else { //Ход противника
-                hear('hisTurn');
-            }
             // Дров в начале хода. Проверка перебора карт у дуэлянтов
             for (var duelistno in [0, 1]) {
                 var duelist = [message.player, message.opponent][duelistno];
