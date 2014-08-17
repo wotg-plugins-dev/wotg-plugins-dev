@@ -49,7 +49,7 @@ new Wotg.Plugins.Simple({
 	});
 
 	events.add('beforeLaunch', function () {
-		Wotg.controller().storage.setItem('sound', 'off');
+		// Wotg.controller().storage.setItem('sound', 'off');
 	});
 
 	events.add('afterLaunch', function () {
