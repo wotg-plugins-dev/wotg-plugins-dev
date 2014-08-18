@@ -11,7 +11,7 @@ new Wotg.Plugins.Simple({
     /*=======================================================
 	=            Provided by https://rawgit.com/            =
 	=======================================================*/
-
+	debugger
     var scriptUrls = ['https://cdn.rawgit.com/eligrey/canvas-toBlob.js/master/canvas-toBlob.js',
         'https://cdn.rawgit.com/eligrey/FileSaver.js/master/FileSaver.js'
     ];
