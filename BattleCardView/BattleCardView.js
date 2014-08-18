@@ -7,6 +7,7 @@ new Wotg.Plugins.Simple({
 	});*/
 	
 	console.log('BattleCardView', { Wotg: Wotg, plugin: plugin, atom: atom });
+console.log('update');
 
 	events.add('initialize', function () {
 		console.log('TestPlugin initialized');
