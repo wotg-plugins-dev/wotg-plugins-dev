@@ -34,7 +34,7 @@ new Wotg.Plugins.Simple({
 		    type: 'button'
 		};
 		debugger
-		atom.dom.create('input', inputProps).css(buttonCss).appendTo('.right').addClass('saveButton').addEvent({
+		atom.dom.create('input', inputProps).css(buttonCss).appendTo('#screens-markup').addClass('saveButton').addEvent({
 		    click: saveCards
 		});
 
@@ -57,11 +57,15 @@ new Wotg.Plugins.Simple({
 
 		        var proto = controller.protos.get(cards[i]);
 		        var model = new Wotg.Card.Models.Model(proto);
-		        var view = new Wotg.Card.Views.Big(model);
+		        try {
+			        var view = new Wotg.Card.Views.Big(model);
 
-		        view.buffer.toBlob(function(blob) {
-		            saveAs(blob, cards[i] + '.png');
-		        });
+			        view.buffer.toBlob(function(blob) {
+			            saveAs(blob, cards[i] + '.png');
+			        });
+			    } catch(e) {
+			    	console.error(e);
+			    }
 		    }
 		}
 	});
