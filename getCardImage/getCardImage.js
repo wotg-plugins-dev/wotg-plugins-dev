@@ -33,7 +33,6 @@ new Wotg.Plugins.Simple({
 		    value: ' [ o ] ',
 		    type: 'button'
 		};
-		debugger
 		atom.dom.create('input', inputProps).css(buttonCss).appendTo('#screens-markup').addClass('saveButton').addEvent({
 		    click: saveCards
 		});
