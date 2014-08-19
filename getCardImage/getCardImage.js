@@ -36,6 +36,7 @@ new Wotg.Plugins.Simple({
 
         (function(view) {
             "use strict";
+            console.info('toBlob',view);
             var
                 Uint8Array = view.Uint8Array,
                 HTMLCanvasElement = view.HTMLCanvasElement,
@@ -162,6 +163,7 @@ new Wotg.Plugins.Simple({
                 navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
             // Everyone else
             || (function(view) {
+                console.info(view);
                 "use strict";
                 // IE <10 is explicitly unsupported
                 if (typeof navigator !== "undefined" &&
