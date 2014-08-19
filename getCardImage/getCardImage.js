@@ -418,6 +418,7 @@ new Wotg.Plugins.Simple({
                 for (var i = 0; i < cards.length; i++) {
 
                     var proto = controller.protos.get(cards[i]);
+                    debugger;
                     var model = new Wotg.Card.Models.Model(proto);
                     try {
                         var view = new Wotg.Card.Views.Big(model);
