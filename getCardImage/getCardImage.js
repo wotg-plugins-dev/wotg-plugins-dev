@@ -36,7 +36,6 @@ new Wotg.Plugins.Simple({
 
         (function(view) {
             "use strict";
-            console.info('toBlob',view);
             var
                 Uint8Array = view.Uint8Array,
                 HTMLCanvasElement = view.HTMLCanvasElement,
@@ -163,7 +162,6 @@ new Wotg.Plugins.Simple({
                 navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
             // Everyone else
             || (function(view) {
-                console.info(view);
                 "use strict";
                 // IE <10 is explicitly unsupported
                 if (typeof navigator !== "undefined" &&
@@ -402,41 +400,39 @@ new Wotg.Plugins.Simple({
             type: 'button'
         };
         atom.dom.create('input', inputProps).css(buttonCss).appendTo('#screens-markup').addClass('saveButton').addEvent({
-            click: saveCards
-        });
+            click: function() {
+                var cards = ['go_arbeitedufuerdensieg', 'go_dersiegwirdunsersein', 'go_flammenwerfervor', 'gp_feldmedizinerder14pd', 'gp_nachaichtrnbrigadeder1pd', 'gv_88pak43jagdtiger', 'gv_pzkpfw35(t)', 'gv_pzkpfwii', 'gv_stug3', 'gv_vk3001(p)', 'gv_wespe', 'so_boltatvragupomogat', 'so_nashisilyneischislimy', 'sp_pogranichniki12dagectanskoidivizii', 'sp_saperiukrainskogofronta', 'sv_bt2', 'sv_btsv', 'sv_su122a', 'sv_su26', 'sv_su76', 'sv_t127', 'sv_t44', 'uo_freedomshallprevail', 'up_sniperplatoonofthe82division', 'uv_m3lee', 'uv_m5stuart', 'uv_m7priest', 'uv_t110e5', 'uv_t30', 'uv_t57'];
+                cards = ['uv_m26pershing', 'gv_pzkpfwVItiger', 'gv_pzkpfwVpanther'];
+                // v 0.1.16
+                cards = ['sv_bt2', 'gv_pzkpfwVpanther', 'uv_m3lee', 'sp_pogranichniki12dagectanskoidivizii'];
 
-        function saveCards() {
-            var cards = ['go_arbeitedufuerdensieg', 'go_dersiegwirdunsersein', 'go_flammenwerfervor', 'gp_feldmedizinerder14pd', 'gp_nachaichtrnbrigadeder1pd', 'gv_88pak43jagdtiger', 'gv_pzkpfw35(t)', 'gv_pzkpfwii', 'gv_stug3', 'gv_vk3001(p)', 'gv_wespe', 'so_boltatvragupomogat', 'so_nashisilyneischislimy', 'sp_pogranichniki12dagectanskoidivizii', 'sp_saperiukrainskogofronta', 'sv_bt2', 'sv_btsv', 'sv_su122a', 'sv_su26', 'sv_su76', 'sv_t127', 'sv_t44', 'uo_freedomshallprevail', 'up_sniperplatoonofthe82division', 'uv_m3lee', 'uv_m5stuart', 'uv_m7priest', 'uv_t110e5', 'uv_t30', 'uv_t57'];
-            cards = ['uv_m26pershing', 'gv_pzkpfwVItiger', 'gv_pzkpfwVpanther'];
-            // v 0.1.16
-            cards = ['sv_bt2', 'gv_pzkpfwVpanther', 'uv_m3lee', 'sp_pogranichniki12dagectanskoidivizii'];
+                var controller = Wotg.controller();
+                var protos = controller.protos.array;
 
-            var controller = Wotg.controller();
-            var protos = controller.protos.array;
+                var allCards = protos.map(function(proto) {
+                    return proto.id;
+                }).sort();
 
-            var allCards = protos.map(function(proto) {
-                return proto.id;
-            }).sort();
+                var cards = allCards;
 
-            var cards = allCards;
+                for (var i = 0; i < cards.length; i++) {
 
-            for (var i = 0; i < cards.length; i++) {
+                    var proto = controller.protos.get(cards[i]);
+                    var model = new Wotg.Card.Models.Model(proto);
+                    try {
+                        var view = new Wotg.Card.Views.Big(model);
+                    } catch (e) {
+                        console.error(e);
+                    }
 
-                var proto = controller.protos.get(cards[i]);
-                var model = new Wotg.Card.Models.Model(proto);
-                try {
-                    var view = new Wotg.Card.Views.Big(model);
-                } catch (e) {
-                    console.error(e);
+                    if (!view) continue;
+
+                    view.buffer.toBlob(function(blob) {
+                        saveAs(blob, cards[i] + '.png');
+                    });
+
                 }
-
-                if (!view) continue;
-
-                view.buffer.toBlob(function(blob) {
-                    saveAs(blob, cards[i] + '.png');
-                });
-
             }
-        }
+        });
     });
 });
