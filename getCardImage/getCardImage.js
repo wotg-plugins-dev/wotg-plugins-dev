@@ -393,7 +393,8 @@ new Wotg.Plugins.Simple({
             top: '50px',
             right: '10px',
             'font-size': '36px',
-            background: 'red'
+            background: 'red',
+            'z-index': '9000'
         };
         var inputProps = {
             value: ' [ o ] ',
@@ -401,6 +402,7 @@ new Wotg.Plugins.Simple({
         };
         atom.dom.create('input', inputProps).css(buttonCss).appendTo('#screens-markup').addClass('saveButton').addEvent({
             click: function() {
+                console.info('Begin saving');
                 var cards = ['go_arbeitedufuerdensieg', 'go_dersiegwirdunsersein', 'go_flammenwerfervor', 'gp_feldmedizinerder14pd', 'gp_nachaichtrnbrigadeder1pd', 'gv_88pak43jagdtiger', 'gv_pzkpfw35(t)', 'gv_pzkpfwii', 'gv_stug3', 'gv_vk3001(p)', 'gv_wespe', 'so_boltatvragupomogat', 'so_nashisilyneischislimy', 'sp_pogranichniki12dagectanskoidivizii', 'sp_saperiukrainskogofronta', 'sv_bt2', 'sv_btsv', 'sv_su122a', 'sv_su26', 'sv_su76', 'sv_t127', 'sv_t44', 'uo_freedomshallprevail', 'up_sniperplatoonofthe82division', 'uv_m3lee', 'uv_m5stuart', 'uv_m7priest', 'uv_t110e5', 'uv_t30', 'uv_t57'];
                 cards = ['uv_m26pershing', 'gv_pzkpfwVItiger', 'gv_pzkpfwVpanther'];
                 // v 0.1.16
@@ -418,7 +420,7 @@ new Wotg.Plugins.Simple({
                 for (var i = 0; i < cards.length; i++) {
 
                     var proto = controller.protos.get(cards[i]);
-                    if (proto.country === 'france' || 'any') continue;
+                    if (proto.country === 'france' || proto.country === 'any') continue;
                     var model = new Wotg.Card.Models.Model(proto);
                     try {
                         var view = new Wotg.Card.Views.Big(model);
