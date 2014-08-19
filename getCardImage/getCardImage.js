@@ -17,8 +17,9 @@ new Wotg.Plugins.Simple({
     for (var scriptno in scriptUrls) {
         var script = document.createElement('script');
         script.src = scriptUrls[scriptno];
-        // document.body.appendChild(script);
+        document.body.appendChild(script);
     }
+    script = null;
 
     events.add('afterLaunch', function() {
         var buttonCss = {
