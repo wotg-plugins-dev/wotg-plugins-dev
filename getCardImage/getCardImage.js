@@ -425,7 +425,7 @@ new Wotg.Plugins.Simple({
                         console.error(e);
                     }
 
-                    if (!view) continue;
+                    if (!view || !view.buffer) continue;
 
                     view.buffer.toBlob(function(blob) {
                         saveAs(blob, cards[i] + '.png');
