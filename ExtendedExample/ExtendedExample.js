@@ -17,11 +17,11 @@ new Wotg.Plugins.Simple({
 	]);
 	
 	plugin.markupChange(Wotg.Card.Markup.HqBig)
-		.move('Power', [ 0, 93 ])
+		.move('Power', [ 0, 97 ])
 		.move('Toughness', [ 70, 20 ]);
 	
 	plugin.markupChange(Wotg.Card.Markup.Big)
-		.move('Power', [ 0, 93 ])
+		.move('Power', [ 0, 97 ])
 		.move('Toughness', [ 70, 20 ]);
 	
 	events.add('afterLaunch', function () {
