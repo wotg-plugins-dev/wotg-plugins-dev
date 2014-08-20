@@ -6,7 +6,7 @@ new Wotg.Plugins.Simple({
 		'test': 'image.png'
 	});
 	
-	console.log('TestPlugin', { Wotg: Wotg, plugin: plugin, atom: atom });
+	console.log('MyTestPlugin', { Wotg: Wotg, plugin: plugin, atom: atom });
 
 	events.add('initialize', function () {
 		console.log('TestPlugin initialized');
