@@ -23,39 +23,39 @@ new Wotg.Plugins.Simple({
 
     });
     //========
-    atom.declare('Wotg.Research.HqCardItem', Wotg.Research.TreeItem, {
+    // atom.declare('Wotg.Research.HqCardItem', Wotg.Research.TreeItem, {
 
-        size: new Size(132, 130),
-        slot: null,
+    //     size: new Size(132, 130),
+    //     slot: null,
 
-        configure: function method() {
-            method.previous.call(this);
+    //     configure: function method() {
+    //         method.previous.call(this);
 
-            this.slot = this.data.slot;
-            this.shape = new Rectangle(this.getPos(), this.size);
-            this.textShape = new Rectangle(0, 0, this.shape.width, 20).moveTo(this.shape.from);
+    //         this.slot = this.data.slot;
+    //         this.shape = new Rectangle(this.getPos(), this.size);
+    //         this.textShape = new Rectangle(0, 0, this.shape.width, 20).moveTo(this.shape.from);
 
-            this.events.add('mouseup', function(e) {
-                Wotg.openPopup('ResearchCardView', {
-                    proto: this.proto,
-                    data: this.data,
-                    manager: this.manager
-                });
-            }.bind(this));
+    //         this.events.add('mouseup', function(e) {
+    //             Wotg.openPopup('ResearchCardView', {
+    //                 proto: this.proto,
+    //                 data: this.data,
+    //                 manager: this.manager
+    //             });
+    //         }.bind(this));
 
-            this.model = new Wotg.Card.Models.Model(this.proto);
-            this.view = new Wotg.Card.Views.TreeLeaf(this.model);
-            this.view.events.add('redraw', this.redraw);
-        },
+    //         this.model = new Wotg.Card.Models.Model(this.proto);
+    //         this.view = new Wotg.Card.Views.TreeLeaf(this.model);
+    //         this.view.events.add('redraw', this.redraw);
+    //     },
 
-        update: function() {
-            this.redraw();
-        },
+    //     update: function() {
+    //         this.redraw();
+    //     },
 
-        getPos: function() {
-            return this.manager.HQcardSlotsCoords[this.slot];
-        }
-    });
+    //     getPos: function() {
+    //         return this.manager.HQcardSlotsCoords[this.slot];
+    //     }
+    // });
     //удалить если будут меняться координаты штаба 
     plugin.refactor('Wotg.Research.HQItem', {
         // Меняем один из методов класса
