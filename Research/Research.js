@@ -77,11 +77,8 @@ new Wotg.Plugins.Simple({
                 this.JShqSlotsCoords = this.JSbigHq;
                 this.HQcardSlotsCoords = this.HQbigCards;
             }
-        }
-    });
+        },
 
-
-    plugin.refactor('Wotg.Research.Manager', {
         // Меняем один из методов класса
         'createResearchTreeForHQ': function method(hqId) {
 
@@ -173,6 +170,5 @@ new Wotg.Plugins.Simple({
         JSsmallHq: {
             0: new Point(0, 50)
         }
-
     });
 });
