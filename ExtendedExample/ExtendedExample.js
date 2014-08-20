@@ -1,5 +1,5 @@
 new Wotg.Plugins.Simple({
-	title  : 'TestPlugin',
+	title  : 'ExtendedExample',
 	version: '0.2.3'
 }, function (plugin, events) {
 	plugin.addImages({
