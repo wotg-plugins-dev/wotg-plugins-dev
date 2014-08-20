@@ -105,7 +105,6 @@ new Wotg.Plugins.Simple({
                     createCard(list[i]);
                 }
 
-
             }.bind(this);
 
             //this.backButton.text = Wotg.controller().lang.get('research.backToRoot');
@@ -131,6 +130,7 @@ new Wotg.Plugins.Simple({
             }
             setTimeout(function() {
                 var lines = new Wotg.Research.Lines(this.app.linesLayer.ctx, this.elems, this);
+                console.info(this);
                 lines.drawLines(false);
             }.bind(this), 50);
 
@@ -146,8 +146,6 @@ new Wotg.Plugins.Simple({
             6: new Point(728, 140),
             7: new Point(972, 140),
             8: new Point(1217, 140)
-
-
         },
         HQsmallCards: {
             0: new Point(108, 0),
@@ -159,13 +157,10 @@ new Wotg.Plugins.Simple({
             6: new Point(444, 120),
             7: new Point(621, 120),
             8: new Point(799, 120)
-
-
         },
         JShqSlotsCoords: {},
         JSbigHq: {
             0: new Point(150, 50)
-
         },
         JSsmallHq: {
             0: new Point(0, 50)
