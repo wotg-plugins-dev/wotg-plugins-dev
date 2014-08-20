@@ -337,7 +337,7 @@ new Wotg.Plugins.Simple({
 
     });*/
 
-    plugins.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+    plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
 
         markup: Wotg.Card.Markup.Battle,
 
@@ -425,7 +425,7 @@ new Wotg.Plugins.Simple({
      * @name Wotg.Battle.Card.View
      * @extends Wotg.Battle.Card.Back
      */
-    plugins.refactor( 'Wotg.Battle.Card.View', Wotg.Battle.Card.Back, {
+    plugin.refactor( 'Wotg.Battle.Card.View', Wotg.Battle.Card.Back, {
 
         zIndex: 10,
         selected : false,
@@ -548,7 +548,7 @@ new Wotg.Plugins.Simple({
      * @name Wotg.Card.Views.Battle
      * @extends Wotg.Card.View
      */
-    plugins.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+    plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
 
         markup: Wotg.Card.Markup.Battle,
 
