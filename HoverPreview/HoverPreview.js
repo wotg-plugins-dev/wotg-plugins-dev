@@ -1,5 +1,5 @@
 new Wotg.Plugins.Simple({
-	title  : 'HoverPreviewWIP',
+	title  : 'HoverPreview',
 	version: '0.2.3'
 }, function (plugin, events) {
 	
