@@ -8,7 +8,7 @@ new Wotg.Plugins.Simple({
 	});
 */
     function jslog(text) {
-        console.log('JS', text)
+        console.log.apply(console, ['[JS Log] '].append(arguments));
     }
 
     events.add('initialize', function() {
@@ -23,35 +23,7 @@ new Wotg.Plugins.Simple({
 
     });
     //========
-    atom.declare('Wotg.Research.HqCardItem', Wotg.Research.TreeItem, {
-
-        size: new Size(132, 130),
-        slot: null,
-
-        configure: function method() {
-            method.previous.call(this);
-
-            this.slot = this.data.slot;
-            this.shape = new Rectangle(this.getPos(), this.size);
-            this.textShape = new Rectangle(0, 0, this.shape.width, 20).moveTo(this.shape.from);
-
-            this.events.add('mouseup', function(e) {
-                Wotg.openPopup('ResearchCardView', {
-                    proto: this.proto,
-                    data: this.data,
-                    manager: this.manager
-                });
-            }.bind(this));
-
-            this.model = new Wotg.Card.Models.Model(this.proto);
-            this.view = new Wotg.Card.Views.TreeLeaf(this.model);
-            this.view.events.add('redraw', this.redraw);
-        },
-
-        update: function() {
-            this.redraw();
-        },
-
+    atom.declare('Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
         getPos: function() {
             return this.manager.HQcardSlotsCoords[this.slot];
         }
@@ -78,35 +50,29 @@ new Wotg.Plugins.Simple({
                 this.HQcardSlotsCoords = this.HQbigCards;
             }
         },
-
-        // Меняем один из методов класса
+        'createHqCard': function(data) {
+            var elem = new Wotg.Research.HqCardItem(this.app.layer, {
+                manager: this,
+                data: data
+            });
+            this.app.mouseHandler.subscribe(elem);
+            this.elems.push(elem);
+        },
+        'createHqHq': function(data, list) {
+            var elem = new Wotg.Research.HQItem(this.app.layer, {
+                manager: this,
+                data: data,
+                isCurrent: true,
+                isRootTree: false
+            });
+            this.app.mouseHandler.subscribe(elem);
+            this.elems.push(elem);
+            for (var i = 0; i < list.length; i++) {
+                list[i].slot = i + 1;
+                this.createHqCard(list[i]);
+            }
+        },
         'createResearchTreeForHQ': function method(hqId) {
-
-            var createCard = function(data) {
-                var elem = new Wotg.Research.HqCardItem(this.app.layer, {
-                    manager: this,
-                    data: data
-                });
-                this.app.mouseHandler.subscribe(elem);
-                this.elems.push(elem);
-            }.bind(this);
-            var createHq = function(data, list) {
-                var elem = new Wotg.Research.HQItem(this.app.layer, {
-                    manager: this,
-                    data: data,
-                    isCurrent: true,
-                    isRootTree: false
-                });
-                this.app.mouseHandler.subscribe(elem);
-                this.elems.push(elem);
-
-                for (var i = 0; i < list.length; i++) {
-                    list[i].slot = i + 1;
-                    createCard(list[i]);
-                }
-
-            }.bind(this);
-
             //this.backButton.text = Wotg.controller().lang.get('research.backToRoot');
             this.isRoot = false;
             this.selector.hide();
@@ -120,7 +86,7 @@ new Wotg.Plugins.Simple({
                 listHq: listHq,
                 this: this
             });
-            createHq(rootData, listHq);
+            this.createHqHq(rootData, listHq);
             for (var i = 0; i < list.length; i++) {
                 if (Wotg.controller().protos.get(list[i].card).type.toLowerCase() != 'hq') {
                     this.createCard(list[i]);
@@ -130,13 +96,12 @@ new Wotg.Plugins.Simple({
             }
             setTimeout(function() {
                 var lines = new Wotg.Research.Lines(this.app.linesLayer.ctx, this.elems, this);
-                console.info(this);
                 lines.drawLines(false);
             }.bind(this), 50);
 
         },
-        cardSlotsCoords: {},
-        HQbigCards: {
+        'cardSlotsCoords': {},
+        'HQbigCards': {
             0: new Point(240, 0),
             1: new Point(484, 0),
             2: new Point(728, 0), //101
@@ -146,8 +111,10 @@ new Wotg.Plugins.Simple({
             6: new Point(728, 140),
             7: new Point(972, 140),
             8: new Point(1217, 140)
+
+
         },
-        HQsmallCards: {
+        'HQsmallCards': {
             0: new Point(108, 0),
             1: new Point(267, 0),
             2: new Point(444, 0), //101
@@ -157,13 +124,17 @@ new Wotg.Plugins.Simple({
             6: new Point(444, 120),
             7: new Point(621, 120),
             8: new Point(799, 120)
+
+
         },
-        JShqSlotsCoords: {},
-        JSbigHq: {
+        'JShqSlotsCoords': {},
+        'JSbigHq': {
             0: new Point(150, 50)
+
         },
-        JSsmallHq: {
+        'JSsmallHq': {
             0: new Point(0, 50)
         }
+
     });
 });
