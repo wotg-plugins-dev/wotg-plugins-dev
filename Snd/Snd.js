@@ -4,53 +4,58 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
     var hmtlSound = new Audio();
     hmtlSound.src = 'http://k007.kiwi6.com/hotlink/uy3cmjdzjy/arena.ogg';
-    console.info(Number(plugin.setConfig('volume', 0.25).getConfig('volume')));
+    hmtlSound.volume = getVolume('volume');
 
-    // TODO: Сделать громкость параметром плагина
-    // hmtlSound.volume = 0.25;
-    // var wotgSoundVolume = 0.17; // Громкость звуков игры (от 0 до 1)
-    // var wotgMusicVolume = wotgSoundVolume / 2; // Громкость музыки игры (от 0 до 1)
+    function getVolume(key) {
+        var def = {
+            volume: 0.25,
+            wotgSoundVolume: 0.17,
+            wotgMusicVolume: 0.09
+        };
+        var value = Number(plugin.getConfig(key));
+        if (!value && value !== 0 || value < 0 || value > 1) {
+            value = def(key);
+            plugin.setConfig(key, value);
+        }
+        return value;
+    }
 
-    // plugin.refactor( 'Wotg.Utils.Sound', {
-    // 	generateSounds: function (source) {
-    // 		var target = {};
+    plugin.refactor('Wotg.Utils.Sound', {
+        generateSounds: function(source) {
+            var target = {};
 
-    // 		source.forEach(function (name) {
-    // 			target[name] = new Howl({
-    // 				urls    : this.urls(name),
-    // 				buffer  : true,
-    // 				autoplay: false,
-    // 				volume	: wotgSoundVolume,
-    // 				loop    : false
-    // 			});
-    // 		}.bind(this));
+            source.forEach(function(name) {
+                target[name] = new Howl({
+                    urls: this.urls(name),
+                    buffer: true,
+                    autoplay: false,
+                    volume: getVolume('wotgSoundVolume'),
+                    loop: false
+                });
+            }.bind(this));
 
-    // 		return target;
+            return target;
 
-    // 	},
-    // 	music: function (name) {
-    // 		this.stopMusic();
+        },
+        music: function(name) {
+            this.stopMusic();
 
-    // 		if (name && this.on()) {
-    // 			this.currentAudio = new Howl({
-    // 				urls    : this.urls(name),
-    // 				buffer  : true,
-    // 				autoplay: false,
-    // 				volume	: wotgMusicVolume,
-    // 				loop    : true
-    // 			});
+            if (name && this.on()) {
+                this.currentAudio = new Howl({
+                    urls: this.urls(name),
+                    buffer: true,
+                    autoplay: false,
+                    volume: getVolume('wotgMusicVolume'),
+                    loop: true
+                });
 
-    // 			this.currentAudio.fadeIn(1, this.fadeTime);
-    // 		}
-    // 	}
-    // });
-
-    events.add('initialize', function() {
-        console.log('Snd initialized');
+                this.currentAudio.fadeIn(1, this.fadeTime);
+            }
+        }
     });
 
-    events.add('beforeLaunch', function() {
-        // Wotg.controller().storage.setItem('sound', 'off');
+    events.add('initialize', function() {
+        console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
     events.add('afterLaunch', function() {
