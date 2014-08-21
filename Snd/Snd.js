@@ -4,7 +4,7 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
     var hmtlSound = new Audio();
     hmtlSound.src = 'http://k007.kiwi6.com/hotlink/uy3cmjdzjy/arena.ogg';
-    console.info(plugin.setConfig('volume', 0.25));
+    console.info(plugin.setConfig('volume', 0.25).getConfig('volume'));
 
     // TODO: Сделать громкость параметром плагина
     // hmtlSound.volume = 0.25;
