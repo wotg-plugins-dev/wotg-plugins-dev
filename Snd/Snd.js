@@ -14,7 +14,7 @@ new Wotg.Plugins.Simple({
         };
         var value = Number(plugin.getConfig(key));
         if (!value && value !== 0 || value < 0 || value > 1) {
-            value = def(key);
+            value = def[key];
             plugin.setConfig(key, value);
         }
         return value;
