@@ -13,7 +13,30 @@ new Wotg.Plugins.Simple({
 	plugin.replaceCardImages([
 		'gh_trainingslager',
 		'uh_trainingcamp',
-		'sh_uchebnayachast'
+		'sh_uchebnayachast',
+		
+		'go_kameradderarbeit',
+		'go_tagderwehrmacht',
+		'gp_auskundschaftersderpdmuncheberg',
+		'gv_leichttraktor',
+		'gv_panzerjagerI',
+		'gv_pzb2',
+		'gv_t25',
+		
+		'uo_crushprussian',
+		'uv_ramII',
+		'uv_t1lt',
+		'uv_t14',
+		'uv_t18',
+		
+		'so_budbditelnym',
+		'so_takbilotakbudet',
+		'so_udarmolota',
+		'sp_strelkiuzhnogofronta',
+		'sv_kv220',
+		'sv_matilda4',
+		'sv_ms1',
+		'sv_su18'
 	]);
 	
 	plugin.replaceAudio([
