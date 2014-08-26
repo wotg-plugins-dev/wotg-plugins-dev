@@ -86,7 +86,7 @@ new Wotg.Plugins.Simple({
     events.add('afterLaunch', function () {
 
         //обработчик сообщений
-        Wotg.controller.connection.events.add('message/game/playunit', function (message) {
+        Wotg.controller().connection.events.add('message/game/playunit', function (message) {
             if(avshd){
                 if (message.actions && message.actions.attacks && message.actions.attacks.length)
                 {
@@ -122,7 +122,7 @@ new Wotg.Plugins.Simple({
         });
 
 
-        Wotg.controller.connection.events.add('message/game/turnbegin', function (message) {
+        Wotg.controller().connection.events.add('message/game/turnbegin', function (message) {
             avshd = false;
             if (message.active == true){
                 myturn = true;
