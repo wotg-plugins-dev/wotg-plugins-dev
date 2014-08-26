@@ -57,6 +57,25 @@ new Wotg.Plugins.Simple({
     });
 
 
+    plugin.refactor( 'Wotg.Battle.Model.Cards', {
+
+        findHq: function (player) {
+            var i, card;
+
+            for (i = 0; i < this.list.length; i++) {
+                card = this.list[i];
+
+                if (card.owner == player && card.is('hq')) {
+                    return card;
+                }
+            }
+
+            return null;
+        }
+    });
+
+
+
 
     function getBattle () {
         var currentScreen = Wotg.controller().screens.current;
@@ -139,8 +158,8 @@ new Wotg.Plugins.Simple({
             if (battle && on) {
 
                 var activator = new Plugin.Avshd.Activator(battle);
-                var oppHq = (battle.cards.hqs[0].props.controllerno == battle.opponent.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
-                var plHq = (battle.cards.hqs[0].props.controllerno == battle.player.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
+                var oppHq = battle.cards.findHq(battle.opponent);//(battle.cards.hqs[0].props.controllerno == battle.opponent.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
+                var plHq = battle.cards.findHq(battle.player);//(battle.cards.hqs[0].props.controllerno == battle.player.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
                 var battleCards = battle.cards.list;
 
 
