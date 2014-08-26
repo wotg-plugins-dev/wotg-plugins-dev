@@ -192,7 +192,8 @@ new Wotg.Plugins.Simple({
                 }
 
                 if(!avshd){
-                    battle.game.skip();
+                    //battle.game.skip();
+                    battle.send('game/skip');
                 }
 
 
