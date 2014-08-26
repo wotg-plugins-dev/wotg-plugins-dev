@@ -94,7 +94,7 @@ new Wotg.Plugins.Simple({
 
                     if(battle){
                         var activator = new Plugin.Avshd.Activator(battle);
-                        var oppHq = (battle.cards.hqs[0].props.controllerno == battle.opponent.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
+                        var oppHq = battle.cards.findHq(battle.opponent);//(battle.cards.hqs[0].props.controllerno == battle.opponent.playerno)?battle.cards.hqs[0]:battle.cards.hqs[1];
                         var found = false;
 
                         for (var i = 0; i < message.actions.attacks.length; i++ ) {
@@ -175,7 +175,7 @@ new Wotg.Plugins.Simple({
                         var card = battleCards[i];
                         //console.log(i + ": " + card.proto.id);
                         i++;
-                        if(card.props.location == 'BATTLEFIELD' && card.props.controllerno == battle.player.playerno){
+                        if(card.model.props.location == 'BATTLEFIELD' && card.owner.playerrno == battle.player.playerno){
                             //console.log("battlefield" + ": " + card.proto.id);
 
                             if(activator.checkAttackTargetPossible(card, oppHq)){
