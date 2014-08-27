@@ -2,7 +2,7 @@ new Wotg.Plugins.Simple({
 	title  : 'HoverEnlarge',
 	version: '0.2.3'
 }, function (plugin, events) {
-	plugin.refactor(Wotg.Battle.Input.Cards, {
+	plugin.refactor('Wotg.Battle.Input.Cards', {
 		targetCard: function (card) {
 			if (!Wotg.battle().input.on() || this.targeted == card) return;
 			this.targeted = card;
