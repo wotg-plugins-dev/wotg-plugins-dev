@@ -40,6 +40,10 @@ new Wotg.Plugins.Simple({
         music: function(name) {
             this.stopMusic();
 
+            if (name) {
+                this.currentAudioName = name;
+            }
+
             if (name && this.on()) {
                 this.currentAudio = new Howl({
                     urls: this.urls(name),
