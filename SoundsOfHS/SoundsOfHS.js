@@ -1,16 +1,26 @@
 new Wotg.Plugins.Simple({
     title  : 'SoundsOfHS',
-    version: '0.2.3'
+    version: '0.2.4'
 }, function (plugin, events) {
     events.add('initialize', function () {
-        console.log('SoundsOfHS initialized');
+        console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
 ﻿   /*===============================================
     =            Подстроечные переменные            =
     ===============================================*/
 
-    var modDefaultVolume = 0.25; // Громкость звуков мода (от 0 до 1)
+    var modDefaultVolume = getVolume('vol'); // Громкость звуков мода (от 0 до 1)
+
+    function getVolume(key) {
+        var DEFAULT = 1;
+        var value = Number(plugin.getConfig(key));
+        if (!value && value !== 0 || value < 0 || value > 1) {
+            value = DEFAULT;
+            plugin.setConfig(key, value);
+        }
+        return value;
+    }
 
     /*=======================================
     =            Подборка звуков            =
