@@ -4,7 +4,7 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
 
     function getVolume(key) {
-        var DEFAULT = 1;
+        var DEFAULT = 0.5;
         var value = Number(plugin.getConfig(key));
         if (!value && value !== 0 || value < 0 || value > 1) {
             value = DEFAULT;
