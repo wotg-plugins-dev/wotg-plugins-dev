@@ -22,7 +22,7 @@ new Wotg.Plugins.Simple({
                     urls: this.urls(name),
                     buffer: true,
                     autoplay: false,
-                    volume: getVolume('volume'),
+                    volume: getVolume('vol'),
                     loop: false
                 });
             }.bind(this));
@@ -42,7 +42,7 @@ new Wotg.Plugins.Simple({
                     urls: this.urls(name),
                     buffer: true,
                     autoplay: false,
-                    volume: getVolume('volume'),
+                    volume: getVolume('vol'),
                     loop: true
                 });
 

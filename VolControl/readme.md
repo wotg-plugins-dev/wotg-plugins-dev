@@ -9,7 +9,7 @@
 
 ## Настройка
 1. Получение текущих настроек: `plugins config VolControl`
-2. Установка громкости звуков игры: `plugins config VolControl volume 0.25`, где `0.25` - желаемое значение громкости от 0 до 1
+2. Установка громкости звуков игры: `plugins config VolControl vol 0.25`, где `0.25` - желаемое значение громкости от 0 до 1
 
 ## Удаление
 `plugins rm VolControl`

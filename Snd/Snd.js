@@ -4,7 +4,7 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
     var hmtlSound = new Audio();
     hmtlSound.src = 'http://k007.kiwi6.com/hotlink/uy3cmjdzjy/arena.ogg';
-    hmtlSound.volume = getVolume('volume');
+    hmtlSound.volume = getVolume('vol');
 
     function getVolume(key) {
         var DEFAULT = 1;
