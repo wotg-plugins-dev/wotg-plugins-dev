@@ -1,6 +1,6 @@
 new Wotg.Plugins.Simple({
     title: 'getCardImage',
-    version: '0.2.3'
+    version: '0.2.4'
 }, function(plugin, events) {
     /*====================================================================================
     =            Canvas to Blob - https://github.com/eligrey/canvas-toBlob.js            =
