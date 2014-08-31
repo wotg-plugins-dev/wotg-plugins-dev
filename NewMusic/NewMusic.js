@@ -174,9 +174,17 @@ new Wotg.Plugins.Simple({
 
     events.add('afterLaunch', function() {
 
+        // Игра запустилась не на боевом экране - вкл. фоновую музыку
+        if (Wotg.controller().screens.current.name !== 'Battle') fadeoutThan(startPlay, 'Background')
+
+        // Переход в экран боя - вкл. боевую музыку
         Wotg.controller().screens.events.add('change', function(screen) {
             if (screen.name === 'Battle') fadeoutThan(startPlay, Wotg.battle().player.country)
-            else console.info(screen.name);
+        });
+
+        // Конец боя - вкл. фоновую музыку
+        Wotg.controller().connection.events.add('message/game/results', function(message) {
+            fadeoutThan(startPlay, 'Background');
         });
 
     });
