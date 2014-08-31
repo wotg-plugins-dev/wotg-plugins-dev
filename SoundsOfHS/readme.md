@@ -14,4 +14,5 @@
 ## Удаление
 `plugins rm Isk1n:SoundsOfHS`
 
+***
 Подбор музыки - **Windrunner1st**
