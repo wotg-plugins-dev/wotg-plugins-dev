@@ -16,7 +16,7 @@ new Wotg.Plugins.Simple({
     plugin.markupChange(Wotg.Battle.Markup)
 
     //.move('HandOwn', [  -240, 0 ])
-    .place('HandOwn', [300, 693, 990, 160])
+    .place('HandOwn', [299, 693, 995, 160])
     .move('HandEnemy', [  30, 0 ])
     .move('PackOwn', [  0, -582 ])
     .move('FlagOwn', [  0, -582 ])
