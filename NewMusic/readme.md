@@ -12,9 +12,9 @@
 
 ## Треклист
 
-*Подбор музыки - Windrunner1st*
+Подбор музыки - **Windrunner1st**
 
-### USA
+#### USA
 1. "Evening Melodrama" Kevin MacLeod (incompetech.com) 
 1. "Heavy Interlude" Kevin MacLeod (incompetech.com) 
 1. "Conflicted" Kevin MacLeod (incompetech.com) 
@@ -26,7 +26,7 @@
 1. "Skye Cuillin" Kevin MacLeod (incompetech.com) 
 1. "Sleep and Then" Kevin MacLeod (incompetech.com) 
 
-### USSR
+#### USSR
 2. "Broken Reality" Kevin MacLeod (incompetech.com)
 2. "Neo Western" Kevin MacLeod (incompetech.com)
 2. "Cold Funk" Kevin MacLeod (incompetech.com)
@@ -38,7 +38,7 @@
 2. "Hitman" Kevin MacLeod (incompetech.com) 
 2. "Hero Down" Kevin MacLeod (incompetech.com) 
 
-### GERMANY
+#### GERMANY
 3. "Five Armies" Kevin MacLeod (incompetech.com) 
 3. "Movement Proposition" Kevin MacLeod (incompetech.com) 
 3. "Summon the Rawk" Kevin MacLeod (incompetech.com) 
@@ -50,7 +50,7 @@
 3. "Chipper" Kevin MacLeod (incompetech.com) 
 3. "Big Rock" Kevin MacLeod (incompetech.com) 
 
-### Background
+#### Background
 4. "Reawakening" Kevin MacLeod (incompetech.com) 
 4. "Perspectives" Kevin MacLeod (incompetech.com) 
 4. "Space 1990" Kevin MacLeod (incompetech.com) 
