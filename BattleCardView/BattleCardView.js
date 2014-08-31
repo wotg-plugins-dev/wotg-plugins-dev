@@ -14,7 +14,24 @@ new Wotg.Plugins.Simple({
 	});
 
     plugin.markupChange(Wotg.Battle.Markup)
-    .move('PackOwn', [  0, -550 ]);
+
+    .move('HandOwn', [  -150, 0 ])
+    .move('PackOwn', [  0, -550 ])
+    .move('ResourcesOwn', [  0, -550 ])
+    .move('PlatoonsOwn', [  0, 100 ])
+    .move('YourTimer', [  0, -550 ])
+    .move('UserPhotoOwn', [  0, -550 ])
+    .move('UserNameOwn', [  0, -550 ])
+    .move('consumableOwn1', [  0, -550 ])
+    .move('consumableOwn2', [  0, -550 ])
+    .move('consumableOwn3', [  0, -550 ])
+    .move('consumableEnemy1', [  0, -550 ])
+    .move('consumableEnemy2', [  0, -550 ])
+    .move('consumableEnemy3', [  0, -550 ])
+    .move('SkipBtn', [  100, 0 ])
+
+
+            ;
 
     /*plugin.markupChange(Wotg.Card.Markup.Battle)
 		.move('Power'    , [  0, 97 ])
