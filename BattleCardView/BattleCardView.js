@@ -15,10 +15,12 @@ new Wotg.Plugins.Simple({
 
     plugin.markupChange(Wotg.Battle.Markup)
 
-    .move('HandOwn', [  -180, 0 ])
+    //.move('HandOwn', [  -240, 0 ])
+    .place('HandOwn', [317, 693, 970, 200])
     .move('HandEnemy', [  30, 0 ])
     .move('PackOwn', [  0, -582 ])
-    .move('PlatoonsOwn', [  0, 126 ])
+    .move('FlagOwn', [  0, -582 ])
+    .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
     .move('UserPhotoOwn', [  0, -582 ])
