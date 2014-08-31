@@ -13,9 +13,133 @@ new Wotg.Plugins.Simple({
 		console.log('BattleCardView initialized');
 	});
 
+    plugin.markupChange(Wotg.Battle.Markup)
+    .move('PackOwn', [  0, -550 ]);
+
+    /*plugin.markupChange(Wotg.Card.Markup.Battle)
+		.move('Power'    , [  0, 97 ])
+		.move('Toughness', [ 70, 20 ]);
+      */
+
+    /** @name Wotg.Battle.Gui.StaticElements */
+ /*   declare('Wotg.Battle.Gui.StaticElements', {
+        initialize: function () {
+            var frames = new Animation.Frames(Wotg.controller().images.get('flag-animation'), 60, 60);
+
+            this.sheets = atom.object.map({
+                GERMANY: Array.range(37, 0),
+                USSR: Array.range(75, 38),
+                USA: Array.range(113, 76)
+            }, function (sequence) {
+                return new Animation.Sheet({
+                    sequence: sequence,
+                    frames: frames,
+                    looped: true,
+                    delay: 40
+                });
+            });
+            frames = null;
+            this.flagShapes = {
+                enemy: Wotg.battle().markup.find('FlagEnemy').getShape(),
+                own: Wotg.battle().markup.find('FlagOwn').getShape()
+            };
+            this.texts = {
+                own: {
+                    deck: this.text({ z: 5, path: 'PackOwn.Deck', tooltip: "battle.tooltips.deck.own" }),
+                    grave: this.text({ z: 5, path: 'PackOwn.Grave', tooltip: "battle.tooltips.grave.own" }),
+                    resources: this.text({ z: 5, path: 'ResourcesOwn.Value', tooltip: "battle.tooltips.resources.own" }),
+                    resourcesInc: this.text({ z: 5, path: 'ResourcesOwn.Value1', tooltip: "battle.tooltips.resourcesInc.own" })
+                },
+                enemy: {
+                    deck: this.text({ z: 5, path: 'PackEnemy.Deck', tooltip: "battle.tooltips.deck.enemy" }),
+                    grave: this.text({ z: 5, path: 'PackEnemy.Grave', tooltip: "battle.tooltips.grave.enemy" }),
+                    resources: this.text({ z: 5, path: 'ResourcesEnemy.Value', tooltip: "battle.tooltips.resources.enemy" }),
+                    resourcesInc: this.text({ z: 5, path: 'ResourcesEnemy.Value1', tooltip: "battle.tooltips.resourcesInc.enemy" })
+                }
+            };
+            this.images = {
+                own: {
+                    pack: this.image({ z: 1, path: 'PackOwn', image: 'battle-card-pack-own' }),
+                    resources: this.image({ z: 2, path: 'ResourcesOwn', image: 'battle-resources' })
+                },
+                enemy: {
+                    pack: this.image({ z: 1, path: 'PackEnemy', image: 'battle-card-pack-enemy' }),
+                    resources: this.image({ z: 2, path: 'ResourcesEnemy', image: 'battle-resources' })
+                }
+            };
+
+            // Wotg.battle().mouseHandler.subscribe(this.images.own.resources);
+            // Wotg.tooltip( this.images.own.resources, 'ResourcesTooltip' );
+
+        },
+        createFlag: function (country, isOpponent) {
+            return new Wotg.Battle.Gui.Flag(Wotg.battle().layer, {
+                sheet: this.sheets[country],
+                shape: this.flagShapes[(isOpponent) ? 'enemy': 'own']
+            });
+        },
+
+        text: function (config) {
+            var node = config.path ? Wotg.battle().markup.find(config.path) : null,
+                _config = {
+                    zIndex: config.z,
+                    shape: node ? node.getShape() : config.shape,
+                    texts: [
+                        node ? {
+                            config: node.text
+                        } : config.data
+                    ]
+                },
+                element = new Wotg.Battle.Gui.Element(config.layer || Wotg.battle().layer, _config);
+
+            if (config.tooltip) {
+                Wotg.battle().mouseHandler.subscribe(element);
+                Wotg.tooltip(element, Wotg.lang(config.tooltip));
+            }
+            return element;
+        },
+
+        image: function (config) {
+            var node = config.path ? Wotg.battle().markup.find(config.path) : null,
+                _config = {
+                    zIndex: config.z,
+                    shape: node ? node.getShape() : config.shape,
+                    images: [
+                        {
+                            image: config.image
+                        }
+                    ]
+                },
+                element = new Wotg.Battle.Gui.Element(config.layer || Wotg.battle().layer, _config);
+
+            if (config.tooltip) {
+                Wotg.battle().mouseHandler.subscribe(element);
+                Wotg.tooltip(element, Wotg.lang(config.tooltip));
+            }
+            return element;
+        },
+        destroy: function() {
+            for (var i in this.texts) {
+                for (var j in this.texts[i]) {
+                    this.texts[i][j].destroy();
+                }
+            }
+            this.texts = null;
+            for (var i in this.images) {
+                for (var j in this.images[i]) {
+                    this.images[i][j].destroy();
+                }
+            }
+            this.images = null;
+        }
+    });        */
+
+
+
+
 	events.add('afterLaunch', function () {
 
-        Wotg.Card.Markup.Battle = ({
+        /*Wotg.Card.Markup.Battle = ({
           "sprites": {
             "body_battleCard": [{
               "rect": [266, 1852, 100, 100],
@@ -320,7 +444,7 @@ new Wotg.Plugins.Simple({
             "rect": [0, 0, 160, 160]
           }
         });
-
+                  */
 		//atom.dom(plugin.getImage('test')).appendTo('body');
 		//console.log(plugin.getImage('test'));
 	});
@@ -337,7 +461,7 @@ new Wotg.Plugins.Simple({
 
     });*/
 
-    plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+   /* plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
 
         markup: Wotg.Card.Markup.Battle,
 
@@ -419,13 +543,13 @@ new Wotg.Plugins.Simple({
         }
 
     });
-
+                         /*
 
     /**
      * @name Wotg.Battle.Card.View
      * @extends Wotg.Battle.Card.Back
      */
-    plugin.refactor( 'Wotg.Battle.Card.View', Wotg.Battle.Card.Back, {
+   /* plugin.refactor( 'Wotg.Battle.Card.View', Wotg.Battle.Card.Back, {
 
         zIndex: 10,
         selected : false,
@@ -515,14 +639,7 @@ new Wotg.Plugins.Simple({
                     });
                 }
             }
-            /*Wotg.controller().fonts.render(ctx, {
-                text  : this.card.viewModel.id,
-                shape : this.shape,
-                color : 'white',
-                left : 50,
-                top : 100,
-                size  :14
-            });*/
+
         },
         redrawCurrentView: function(){
             if (this.card.is('hq')) {
@@ -540,7 +657,7 @@ new Wotg.Plugins.Simple({
             this.currentView && this.currentView.redraw();
             this.redraw();
         }
-    });
+    });      */
 
 
     /**
@@ -548,7 +665,7 @@ new Wotg.Plugins.Simple({
      * @name Wotg.Card.Views.Battle
      * @extends Wotg.Card.View
      */
-    plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+  /*  plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
 
         markup: Wotg.Card.Markup.Battle,
 
@@ -629,7 +746,7 @@ new Wotg.Plugins.Simple({
 
         }
 
-    });
+    });      */
 
 
 });
