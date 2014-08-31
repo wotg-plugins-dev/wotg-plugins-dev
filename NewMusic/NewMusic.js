@@ -165,7 +165,7 @@ new Wotg.Plugins.Simple({
             next = mp3Player[trigger].queue.pop();
         }
         mp3Player.src = next.url;
-        document.querySelector('span.' + trigger).innerText = next.credits;
+        atom.trace(next.credits);
         mp3Player.play();
         mp3Player.onended = function() {
             startPlay(trigger);
