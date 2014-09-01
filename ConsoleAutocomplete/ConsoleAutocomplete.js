@@ -36,7 +36,7 @@ new Wotg.Plugins.Simple({
     });
 
     atom.Keyboard().events.add('gravis', function() {
-        JQTxtCmpltInit(setTimeout(function() {
+        JQTxtCmpltInit(function() {
             // Make array of available commands
             var commands = [];
             var commandsObj = Wotg.Utils.Console().commands;
@@ -57,7 +57,7 @@ new Wotg.Plugins.Simple({
                     return word + ' ';
                 }
             }]);
-        }, 1000));
+        });
 
     });
 
