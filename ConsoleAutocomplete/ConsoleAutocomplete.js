@@ -3,6 +3,10 @@ new Wotg.Plugins.Simple({
     version: '0.2.4'
 }, function(plugin, events) {
     events.add('afterLaunch', function() {
-        debugger
+        var commands = Wotg.Utils.Console().commands;
+        for (command in commands) {
+            if (!commands.hasOwnProperty(command)) continue;
+            console.log(command);
+        }
     });
 });
