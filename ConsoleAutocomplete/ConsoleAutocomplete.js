@@ -10,6 +10,7 @@ new Wotg.Plugins.Simple({
 
     function CSSInit() {
         var css = document.createElement('link');
+        css.rel = 'stylesheet';
         css.href = pluginPath + 'ConsoleAutocomplete.css';
         document.head.appendChild(css);
     }
