@@ -25,7 +25,7 @@ new Wotg.Plugins.Simple({
 	==================================================================================*/
 
     var JQTxtCmplt = document.createElement('script');
-    JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.min.js';
+    JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
     document.body.appendChild(JQTxtCmplt);
 
     events.add('afterLaunch', function() {
