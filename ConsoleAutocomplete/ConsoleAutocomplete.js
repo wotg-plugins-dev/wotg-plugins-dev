@@ -8,25 +8,47 @@ new Wotg.Plugins.Simple({
     =            CSS            =
     ===========================*/
 
-    var css = document.createElement('link');
-    css.href = pluginPath + 'ConsoleAutocomplete.css';
-    document.head.appendChild(css);
+    function CSSInit() {
+        var css = document.createElement('link');
+        css.href = pluginPath + 'ConsoleAutocomplete.css';
+        document.head.appendChild(css);
+    }
 
     /*==============================
     =            JQuery            =
     ==============================*/
 
-    var JQ = document.createElement('script');
-    JQ.src = pluginPath + 'jquery-2.1.1.min.js';
-    document.body.appendChild(JQ);
+    function JQInit() {
+
+        var JQ = document.createElement('script');
+        JQ.src = pluginPath + 'jquery-2.1.1.min.js';
+        document.head.appendChild(JQ);
+        JQ.onload = function() {
+            JQTxtCmpltInit();
+        }
+
+    }
 
     /*==================================================================================
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
 	==================================================================================*/
 
-    var JQTxtCmplt = document.createElement('script');
-    JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
-    document.body.appendChild(JQTxtCmplt);
+    function JQTxtCmpltInit() {
+        var JQTxtCmplt = document.createElement('script');
+        JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
+        document.body.appendChild(JQTxtCmplt);
+    }
+
+    /*==============================
+    =            Events            =
+    ==============================*/
+
+    events.add('initialize', function() {
+        JQInit();
+        CSSInit();
+        console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
+    });
+
 
     events.add('afterLaunch', function() {
         // Make array of available commands
