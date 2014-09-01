@@ -11,6 +11,7 @@ new Wotg.Plugins.Simple({
 
     events.add('afterLaunch', function() {
         // Make array of available commands
+        debugger
         var commands = [];
         var commandsObj = Wotg.Utils.Console().commands;
         for (command in commandsObj) {
@@ -30,6 +31,6 @@ new Wotg.Plugins.Simple({
                 return word + ' ';
             }
         }]);
-        debugger
+
     });
 });
