@@ -23,7 +23,7 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-    events.add('afterLaunch', function() {
+    events.add('afterLaunch', setTimeout(function() {
         JQTxtCmpltInit();
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
@@ -31,9 +31,7 @@ new Wotg.Plugins.Simple({
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
-    });
 
-    atom.Keyboard().events.add('gravis', function() {
         $('.console-input').textcomplete([{
             match: /\b(\w{1,})$/,
             search: function(term, callback) {
@@ -46,5 +44,9 @@ new Wotg.Plugins.Simple({
                 return word + ' ';
             }
         }]);
-    });
+    }, 3000));
+
+    // atom.Keyboard().events.add('gravis', function() {
+
+    // });
 });
