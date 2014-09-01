@@ -135,7 +135,7 @@ new Wotg.Plugins.Simple({
         mp3Player[trigger].queue = atom.array.shuffle(music[trigger]);
     }
 
-    function fadeoutThan(callback, arg) {
+    function fadeoutThen(callback, arg) {
 
         if (mp3Player.paused) {
             callback.call(this, arg);
@@ -172,19 +172,35 @@ new Wotg.Plugins.Simple({
         }
     }
 
+    mp3Player.volume = getVolume('vol');
+
+    function getVolume(key) {
+        var DEFAULT = 1;
+        var value = Number(plugin.getConfig(key));
+        if (!value && value !== 0 || value < 0 || value > 1) {
+            value = DEFAULT;
+            plugin.setConfig(key, value);
+        }
+        return value;
+    }
+
+    events.add('initialize', function() {
+        console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
+    });
+
     events.add('afterLaunch', function() {
 
         // Игра запустилась не на боевом экране - вкл. фоновую музыку
-        if (Wotg.controller().screens.current.name !== 'Battle') fadeoutThan(startPlay, 'Background')
+        if (Wotg.controller().screens.current.name !== 'Battle') fadeoutThen(startPlay, 'Background')
 
         // Переход в экран боя - вкл. боевую музыку
         Wotg.controller().screens.events.add('change', function(screen) {
-            if (screen.name === 'Battle') fadeoutThan(startPlay, Wotg.battle().player.country)
+            if (screen.name === 'Battle') fadeoutThen(startPlay, Wotg.battle().player.country)
         });
 
         // Конец боя - вкл. фоновую музыку
         Wotg.controller().connection.events.add('message/game/results', function(message) {
-            fadeoutThan(startPlay, 'Background');
+            fadeoutThen(startPlay, 'Background');
         });
 
     });
