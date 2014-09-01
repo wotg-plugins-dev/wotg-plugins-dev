@@ -1,0 +1,40 @@
+/* Sample */
+
+.dropdown-menu {
+    z-index: 10000001 !important;
+    box-shadow: 0 0 6px 2px #F9D088;
+    background: #111911;
+    margin: 20px auto 0 auto;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #494;
+}
+
+.dropdown-menu li {
+    border-top: 1px solid #ddd;
+    padding: 2px 5px;
+}
+
+.dropdown-menu li:first-child {
+    border-top: none;
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu .active {
+    background-color: #222;
+}
+
+
+/* SHOULD not modify */
+
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu a:hover {
+    cursor: pointer;
+}
