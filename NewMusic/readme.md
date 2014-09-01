@@ -7,6 +7,10 @@
 3. `plugins add Isk1n:NewMusic`
 4. Обновить страницу
 
+## Настройка
+1. Получение текущих настроек: `plugins config Isk1n:NewMusic`
+2. Установка громкости звука мода: `plugins config Isk1n:NewMusic vol 0.25`, где `0.25` - желаемое значение громкости от 0 до 1
+
 ## Удаление
 `plugins rm Isk1n:NewMusic`
 
