@@ -4,13 +4,26 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
     var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
 
+    /*===========================
+    =            CSS            =
+    ===========================*/
+
     var css = document.createElement('link');
     css.href = pluginPath + 'ConsoleAutocomplete.css';
     document.head.appendChild(css);
 
+    /*==============================
+    =            JQuery            =
+    ==============================*/
+
+    var JQ = document.createElement('script');
+    JQ.src = pluginPath + 'jquery-2.1.1.min.js';
+    document.body.appendChild(JQ);
+
     /*==================================================================================
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
 	==================================================================================*/
+
     var JQTxtCmplt = document.createElement('script');
     JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.min.js';
     document.body.appendChild(JQTxtCmplt);
