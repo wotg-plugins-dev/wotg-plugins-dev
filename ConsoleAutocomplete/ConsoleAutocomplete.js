@@ -31,9 +31,9 @@ new Wotg.Plugins.Simple({
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
-    });
 
-    atom.Keyboard().events.add('gravis', function() {
+        console.log(commands);
+
         $('.console-input').textcomplete([{
             match: /\b(\w{1,})$/,
             search: function(term, callback) {
@@ -47,4 +47,8 @@ new Wotg.Plugins.Simple({
             }
         }]);
     });
+
+    // atom.Keyboard().events.add('gravis', function() {
+
+    // });
 });
