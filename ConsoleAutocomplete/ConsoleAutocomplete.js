@@ -2,7 +2,7 @@ new Wotg.Plugins.Simple({
     title: 'ConsoleAutocomplete',
     version: '0.2.4'
 }, function(plugin, events) {
-    var pluginPath = 'https://' + plugin.repository || 'wotg-plugins-dev' + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
+    var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
 
     var css = document.createElement('link');
     css.href = pluginPath + 'ConsoleAutocomplete.css';
@@ -17,7 +17,6 @@ new Wotg.Plugins.Simple({
 
     events.add('afterLaunch', function() {
         // Make array of available commands
-        debugger
         var commands = [];
         var commandsObj = Wotg.Utils.Console().commands;
         for (command in commandsObj) {
