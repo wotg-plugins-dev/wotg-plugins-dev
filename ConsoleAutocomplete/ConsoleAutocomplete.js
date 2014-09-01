@@ -50,28 +50,26 @@ new Wotg.Plugins.Simple({
     });
 
     atom.Keyboard().events.add('gravis', function() {
-        // // Make array of available commands
-        // var commands = [];
-        // var commandsObj = Wotg.Utils.Console().commands;
-        // for (command in commandsObj) {
-        //     if (!commandsObj.hasOwnProperty(command)) continue;
-        //     commands.push(command);
-        // }
+        // Make array of available commands
+        var commands = [];
+        var commandsObj = Wotg.Utils.Console().commands;
+        for (command in commandsObj) {
+            if (!commandsObj.hasOwnProperty(command)) continue;
+            commands.push(command);
+        }
 
-        // $('.console-input').textcomplete([{ // tech companies
-        //     match: /\b(\w{1,})$/,
-        //     search: function(term, callback) {
-        //         callback($.map(commands, function(word) {
-        //             return word.indexOf(term) === 0 ? word : null;
-        //         }));
-        //     },
-        //     index: 1,
-        //     replace: function(word) {
-        //         return word + ' ';
-        //     }
-        // }]);
-        console.log($);
-        console.log($('.console-input'));
+        $('.console-input').textcomplete([{ // tech companies
+            match: /\b(\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(commands, function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return word + ' ';
+            }
+        }]);
     });
 
 });
