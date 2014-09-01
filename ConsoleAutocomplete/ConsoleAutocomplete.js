@@ -23,10 +23,6 @@ new Wotg.Plugins.Simple({
         var JQ = document.createElement('script');
         JQ.src = pluginPath + 'jquery-2.1.1.min.js';
         document.head.appendChild(JQ);
-        JQ.onload = function() {
-            JQTxtCmpltInit();
-        }
-
     }
 
     /*==================================================================================
@@ -37,6 +33,32 @@ new Wotg.Plugins.Simple({
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
         document.body.appendChild(JQTxtCmplt);
+        JQTxtCmplt.onload = function() {
+            improveConsole();
+        }
+    }
+
+    function improveConsole() {
+        // Make array of available commands
+        var commands = [];
+        var commandsObj = Wotg.Utils.Console().commands;
+        for (command in commandsObj) {
+            if (!commandsObj.hasOwnProperty(command)) continue;
+            commands.push(command);
+        }
+        // Give them to textcomplete
+        $('.console-input').textcomplete([{ // tech companies
+            match: /\b(\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(commands, function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return word + ' ';
+            }
+        }]);
     }
 
     /*==============================
@@ -51,26 +73,6 @@ new Wotg.Plugins.Simple({
 
 
     events.add('afterLaunch', function() {
-        // Make array of available commands
-        var commands = [];
-        var commandsObj = Wotg.Utils.Console().commands;
-        for (command in commandsObj) {
-            if (!commandsObj.hasOwnProperty(command)) continue;
-            commands.push(command);
-        }
-
-        $('.console-input').textcomplete([{ // tech companies
-            match: /\b(\w{1,})$/,
-            search: function(term, callback) {
-                callback($.map(commands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
-                }));
-            },
-            index: 1,
-            replace: function(word) {
-                return word + ' ';
-            }
-        }]);
-
+        JQTxtCmpltInit();
     });
 });
