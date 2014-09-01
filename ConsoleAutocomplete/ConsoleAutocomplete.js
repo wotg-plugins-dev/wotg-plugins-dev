@@ -49,8 +49,7 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-
-    events.add('afterLaunch', function() {
+    atom.Keyboard().events.add('gravis', function() {
         // Make array of available commands
         var commands = [];
         var commandsObj = Wotg.Utils.Console().commands;
@@ -71,6 +70,6 @@ new Wotg.Plugins.Simple({
                 return word + ' ';
             }
         }]);
-
     });
+
 });
