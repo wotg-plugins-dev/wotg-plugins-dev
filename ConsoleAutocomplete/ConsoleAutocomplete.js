@@ -2,11 +2,17 @@ new Wotg.Plugins.Simple({
     title: 'ConsoleAutocomplete',
     version: '0.2.4'
 }, function(plugin, events) {
+    var pluginPath = this.installer.getPluginPath();
+
+    var css = document.createElement('link');
+    css.href = pluginPath + 'ConsoleAutocomplete.css';
+    document.head.appendChild(css);
+
     /*==================================================================================
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
 	==================================================================================*/
     var JQTxtCmplt = document.createElement('script');
-    JQTxtCmplt.src = '//cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/0.2.2/jquery.textcomplete.min.js';
+    JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.min.js';
     document.body.appendChild(JQTxtCmplt);
 
     events.add('afterLaunch', function() {
@@ -16,7 +22,7 @@ new Wotg.Plugins.Simple({
         var commandsObj = Wotg.Utils.Console().commands;
         for (command in commandsObj) {
             if (!commandsObj.hasOwnProperty(command)) continue;
-            commands.append(command);
+            commands.push(command);
         }
 
         $('.console-input').textcomplete([{ // tech companies
