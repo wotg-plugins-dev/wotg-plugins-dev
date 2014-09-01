@@ -3,6 +3,6 @@ new Wotg.Plugins.Simple({
     version: '0.2.4'
 }, function(plugin, events) {
     events.add('aterLaunch', function() {
-        debugger;
+        console.log(Wotg.Utils);
     });
 });
