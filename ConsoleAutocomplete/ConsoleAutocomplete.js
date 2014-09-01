@@ -9,11 +9,10 @@ new Wotg.Plugins.Simple({
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
 	==================================================================================*/
 
-    function JQTxtCmpltInit(callback) {
+    function JQTxtCmpltInit() {
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
         document.body.appendChild(JQTxtCmplt);
-        callback.apply(this, arguments);
     }
 
     events.add('initialize', function() {
@@ -25,26 +24,27 @@ new Wotg.Plugins.Simple({
     });
 
     events.add('afterLaunch', function() {
+        JQTxtCmpltInit();
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
         for (command in commandsObj) {
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
-        // ...and give it to TC
-        JQTxtCmpltInit(function() {
-            $('.console-input').textcomplete([{
-                match: /\b(\w{1,})$/,
-                search: function(term, callback) {
-                    callback($.map(commands, function(word) {
-                        return word.indexOf(term) === 0 ? word : null;
-                    }));
-                },
-                index: 1,
-                replace: function(word) {
-                    return word + ' ';
-                }
-            }]);
-        });
+    });
+
+    atom.Keyboard().events.add('gravis', function() {
+        $('.console-input').textcomplete([{
+            match: /\b(\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(commands, function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return word + ' ';
+            }
+        }]);
     });
 });
