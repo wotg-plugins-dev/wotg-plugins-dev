@@ -100,7 +100,7 @@ new Wotg.Plugins.Simple({
         $('.console-input').textcomplete([{
             match: /^exec (\w{1,})$/,
             search: function(term, callback) {
-                callback($.map(Object.keys(this), function(word) {
+                callback($.map(Object.keys(window), function(word) {
                     return word.indexOf(term) === 0 ? word : null;
                 }));
             },
