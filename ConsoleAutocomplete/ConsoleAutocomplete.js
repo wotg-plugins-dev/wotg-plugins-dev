@@ -42,7 +42,7 @@ new Wotg.Plugins.Simple({
     });
 
     atom.Keyboard().events.add('gravis', function() {
-        var conIn = $('.console-input');
+        var conIn = $('.console-input')[1];
         // Console command
         conIn.textcomplete([{
             match: /^(\w{0,})$/,
@@ -116,7 +116,7 @@ new Wotg.Plugins.Simple({
         conIn.textcomplete([{
             match: /(^exec )([^\(]*)(\.)(\w{0,})$/,
             search: function(term, callback) {
-                var root = /(^exec )([^\(]*)(\.)(\w{0,})$/.exec(conIn[1].value);
+                var root = /(^exec )([^\(]*)(\.)(\w{0,})$/.exec(conIn.value);
                 if (!root) {
                     callback($.map([], function() {
                         return null;
