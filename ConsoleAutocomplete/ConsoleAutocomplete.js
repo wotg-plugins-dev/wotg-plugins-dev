@@ -27,7 +27,7 @@ new Wotg.Plugins.Simple({
         JQTxtCmpltInit();
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
-        for (command in commandsObj) {
+        for (var command in commandsObj) {
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
