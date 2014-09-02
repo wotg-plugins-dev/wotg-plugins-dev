@@ -111,13 +111,9 @@ new Wotg.Plugins.Simple({
             }
         }]);
 
-        conIn.on('focus', function() {
+        conIn.on('click', function() {
             var textComplete = $(this).data('textComplete');
-            // Cursor has not set yet. And wait 100ms to skip global click event.
-            setTimeout(function() {
-                // Cursor is ready.
-                textComplete.trigger();
-            }, 300);
+            textComplete.trigger();
         });
     });
 });
