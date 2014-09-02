@@ -115,12 +115,22 @@ new Wotg.Plugins.Simple({
             match: /(^exec )([^\(]*)(\.)(\w{0,})$/,
             search: function(term, callback) {
                 var root = /(^exec )([^\(]*)(\.)(\w{0,})$/.exec(conIn[1].value);
-                if (!root) return;
+                if (!root) {
+                    callback($.map([], function() {
+                        return null;
+                    }));
+                    return;
+                }
                 var tree = root[2].split('.');
                 var leaf = tree.reduce(function(obj, parameter) {
                     return obj[parameter];
                 }, window);
-                if (!(leaf instanceof Object)) return
+                if (!(leaf instanceof Object)) {
+                    callback($.map([], function() {
+                        return null;
+                    }));
+                    return;
+                }
                 callback($.map(Object.keys(leaf).sort(), function(word) {
                     return word.indexOf(term) === 0 ? word : null;
                 }));
