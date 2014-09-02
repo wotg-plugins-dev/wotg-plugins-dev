@@ -67,17 +67,17 @@ new Wotg.Plugins.Simple({
             }
         }]);
 
-        $('.console-input').textcomplete([{
-            match: /^plugins (\w{1,})$/,
-            search: function(term, callback) {
-                callback($.map(pluginsCommands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
-                }));
-            },
-            index: 1,
-            replace: function(word) {
-                return 'plugins ' + word + ' ';
-            }
-        }]);
+        // $('.console-input').textcomplete([{
+        //     match: /^plugins (\w{1,})$/,
+        //     search: function(term, callback) {
+        //         callback($.map(pluginsCommands, function(word) {
+        //             return word.indexOf(term) === 0 ? word : null;
+        //         }));
+        //     },
+        //     index: 1,
+        //     replace: function(word) {
+        //         return 'plugins ' + word + ' ';
+        //     }
+        // }]);
     });
 });
