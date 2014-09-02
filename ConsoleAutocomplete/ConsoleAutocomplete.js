@@ -40,6 +40,7 @@ new Wotg.Plugins.Simple({
     });
 
     atom.Keyboard().events.add('gravis', function() {
+        // Console command
         $('.console-input').textcomplete([{
             match: /^(\w{1,})$/,
             search: function(term, callback) {
@@ -52,7 +53,7 @@ new Wotg.Plugins.Simple({
                 return word + ' ';
             }
         }]);
-
+        // man
         $('.console-input').textcomplete([{
             match: /^man (\w{1,})$/,
             search: function(term, callback) {
@@ -65,7 +66,7 @@ new Wotg.Plugins.Simple({
                 return 'man ' + word;
             }
         }]);
-
+        // plugins
         $('.console-input').textcomplete([{
             match: /^plugins (\w{1,})$/,
             search: function(term, callback) {
@@ -78,7 +79,7 @@ new Wotg.Plugins.Simple({
                 return 'plugins ' + word + ' ';
             }
         }]);
-
+        // plugins (rm || config || code)
         var operationsWithInstalledPlugins = ['rm', 'config', 'code'];
         for (var opIdx = 0; opIdx < operationsWithInstalledPlugins.length; opIdx++) {
             var operation = operationsWithInstalledPlugins[opIdx];
@@ -87,13 +88,13 @@ new Wotg.Plugins.Simple({
             $('.console-input').textcomplete([{
                 match: re,
                 search: function(term, callback) {
-                    callback($.map(pluginsCommands, function(word) {
+                    callback($.map(Wotg.Plugins.get().installer.connectedPlugins, function(word) {
                         return word.indexOf(term) === 0 ? word : null;
                     }));
                 },
                 index: 1,
                 replace: function(word) {
-                    return 'plugins ' + word + operation === 'rm' ? '' : ' ';
+                    return 'plugins ' + word ' ';
                 }
             }]);
         }
