@@ -112,7 +112,7 @@ new Wotg.Plugins.Simple({
                 return 'exec ' + word;
             }
         }]);
-
+        // exec object.object.object
         conIn.textcomplete([{
             match: /(^exec )([^\(]*)(\.)(\w{0,})$/,
             search: function(term, callback) {
@@ -140,6 +140,19 @@ new Wotg.Plugins.Simple({
             index: 4,
             replace: function(word) {
                 return '$1$2$3' + word;
+            }
+        }]);
+        // set
+        conIn.textcomplete([{
+            match: /^set (\w{0,})$/,
+            search: function(term, callback) {
+                callback($.map(['maxLogDepth', 'height', 'margin'], function(word) {
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return 'set ' + word + '=';
             }
         }]);
     });
