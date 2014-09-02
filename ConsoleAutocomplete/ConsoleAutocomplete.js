@@ -78,5 +78,24 @@ new Wotg.Plugins.Simple({
                 return 'plugins ' + word + ' ';
             }
         }]);
+
+        var operationsWithInstalledPlugins = ['rm', 'config', 'code'];
+        for (var opIdx = 0; opIdx < operationsWithInstalledPlugins.length; opIdx++) {
+            var operation = operationsWithInstalledPlugins[opIdx];
+            var re = new RegExp('^plugins ' + operation + '\\s(\\w{1,})$');
+
+            $('.console-input').textcomplete([{
+                match: re,
+                search: function(term, callback) {
+                    callback($.map(pluginsCommands, function(word) {
+                        return word.indexOf(term) === 0 ? word : null;
+                    }));
+                },
+                index: 1,
+                replace: function(word) {
+                    return 'plugins ' + word + operation === 'rm' ? '' : ' ';
+                }
+            }]);
+        }
     });
 });
