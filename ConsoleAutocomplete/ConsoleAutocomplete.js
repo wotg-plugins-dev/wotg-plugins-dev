@@ -117,7 +117,7 @@ new Wotg.Plugins.Simple({
             setTimeout(function() {
                 // Cursor is ready.
                 textComplete.trigger();
-            }, 100);
+            }, 300);
         });
     });
 });
