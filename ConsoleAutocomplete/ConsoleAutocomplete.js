@@ -3,9 +3,7 @@ new Wotg.Plugins.Simple({
     version: '0.2.4'
 }, function(plugin, events) {
     var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
-    var consoleCommands = [];
-    var pluginsCommands = [];
-
+    var commands = [];
 
     /*==================================================================================
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
@@ -27,16 +25,11 @@ new Wotg.Plugins.Simple({
 
     events.add('afterLaunch', function() {
         JQTxtCmpltInit();
-        var command;
-        // Array of game console commands
-        var commandsObj = Wotg.Utils.Console();
+        // Make array of available commands
+        var commandsObj = Wotg.Utils.Console().commands;
         for (command in commandsObj) {
             if (!commandsObj.hasOwnProperty(command)) continue;
-            consoleCommands.push(command);
-        }
-        // Array of plugins commands
-        for (command in Wotg.Plugins.Console()) {
-            if (command.indexOf('command_') === 0) pluginsCommands.push(command.slice(8))
+            commands.push(command);
         }
     });
 
@@ -44,7 +37,7 @@ new Wotg.Plugins.Simple({
         $('.console-input').textcomplete([{
             match: /^(\w{1,})$/,
             search: function(term, callback) {
-                callback($.map(consoleCommands, function(word) {
+                callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
                 }));
             },
@@ -57,26 +50,13 @@ new Wotg.Plugins.Simple({
         $('.console-input').textcomplete([{
             match: /^man (\w{1,})$/,
             search: function(term, callback) {
-                callback($.map(consoleCommands, function(word) {
+                callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
                 }));
             },
             index: 1,
             replace: function(word) {
                 return 'man ' + word;
-            }
-        }]);
-
-        $('.console-input').textcomplete([{
-            match: /^plugins (\w{1,})$/,
-            search: function(term, callback) {
-                callback($.map(pluginsCommands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
-                }));
-            },
-            index: 1,
-            replace: function(word) {
-                return 'plugins ' + word + ' ';
             }
         }]);
     });
