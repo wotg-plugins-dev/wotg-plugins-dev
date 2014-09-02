@@ -32,11 +32,13 @@ new Wotg.Plugins.Simple({
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
+        commands.sort();
 
         // Array of plugins commands
         for (command in Wotg.Plugins.Console()) {
             if (command.indexOf('command_') === 0) pluginsCommands.push(command.slice(8))
         }
+        pluginsCommands.sort();
     });
 
     atom.Keyboard().events.add('gravis', function() {
@@ -87,7 +89,7 @@ new Wotg.Plugins.Simple({
             conIn.textcomplete([{
                 match: re,
                 search: function(term, callback) {
-                    callback($.map(Wotg.Plugins.get().installer.connectedPlugins, function(word) {
+                    callback($.map(Wotg.Plugins.get().installer.connectedPlugins.sort(), function(word) {
                         return word.indexOf(term) === 0 ? word : null;
                     }));
                 },
@@ -101,7 +103,7 @@ new Wotg.Plugins.Simple({
         conIn.textcomplete([{
             match: /^exec (\w{0,})$/,
             search: function(term, callback) {
-                callback($.map(Object.keys(window), function(word) {
+                callback($.map(Object.keys(window).sort(), function(word) {
                     return word.indexOf(term) === 0 ? word : null;
                 }));
             },
