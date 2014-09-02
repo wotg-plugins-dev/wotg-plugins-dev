@@ -83,7 +83,7 @@ new Wotg.Plugins.Simple({
         var operationsWithInstalledPlugins = ['rm', 'config', 'code'];
         for (var opIdx = 0; opIdx < operationsWithInstalledPlugins.length; opIdx++) {
             var operation = operationsWithInstalledPlugins[opIdx];
-            var re = new RegExp('^plugins ' + operation + '\\s(\\w{1,})$');
+            var re = new RegExp('^plugins ' + operation + ' (\\w{1,})$');
 
             $('.console-input').textcomplete([{
                 match: re,
