@@ -110,5 +110,25 @@ new Wotg.Plugins.Simple({
                 return 'exec ' + word;
             }
         }]);
+
+        var dots = /(^exec )(.*)(\.)(\w{0,})$/;
+
+        conIn.textcomplete([{
+            match: dots,
+            search: function(term, callback) {
+                var tree = dots.exec(conIn[0].value)[2].split('.');
+                var leaf = tree.reduce(function(obj, parameter) {
+                    return obj[parameter];
+                }, window);
+                if (!(leaf instanceof Object)) return
+                callback($.map(Object.keys(leaf).sort(), function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 4,
+            replace: function(word) {
+                return '$1$2$3' + word;
+            }
+        }]);
     });
 });
