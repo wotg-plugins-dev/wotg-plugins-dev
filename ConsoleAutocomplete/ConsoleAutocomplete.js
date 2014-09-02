@@ -94,7 +94,7 @@ new Wotg.Plugins.Simple({
                 },
                 index: 1,
                 replace: function(word) {
-                    return 'plugins ' + operation + word;
+                    return 'plugins ' + operation + ' ' + word;
                 }
             }]);
         }
