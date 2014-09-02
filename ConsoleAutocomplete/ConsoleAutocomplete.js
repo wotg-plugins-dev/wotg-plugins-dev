@@ -110,10 +110,5 @@ new Wotg.Plugins.Simple({
                 return 'exec ' + word;
             }
         }]);
-
-        conIn.on('click', function() {
-            var textComplete = $(this).data('textComplete');
-            textComplete.trigger();
-        });
     });
 });
