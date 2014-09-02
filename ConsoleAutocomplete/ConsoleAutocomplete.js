@@ -48,7 +48,7 @@ new Wotg.Plugins.Simple({
             match: /^(\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
             index: 1,
@@ -61,7 +61,7 @@ new Wotg.Plugins.Simple({
             match: /^man (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
             index: 1,
@@ -74,7 +74,7 @@ new Wotg.Plugins.Simple({
             match: /^plugins (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(pluginsCommands, function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
             index: 1,
@@ -90,7 +90,7 @@ new Wotg.Plugins.Simple({
                 match: re,
                 search: function(term, callback) {
                     callback($.map(Wotg.Plugins.get().installer.connectedPlugins.sort(), function(word) {
-                        return word.indexOf(term) === 0 ? word : null;
+                        return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                     }));
                 },
                 index: 1,
@@ -104,7 +104,7 @@ new Wotg.Plugins.Simple({
             match: /^exec (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(Object.keys(window).sort(), function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
             index: 1,
@@ -134,7 +134,7 @@ new Wotg.Plugins.Simple({
                     return;
                 }
                 callback($.map(Object.keys(leaf).sort(), function(word) {
-                    return word.indexOf(term) === 0 ? word : null;
+                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
             index: 4,
