@@ -42,7 +42,7 @@ new Wotg.Plugins.Simple({
     });
 
     atom.Keyboard().events.add('gravis', function() {
-        var conIn = $('.visible .console-input');
+        var conIn = $('.console-input');
         // Console command
         conIn.textcomplete([{
             match: /^(\w{0,})$/,
