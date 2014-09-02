@@ -42,7 +42,7 @@ new Wotg.Plugins.Simple({
     atom.Keyboard().events.add('gravis', function() {
         // Console command
         $('.console-input').textcomplete([{
-            match: /^(\w{1,})$/,
+            match: /^(\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -55,7 +55,7 @@ new Wotg.Plugins.Simple({
         }]);
         // man
         $('.console-input').textcomplete([{
-            match: /^man (\w{1,})$/,
+            match: /^man (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -68,7 +68,7 @@ new Wotg.Plugins.Simple({
         }]);
         // plugins
         $('.console-input').textcomplete([{
-            match: /^plugins (\w{1,})$/,
+            match: /^plugins (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(pluginsCommands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -81,7 +81,7 @@ new Wotg.Plugins.Simple({
         }]);
         // plugins (rm || config || code)
         ['rm', 'config', 'code'].forEach(function(operation) {
-            var re = new RegExp('^plugins ' + operation + ' (\\w{1,})$');
+            var re = new RegExp('^plugins ' + operation + ' (\\w{0,})$');
 
             $('.console-input').textcomplete([{
                 match: re,
@@ -98,7 +98,7 @@ new Wotg.Plugins.Simple({
         });
         // exec
         $('.console-input').textcomplete([{
-            match: /^exec (\w{1,})$/,
+            match: /^exec (\w{0,})$/,
             search: function(term, callback) {
                 callback($.map(Object.keys(window), function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -109,5 +109,14 @@ new Wotg.Plugins.Simple({
                 return 'exec ' + word;
             }
         }]);
+
+        $('.console-input').on('focus', function() {
+            var textComplete = $(this).data('textComplete');
+            // Cursor has not set yet. And wait 100ms to skip global click event.
+            setTimeout(function() {
+                // Cursor is ready.
+                textComplete.trigger();
+            }, 100);
+        });
     });
 });
