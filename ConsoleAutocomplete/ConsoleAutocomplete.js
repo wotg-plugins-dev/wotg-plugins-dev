@@ -35,7 +35,7 @@ new Wotg.Plugins.Simple({
 
     atom.Keyboard().events.add('gravis', function() {
         $('.console-input').textcomplete([{
-            match: /\b(\w{1,})$/,
+            match: /^(\w{1,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -44,6 +44,19 @@ new Wotg.Plugins.Simple({
             index: 1,
             replace: function(word) {
                 return word + ' ';
+            }
+        }]);
+
+        $('.console-input').textcomplete([{
+            match: /^man (\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(commands, function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return 'man ' + word + ' ';
             }
         }]);
     });
