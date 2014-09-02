@@ -56,7 +56,7 @@ new Wotg.Plugins.Simple({
             },
             index: 1,
             replace: function(word) {
-                return 'man ' + word + ' ';
+                return 'man ' + word;
             }
         }]);
     });
