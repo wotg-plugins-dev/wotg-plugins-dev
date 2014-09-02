@@ -55,7 +55,7 @@ new Wotg.Plugins.Simple({
         }]);
         // man
         $('.console-input').textcomplete([{
-            match: /^man\\s(\w{1,})$/,
+            match: /^man (\w{1,})$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -68,7 +68,7 @@ new Wotg.Plugins.Simple({
         }]);
         // plugins
         $('.console-input').textcomplete([{
-            match: /^plugins\\s(\w{1,})$/,
+            match: /^plugins (\w{1,})$/,
             search: function(term, callback) {
                 callback($.map(pluginsCommands, function(word) {
                     return word.indexOf(term) === 0 ? word : null;
@@ -80,15 +80,15 @@ new Wotg.Plugins.Simple({
             }
         }]);
         // plugins (rm || config || code)
-        var installedPlugins = Wotg.Plugins.get().installer.connectedPlugins;
-
-        ['rm', 'config', 'code'].map(function(operation) {
-            var re = new RegExp('^plugins\\s' + operation + '\\s(\\w{1,})$');
+        var operationsWithInstalledPlugins = ['rm', 'config', 'code'];
+        for (var opIdx = 0; opIdx < operationsWithInstalledPlugins.length; opIdx++) {
+            var operation = operationsWithInstalledPlugins[opIdx];
+            var re = new RegExp('^plugins ' + operation + ' (\\w{1,})$');
 
             $('.console-input').textcomplete([{
                 match: re,
                 search: function(term, callback) {
-                    callback($.map(installedPlugins, function(word) {
+                    callback($.map(Wotg.Plugins.get().installer.connectedPlugins, function(word) {
                         return word.indexOf(term) === 0 ? word : null;
                     }));
                 },
@@ -97,6 +97,6 @@ new Wotg.Plugins.Simple({
                     return 'plugins ' + operation + ' ' + word;
                 }
             }]);
-        })
+        }
     });
 });
