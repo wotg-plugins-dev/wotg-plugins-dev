@@ -114,6 +114,7 @@ new Wotg.Plugins.Simple({
         conIn.textcomplete([{
             match: /(^exec )(.*)(\.)(\w{0,})$/,
             search: function(term, callback) {
+                debugger
                 var tree = /(^exec )(.*)(\.)(\w{0,})$/.exec(conIn[0].value)[2].split('.');
                 var leaf = tree.reduce(function(obj, parameter) {
                     return obj[parameter];
