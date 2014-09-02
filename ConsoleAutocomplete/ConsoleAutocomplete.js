@@ -111,12 +111,10 @@ new Wotg.Plugins.Simple({
             }
         }]);
 
-        var dots = /(^exec )(.*)(\.)(\w{0,})$/;
-
         conIn.textcomplete([{
-            match: dots,
+            match: /(^exec )(.*)(\.)(\w{0,})$/,
             search: function(term, callback) {
-                var tree = dots.exec(conIn[0].value)[2].split('.');
+                var tree = /(^exec )(.*)(\.)(\w{0,})$/.exec(conIn[0].value)[2].split('.');
                 var leaf = tree.reduce(function(obj, parameter) {
                     return obj[parameter];
                 }, window);
