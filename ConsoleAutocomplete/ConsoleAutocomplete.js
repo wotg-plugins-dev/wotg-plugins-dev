@@ -40,7 +40,7 @@ new Wotg.Plugins.Simple({
         }
     });
 
-    atom.Keyboard().events.add('gravis', function() {
+    atom.Keyboard().events.add('gravis', setTimeout(function() {
         $('.console-input').textcomplete([{
             match: /^(\w{1,})$/,
             search: function(term, callback) {
@@ -79,5 +79,5 @@ new Wotg.Plugins.Simple({
                 return 'plugins ' + word + ' ';
             }
         }]);
-    });
+    }, 100));
 });
