@@ -112,9 +112,11 @@ new Wotg.Plugins.Simple({
         }]);
 
         conIn.textcomplete([{
-            match: /(^exec )(.*)(\.)(\w{0,})$/,
+            match: /(^exec )([^\(]*)(\.)(\w{0,})$/,
             search: function(term, callback) {
-                var tree = /(^exec )(.*)(\.)(\w{0,})$/.exec(conIn[1].value)[2].split('.');
+                var root = /(^exec )([^\(]*)(\.)(\w{0,})$/.exec(conIn[1].value);
+                if (!root) return;
+                var tree = root[2].split('.');
                 var leaf = tree.reduce(function(obj, parameter) {
                     return obj[parameter];
                 }, window);
