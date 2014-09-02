@@ -96,5 +96,18 @@ new Wotg.Plugins.Simple({
                 }
             }]);
         });
+        // exec
+        $('.console-input').textcomplete([{
+            match: /^exec (\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(Object.keys(this), function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return 'exec ' + word;
+            }
+        }]);
     });
 });
