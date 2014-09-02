@@ -4,6 +4,7 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
     var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
     var commands = [];
+    var pluginsCommands = [];
 
     /*==================================================================================
 	=            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
@@ -31,6 +32,11 @@ new Wotg.Plugins.Simple({
             if (!commandsObj.hasOwnProperty(command)) continue;
             commands.push(command);
         }
+
+        // Array of plugins commands
+        for (command in Wotg.Plugins.Console()) {
+            if (command.indexOf('command_') === 0) pluginsCommands.push(command.slice(8))
+        }
     });
 
     atom.Keyboard().events.add('gravis', function() {
@@ -57,6 +63,19 @@ new Wotg.Plugins.Simple({
             index: 1,
             replace: function(word) {
                 return 'man ' + word;
+            }
+        }]);
+
+        $('.console-input').textcomplete([{
+            match: /^plugins (\w{1,})$/,
+            search: function(term, callback) {
+                callback($.map(pluginsCommands, function(word) {
+                    return word.indexOf(term) === 0 ? word : null;
+                }));
+            },
+            index: 1,
+            replace: function(word) {
+                return 'plugins ' + word + ' ';
             }
         }]);
     });
