@@ -80,9 +80,7 @@ new Wotg.Plugins.Simple({
             }
         }]);
         // plugins (rm || config || code)
-        var operationsWithInstalledPlugins = ['rm', 'config', 'code'];
-        for (var opIdx = 0; opIdx < operationsWithInstalledPlugins.length; opIdx++) {
-            var operation = operationsWithInstalledPlugins[opIdx];
+        ['rm', 'config', 'code'].forEach(function(operation) {
             var re = new RegExp('^plugins ' + operation + ' (\\w{1,})$');
 
             $('.console-input').textcomplete([{
@@ -97,6 +95,6 @@ new Wotg.Plugins.Simple({
                     return 'plugins ' + operation + ' ' + word;
                 }
             }]);
-        }
+        });
     });
 });
