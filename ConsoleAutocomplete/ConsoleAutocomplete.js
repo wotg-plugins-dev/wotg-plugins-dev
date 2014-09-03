@@ -71,7 +71,7 @@ new Wotg.Plugins.Simple({
         }]);
         // plugins
         conIn.textcomplete([{
-            match: /^plugins (\w{0,})$/,
+            match: /^plugins (\w|:{0,})$/,
             search: function(term, callback) {
                 callback($.map(pluginsCommands, function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
