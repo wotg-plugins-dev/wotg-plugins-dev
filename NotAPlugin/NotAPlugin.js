@@ -159,7 +159,7 @@ new Wotg.Plugins.Simple({
         if (window.jQuery) {
             JQTxtCmpltInit();
         } else {
-            console.alert('jQery is not loaded')
+            console.warn('jQery is not loaded')
         }
 
     });
