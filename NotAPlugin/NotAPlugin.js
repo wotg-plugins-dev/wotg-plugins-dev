@@ -3,7 +3,8 @@ new Wotg.Plugins.Simple({
     version: '0.2.4'
 }, function(plugin, events) {
     plugin.refactor('Wotg.Utils.Console', {
-        initialize: function() {
+        initialize: function method() {
+            console.log('test');
             this.bindMethods(['onExec', 'onClear', 'onSubmit', 'onToggle', 'onSet', 'man']);
 
             this.events = new atom.Events(this);
