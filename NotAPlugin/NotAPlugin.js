@@ -31,6 +31,7 @@ new Wotg.Plugins.Simple({
                 this.toggle();
                 Wotg.controller().replays.read(e.dataTransfer.files[0]);
             }.bind(this), false);
+            console.log('test2');
         },
     });
 });
