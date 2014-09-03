@@ -61,6 +61,7 @@ new Wotg.Plugins.Simple({
 
                 load: function() {
                     var conIn = $('.console-input');
+                    debugger
                     // Console command
                     conIn.textcomplete([{
                         match: /^(\w{0,})$/,
