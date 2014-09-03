@@ -14,7 +14,7 @@ new Wotg.Plugins.Simple({
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
         document.body.appendChild(JQTxtCmplt);
-        JQ.onload = function() {
+        JQTxtCmplt.onload = function() {
             makeSuggestions();
         }
     }
