@@ -145,7 +145,6 @@ new Wotg.Plugins.Simple({
     });
 
     events.add('afterLaunch', function() {
-        JQTxtCmpltInit();
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
         for (var command in commandsObj) {
@@ -170,6 +169,9 @@ new Wotg.Plugins.Simple({
             this.inner = this.create('div', 'inner', this.wrapper);
             this.output = this.create('div', 'output', this.inner);
             this.input = this.create('textarea', 'input', this.inner).addEvent({
+                /*========================================
+                =            New code is here            =
+                ========================================*/
                 focus: function() {
                     JQTxtCmpltInit();
                 }
