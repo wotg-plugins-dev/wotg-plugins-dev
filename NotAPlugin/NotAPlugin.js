@@ -156,7 +156,12 @@ new Wotg.Plugins.Simple({
         }
         pluginsCommands.sort();
 
-        JQTxtCmpltInit();
+        if (window.jQuery) {
+            JQTxtCmpltInit();
+        } else {
+            console.alert('jQery is not loaded')
+        }
+
     });
 
     plugin.refactor('Wotg.Utils.Console', {
@@ -172,7 +177,7 @@ new Wotg.Plugins.Simple({
                 =            New code is here            =
                 ========================================*/
                 focus: function() {
-                    makeSuggestions();
+                    window.jQuery && makeSuggestions();
                 }
             });
 
