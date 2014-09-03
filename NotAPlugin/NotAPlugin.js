@@ -59,7 +59,7 @@ new Wotg.Plugins.Simple({
                 =            Plugin            =
                 ==============================*/
 
-                create: function() {
+                focus: function() {
                     var conIn = $('.console-input');
                     // debugger
                     // Console command
