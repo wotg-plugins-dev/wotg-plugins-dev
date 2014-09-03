@@ -1,10 +1,8 @@
 new Wotg.Plugins.Simple({
-    title: 'NotAPlugin.js',
+    title: 'NotAPlugin',
     version: '0.2.4'
 }, function(plugin, events) {
     var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
-    console.log(plugin);
-    console.log(pluginPath);
     var commands = [];
     var pluginsCommands = [];
 
