@@ -141,7 +141,7 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-    events.add('afterLaunch', function() {
+    window.addEventListener('load', function() {
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
         for (var command in commandsObj) {
@@ -161,8 +161,7 @@ new Wotg.Plugins.Simple({
         } else {
             console.warn('jQery is not loaded')
         }
-
-    });
+    }, false);
 
     plugin.refactor('Wotg.Utils.Console', {
         initialize: function method() {
