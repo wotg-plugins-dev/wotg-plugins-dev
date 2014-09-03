@@ -14,9 +14,6 @@ new Wotg.Plugins.Simple({
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
         document.body.appendChild(JQTxtCmplt);
-        JQTxtCmplt.onload = function() {
-            makeSuggestions();
-        }
     }
 
     function makeSuggestions() {
@@ -158,6 +155,8 @@ new Wotg.Plugins.Simple({
             if (command.indexOf('command_') === 0) pluginsCommands.push(command.slice(8))
         }
         pluginsCommands.sort();
+
+        JQTxtCmpltInit();
     });
 
     plugin.refactor('Wotg.Utils.Console', {
@@ -173,7 +172,7 @@ new Wotg.Plugins.Simple({
                 =            New code is here            =
                 ========================================*/
                 focus: function() {
-                    JQTxtCmpltInit();
+                    makeSuggestions();
                 }
             });
 
