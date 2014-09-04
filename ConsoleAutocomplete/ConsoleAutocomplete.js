@@ -2,7 +2,7 @@ new Wotg.Plugins.Simple({
     title: 'ConsoleAutocomplete',
     version: '0.2.4'
 }, function(plugin, events) {
-    var pluginPath = 'https://' + (plugin.repository || 'wotg-plugins-dev') + '.github.io/wotg-plugins-dev/' + plugin.title + '/';
+    var pluginPath = this.getPluginPath();
     var commands = [];
     var pluginsCommands = [];
 
