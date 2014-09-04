@@ -142,6 +142,11 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
+    events.add('load', function() {
+        console.info('load');
+        console.warn('load');
+    });
+
     events.add('afterLaunch', function() {
         // Make array of available commands
         var commandsObj = Wotg.Utils.Console().commands;
