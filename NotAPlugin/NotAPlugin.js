@@ -142,7 +142,7 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-    window.addEventListener('load', function() {
+    window.parent.addEventListener('load', function() {
         console.info('load');
         console.warn('load');
         console.log(jQuery);
