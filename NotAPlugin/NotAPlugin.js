@@ -10,12 +10,12 @@ new Wotg.Plugins.Simple({
     =            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
     ==================================================================================*/
 
-    function JQTxtCmpltInit() {
-        var JQTxtCmplt = document.createElement('script');
-        JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
+    function jQtcInit() {
+        var jQtcScript = document.createElement('script');
+        jQtcScript.src = pluginPath + 'jquery.textcomplete.js';
         var jQueryWaiting = setInterval(function() {
-            if (!jQuery) return;
-            document.body.appendChild(JQTxtCmplt);
+            if (!window.jQuery) return;
+            document.body.appendChild(jQtcScript);
             clearInterval(jQueryWaiting);
         }, 500);
     }
@@ -141,7 +141,7 @@ new Wotg.Plugins.Simple({
         css.rel = 'stylesheet';
         css.href = pluginPath + 'ConsoleAutocomplete.css';
         document.head.appendChild(css);
-        JQTxtCmpltInit();
+        jQtcInit();
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
