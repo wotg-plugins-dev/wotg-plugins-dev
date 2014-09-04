@@ -7,13 +7,15 @@ new Wotg.Plugins.Simple({
     var pluginsCommands = [];
 
     /*==================================================================================
-        =            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
-        ==================================================================================*/
+    =            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
+    ==================================================================================*/
 
     function JQTxtCmpltInit() {
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
-        document.body.appendChild(JQTxtCmplt);
+        setTimeout(function() {
+            document.body.appendChild(JQTxtCmplt);
+        }, 5000);
     }
 
     function makeSuggestions() {
@@ -87,7 +89,7 @@ new Wotg.Plugins.Simple({
                 return 'exec ' + word;
             }
         }]);
-        // exec object.object.object
+        // exec object.object_.object5
         conIn.textcomplete([{
             match: /(^exec [\w\.]*\.)(\w{0,})$/,
             search: function(term, callback) {
