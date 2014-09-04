@@ -13,9 +13,11 @@ new Wotg.Plugins.Simple({
     function JQTxtCmpltInit() {
         var JQTxtCmplt = document.createElement('script');
         JQTxtCmplt.src = pluginPath + 'jquery.textcomplete.js';
-        setTimeout(function() {
+        var jQueryWaiting = setInterval(function() {
+            if (!jQuery) return;
             document.body.appendChild(JQTxtCmplt);
-        }, 5000);
+            clearInterval(jQueryWaiting);
+        }, 500);
     }
 
     function makeSuggestions() {
@@ -141,13 +143,6 @@ new Wotg.Plugins.Simple({
         document.head.appendChild(css);
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
-
-    window.parent.addEventListener('load', function() {
-        console.info('load');
-        console.warn('load');
-        console.log(jQuery);
-        console.log(window.jQuery);
-    }, false);
 
     events.add('afterLaunch', function() {
         // Make array of available commands
