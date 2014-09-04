@@ -11,11 +11,9 @@ new Wotg.Plugins.Simple({
     ==================================================================================*/
 
     function jQtcInit() {
-        var jQtcScript = document.createElement('script');
-        jQtcScript.src = pluginPath + 'jquery.textcomplete.js';
         var jQueryWaiting = setInterval(function() {
             if (!window.jQuery) return;
-            document.body.appendChild(jQtcScript);
+            Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js');
             clearInterval(jQueryWaiting);
         }, 500);
     }
