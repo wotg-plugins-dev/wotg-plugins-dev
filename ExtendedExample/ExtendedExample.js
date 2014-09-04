@@ -1,6 +1,6 @@
 new Wotg.Plugins.Simple({
 	title  : 'ExtendedExample',
-	version: '0.2.3'
+	version: '0.2.4'
 }, function (plugin, events) {
 	plugin.addImages({
 		'added-image': 'image.png'
