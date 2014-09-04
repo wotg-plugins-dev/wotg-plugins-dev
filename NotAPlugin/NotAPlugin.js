@@ -142,11 +142,12 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-    addEvent(window, 'load', function() {
+    window.addEventListener('load', function() {
         console.info('load');
         console.warn('load');
         console.log(jQuery);
-    });
+        console.log(window.jQuery);
+    }, false);
 
     events.add('afterLaunch', function() {
         // Make array of available commands
