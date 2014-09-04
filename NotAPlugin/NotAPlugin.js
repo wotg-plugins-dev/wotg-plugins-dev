@@ -18,7 +18,6 @@ new Wotg.Plugins.Simple({
 
     function makeSuggestions() {
         var conIn = $('.console-input');
-        // debugger
         // Console command
         conIn.textcomplete([{
             match: /^(\w{0,})$/,
@@ -90,16 +89,16 @@ new Wotg.Plugins.Simple({
         }]);
         // exec object.object.object
         conIn.textcomplete([{
-            match: /(^exec )([^\(]*)(\.)(\w{0,})$/,
+            match: /(^exec \w[\w\d\.]*[\w\d]*\.)(\w{0,})$/,
             search: function(term, callback) {
-                var root = /(^exec )([^\(]*)(\.)(\w{0,})$/.exec(conIn[1].value);
+                var root = /^exec (\w[\w\d\.]*[\w\d]*)\.(\w{0,})$/.exec(conIn[1].value);
                 if (!root) {
                     callback($.map([], function() {
                         return null;
                     }));
                     return;
                 }
-                var tree = root[2].split('.');
+                var tree = root[1].split('.');
                 var leaf = tree.reduce(function(obj, parameter) {
                     return obj[parameter];
                 }, window);
@@ -115,7 +114,7 @@ new Wotg.Plugins.Simple({
             },
             index: 4,
             replace: function(word) {
-                return '$1$2$3' + word;
+                return '$1' + word;
             }
         }]);
         // set
