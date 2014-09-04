@@ -142,9 +142,10 @@ new Wotg.Plugins.Simple({
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
-    events.add('load', function() {
+    addEvent(window, 'load', function() {
         console.info('load');
         console.warn('load');
+        console.log(jQuery);
     });
 
     events.add('afterLaunch', function() {
