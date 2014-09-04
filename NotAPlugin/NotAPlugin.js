@@ -141,6 +141,7 @@ new Wotg.Plugins.Simple({
         css.rel = 'stylesheet';
         css.href = pluginPath + 'ConsoleAutocomplete.css';
         document.head.appendChild(css);
+        JQTxtCmpltInit();
         console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
     });
 
@@ -158,9 +159,6 @@ new Wotg.Plugins.Simple({
             if (command.indexOf('command_') === 0) pluginsCommands.push(command.slice(8))
         }
         pluginsCommands.sort();
-
-        JQTxtCmpltInit();
-
     });
 
     plugin.refactor('Wotg.Utils.Console', {
@@ -178,6 +176,7 @@ new Wotg.Plugins.Simple({
                 focus: function() {
                     makeSuggestions();
                 }
+                /*-----  End of new code  ------*/
             });
 
             this.bindKeyboard();
