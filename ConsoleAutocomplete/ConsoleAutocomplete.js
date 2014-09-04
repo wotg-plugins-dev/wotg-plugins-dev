@@ -60,7 +60,7 @@ new Wotg.Plugins.Simple({
             }
         }]);
         // plugins (rm || config || code)
-        var re = new RegExp('^plugins [' + ['rm', 'config', 'code'].join('|') + '] ([\\w:]*)$');
+        var re = new RegExp('^plugins ' + ['rm', 'config', 'code'].join('|') + ' ([\\w:]*)$');
 
         conIn.textcomplete([{
             match: re,
