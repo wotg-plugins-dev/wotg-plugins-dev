@@ -24,7 +24,7 @@ new Wotg.Plugins.Simple({
         var conIn = $('.console-input');
         // Console command
         conIn.textcomplete([{
-            match: /^(\w{0,})$/,
+            match: /^(\w*)$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
@@ -37,7 +37,7 @@ new Wotg.Plugins.Simple({
         }]);
         // man
         conIn.textcomplete([{
-            match: /^man (\w{0,})$/,
+            match: /^man (\w*)$/,
             search: function(term, callback) {
                 callback($.map(commands, function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
@@ -50,7 +50,7 @@ new Wotg.Plugins.Simple({
         }]);
         // plugins
         conIn.textcomplete([{
-            match: /^plugins (\w{0,})$/,
+            match: /^plugins (\w*)$/,
             search: function(term, callback) {
                 callback($.map(pluginsCommands, function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
@@ -80,7 +80,7 @@ new Wotg.Plugins.Simple({
         });
         // exec
         conIn.textcomplete([{
-            match: /^exec (\w{0,})$/,
+            match: /^exec (\w*)$/,
             search: function(term, callback) {
                 callback($.map(Object.keys(window).sort(), function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
@@ -93,7 +93,7 @@ new Wotg.Plugins.Simple({
         }]);
         // exec object.object_.object5
         conIn.textcomplete([{
-            match: /(^exec [\w\.]*\.)(\w{0,})$/,
+            match: /(^exec [\w\.]*\.)(\w*)$/,
             search: function(term, callback) {
                 var root = /^exec ([\w\.]*)\.\w*$/.exec(conIn[1].value);
                 if (!root) {
@@ -123,7 +123,7 @@ new Wotg.Plugins.Simple({
         }]);
         // set
         conIn.textcomplete([{
-            match: /^set (\w{0,})$/,
+            match: /^set (\w*)$/,
             search: function(term, callback) {
                 callback($.map(['maxLogDepth', 'height', 'margin'], function(word) {
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
