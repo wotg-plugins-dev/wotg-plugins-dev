@@ -89,9 +89,9 @@ new Wotg.Plugins.Simple({
         }]);
         // exec object.object.object
         conIn.textcomplete([{
-            match: /(^exec \w[\w\d\.]*[\w\d]*\.)(\w{0,})$/,
+            match: /(^exec [\w\.]*\.)(\w{0,})$/,
             search: function(term, callback) {
-                var root = /^exec (\w[\w\d\.]*[\w\d]*)\.(\w{0,})$/.exec(conIn[1].value);
+                var root = /^exec ([\w\.]*)\.\w*$/.exec(conIn[1].value);
                 if (!root) {
                     callback($.map([], function() {
                         return null;
