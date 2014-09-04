@@ -112,7 +112,7 @@ new Wotg.Plugins.Simple({
                     return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                 }));
             },
-            index: 4,
+            index: 2,
             replace: function(word) {
                 return '$1' + word;
             }
