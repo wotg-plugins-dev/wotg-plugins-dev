@@ -6,11 +6,11 @@
 ## Установка
 1. Зайти в игру
 2. Открыть игровую консоль. Все `команды` вводить в неё
-3. `plugins add ConsoleAutocomplete`
+3. `plugins add Isk1n:ConsoleAutocomplete`
 4. Обновить страницу
 
 ## Удаление
-`plugins rm ConsoleAutocomplete`
+`plugins rm Isk1n:ConsoleAutocomplete`
 
 ## Известные ошибки/недоработки
 * Некорректная работа консольных команд `close`, `set height=x` и `set margin=x`
