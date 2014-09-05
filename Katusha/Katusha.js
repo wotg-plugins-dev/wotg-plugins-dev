@@ -205,7 +205,7 @@ new Wotg.Plugins.Simple({
     });
 	
 	events.add('afterLaunch', function () {
-		console.log(plugin.getImage('added-image'));
-		console.log(Wotg.controller().images.get('replaced-image'));
+		//console.log(plugin.getImage('added-image'));
+		//console.log(Wotg.controller().images.get('replaced-image'));
 	});
 });

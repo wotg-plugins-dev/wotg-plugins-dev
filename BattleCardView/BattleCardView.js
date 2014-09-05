@@ -40,6 +40,13 @@ new Wotg.Plugins.Simple({
 
             ;
 
+
+    events.add('afterLaunch', function () {
+		//console.log(plugin.getImage('added-image'));
+		console.log(Wotg.controller().images.get('battle-card-pack-own'));
+	});
+
+
     /*plugin.markupChange(Wotg.Card.Markup.Battle)
 		.move('Power'    , [  0, 97 ])
 		.move('Toughness', [ 70, 20 ]);
