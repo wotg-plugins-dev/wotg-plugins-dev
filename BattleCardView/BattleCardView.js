@@ -48,6 +48,32 @@ new Wotg.Plugins.Simple({
 		console.log(Wotg.controller().images.get('battle-card-pack-own'));
 	});
 
+    /** @name Wotg.Battle.Gui.Reserves */
+    plugin.refactor( 'Wotg.Battle.Gui.Reserves', {
+       fetchCurrentPosition: function (id, hover) {
+            var
+                length  = this.cards.length,
+                padding = this.padding,
+                size    = this.cardSize,
+                from    = new Point(0, 3).move(this.shape.from),
+                limits  = this.shape.width - padding * 2,
+                shift   = size.width + padding;
+
+            if (length * shift - padding > limits) {
+                // карты не помещаются - надо схлопывать
+                shift = (limits - size.width) / (length - 1);
+            }
+
+           if(id == 0){
+            from.x += padding;
+           }
+           from.x += id * Math.floor(shift);
+
+            if (hover) from.y -= this.shift;
+
+            return new Rectangle( from, size );
+        }
+    });
 
     /*plugin.markupChange(Wotg.Card.Markup.Battle)
 		.move('Power'    , [  0, 97 ])
