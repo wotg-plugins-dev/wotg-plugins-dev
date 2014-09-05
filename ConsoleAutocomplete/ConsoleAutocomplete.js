@@ -60,20 +60,22 @@ new Wotg.Plugins.Simple({
             }
         }]);
         // plugins (rm || config || code)
-        var re = new RegExp('^plugins ' + ['rm', 'config', 'code'].join('|') + ' ([\\w:]*)$');
+        ['rm', 'config', 'code'].forEach(function(operation) {
+            var re = new RegExp('^plugins ' + operation + ' ([\\w:]{0,})$');
 
-        conIn.textcomplete([{
-            match: re,
-            search: function(term, callback) {
-                callback($.map(Wotg.Plugins.get().installer.connectedPlugins.sort(), function(word) {
-                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
-                }));
-            },
-            index: 1,
-            replace: function(word) {
-                return 'plugins ' + operation + ' ' + word;
-            }
-        }]);
+            conIn.textcomplete([{
+                match: re,
+                search: function(term, callback) {
+                    callback($.map(Wotg.Plugins.get().installer.connectedPlugins.sort(), function(word) {
+                        return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
+                    }));
+                },
+                index: 1,
+                replace: function(word) {
+                    return 'plugins ' + operation + ' ' + word;
+                }
+            }]);
+        });
         // exec
         conIn.textcomplete([{
             match: /^exec (\w*)$/,
