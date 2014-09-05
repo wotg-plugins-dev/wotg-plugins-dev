@@ -57,7 +57,7 @@ new Wotg.Plugins.Simple({
                 size    = this.cardSize,
                 from    = new Point(0, 3).move(this.shape.from),
                 limits  = this.shape.width - padding * 2,
-                shift   = size.width + padding;
+                shift   = size.width;
 
             if (length * shift - padding > limits) {
                 // карты не помещаются - надо схлопывать
