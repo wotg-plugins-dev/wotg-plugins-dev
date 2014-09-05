@@ -22,7 +22,7 @@ new Wotg.Plugins.Simple({
     //.move('HandOwn', [  -240, 0 ])
     .place('HandOwn', [299, 693, 995, 160])
     .move('HandEnemy', [  30, 0 ])
-    .move('PackOwn', [  0, -582 ])
+    .move('PackOwn', [  12, -556 ])
     .move('FlagOwn', [  0, -582 ])
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
