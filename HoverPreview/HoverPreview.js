@@ -1,6 +1,6 @@
 new Wotg.Plugins.Simple({
 	title  : 'HoverPreview',
-	version: '0.2.3'
+	version: '0.2.4'
 }, function (plugin, events) {
 	
 	CURRENT_CARD = '';
