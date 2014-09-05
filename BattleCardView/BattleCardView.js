@@ -13,6 +13,10 @@ new Wotg.Plugins.Simple({
 		console.log('BattleCardView initialized');
 	});
 
+   /* plugin.replaceImages({
+		'battle-card-pack-own': 'battle/card-pack-own.png'
+	});*/
+
     plugin.markupChange(Wotg.Battle.Markup)
 
     //.move('HandOwn', [  -240, 0 ])
