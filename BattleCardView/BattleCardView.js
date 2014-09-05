@@ -14,7 +14,7 @@ new Wotg.Plugins.Simple({
 	});
 
     plugin.replaceImages({
-		'battle-card-pack-own': 'images/battle/card-pack-own.png'
+		'battle-card-pack-own': 'battle/card-pack-own.png'
 	});
 
     plugin.markupChange(Wotg.Battle.Markup)
