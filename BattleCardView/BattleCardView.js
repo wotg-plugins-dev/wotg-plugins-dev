@@ -57,17 +57,14 @@ new Wotg.Plugins.Simple({
                 size    = this.cardSize,
                 from    = new Point(0, 3).move(this.shape.from),
                 limits  = this.shape.width - padding * 2,
-                shift   = 170;//size.width;
+                shift   = 160;//size.width;
 
             if (length * shift - padding > limits) {
                 // карты не помещаются - надо схлопывать
                 shift = (limits - size.width) / (length - 1);
             }
 
-           if(id == 0){
-            from.x += padding;
-           }
-           from.x += id * Math.floor(shift);
+           from.x += padding + id * Math.floor(shift);
 
             if (hover) from.y -= this.shift;
 
