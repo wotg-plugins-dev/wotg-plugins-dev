@@ -85,7 +85,7 @@ new Wotg.Plugins.Simple({
 				mouse.events.add('move', closeMove);
 
 
-			}.bind(this), 800);
+			}.bind(this), 80);
 
 			(this.selected && this.targeted) && Wotg.battle().predictions.create(this.selected, this.targeted);
 		}
