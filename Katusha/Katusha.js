@@ -147,7 +147,6 @@ new Wotg.Plugins.Simple({
 
         // Повесим на 'space' АВШД (огонь в штаб противника из всех стволов), и если атаковать больше некому, то пропуск хода
         'space': function (e) {
-            debugger
 
             /*if(!myturn || api.controller.chat.visible) {
                return;
