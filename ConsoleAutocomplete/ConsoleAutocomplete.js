@@ -114,7 +114,7 @@ new Wotg.Plugins.Simple({
                     var leaf = tree.reduce(function(obj, parameter) {
                         return obj[parameter];
                     }, window);
-                    if (!(leaf instanceof Object)) {
+                    if (leaf instanceof Object) {
                         callback($.map(Object.keys(leaf).sort(), function(word) {
                             return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                         }));
