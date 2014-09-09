@@ -179,7 +179,7 @@ new Wotg.Plugins.Simple({
                 manual: 'console.log({argument})',
                 launch: function(console, content) {
                     console.log(
-                        new Function('', 'console.log(' + content + '); return ' + content)()
+                        new Function('', 'console.log(' + content + ')')()
                     );
                 }
             }
