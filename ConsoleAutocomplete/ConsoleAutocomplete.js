@@ -172,7 +172,16 @@ new Wotg.Plugins.Simple({
                 }
 
             });
-            debugger
+            this.commands.log = {
+                name: 'log',
+                manual: 'console.log({argument})',
+                launch: function(console, content) {
+                    console.log(
+                        new Function('', 'console.log(' + content + '); return ' +
+                            Object.prototype.toString.call(content) === '[object Object]' ? Object.keys(content) : content)()
+                    );
+                }
+            }
         },
     });
 });
