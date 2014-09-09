@@ -87,52 +87,55 @@ new Wotg.Plugins.Simple({
                 }
             }]);
         });
-        // exec
-        conIn.textcomplete([{
-            match: /^exec (\w*)$/,
-            search: function(term, callback) {
-                callback($.map(Object.keys(window).sort(), function(word) {
-                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
-                }));
-            },
-            index: 1,
-            replace: function(word) {
-                return 'exec ' + word;
-            }
-        }]);
-        // exec object.object_.object5
-        conIn.textcomplete([{
-            match: /(^exec [\w\.]*\.)(\w*)$/,
-            search: function(term, callback) {
-                var root = /^exec ([\w\.]*)\.\w*$/.exec(conIn[1].value);
-                if (!root) {
-                    callback($.map([], function() {
-                        return null;
-                    }));
-                    return;
-                }
-                var tree = root[1].split('.');
-                var leaf = tree.reduce(function(obj, parameter) {
-                    return obj[parameter];
-                }, window);
-                if (!(leaf instanceof Object)) {
-                    callback($.map(Object.keys(leaf).sort(), function(word) {
+        // exec || log
+        ['exec', 'log'].forEach(function(operation) {
+            conIn.textcomplete([{
+                match: new RegExp('^' + operation + ' (\\w*)$'),
+                search: function(term, callback) {
+                    callback($.map(Object.keys(window).sort(), function(word) {
                         return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
                     }));
-                } else {
-                    callback($.map([], function() {
-                        return null;
-                    }));
+                },
+                index: 1,
+                replace: function(word) {
+                    return operation + ' ' + word;
                 }
-                tree = null;
-                leaf = null;
-                root = null;
-            },
-            index: 2,
-            replace: function(word) {
-                return '$1' + word;
-            }
-        }]);
+            }]);
+            // operation object.object_.object5
+            conIn.textcomplete([{
+                match: new RegExp('(^' + operation + ' [\\w\\.]*\\.)(\\w*)$'),
+                search: function(term, callback) {
+                    var root = new RegExp('^' + operation + ' ([\\w\\.]*)\\.\\w*$').exec(conIn[1].value);
+                    if (!root) {
+                        callback($.map([], function() {
+                            return null;
+                        }));
+                        return;
+                    }
+                    var tree = root[1].split('.');
+                    var leaf = tree.reduce(function(obj, parameter) {
+                        return obj[parameter];
+                    }, window);
+                    if (!(leaf instanceof Object)) {
+                        callback($.map(Object.keys(leaf).sort(), function(word) {
+                            return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
+                        }));
+                    } else {
+                        callback($.map([], function() {
+                            return null;
+                        }));
+                    }
+                    tree = null;
+                    leaf = null;
+                    root = null;
+                },
+                index: 2,
+                replace: function(word) {
+                    return '$1' + word;
+                }
+            }]);
+        });
+
         // set
         conIn.textcomplete([{
             match: /^set (\w*)$/,
