@@ -172,6 +172,7 @@ new Wotg.Plugins.Simple({
                 }
 
             });
+            debugger
         },
     });
 });
