@@ -104,7 +104,6 @@ new Wotg.Plugins.Simple({
                 match: new RegExp('(^' + operation + ' [\\w\\.]*\\.)(\\w*)$'),
                 search: function(term, callback) {
                     var root = new RegExp('^' + operation + ' ([\\w\\.]*)\\.\\w*$').exec(conIn[1].value);
-                    debugger
                     if (!root) {
                         callback($.map([], function() {
                             return null;
