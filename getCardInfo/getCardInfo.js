@@ -33,8 +33,11 @@ new Wotg.Plugins.Simple({
 
         var csvRow = 'full;short;';
 
+        var propList = [];
+
         for (var prop in Wotg.Card.Proto.prototype) {
             if (typeof Wotg.Card.Proto.prototype[prop] === 'function') continue;
+            propList.push(prop);
             // Удаляем пустые свойства
             // if (prop === 'craft' || prop === 'promo' || prop === 'class' || prop === 'repaircost') {
             //     continue;
