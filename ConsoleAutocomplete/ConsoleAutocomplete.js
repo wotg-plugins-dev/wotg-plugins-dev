@@ -116,14 +116,17 @@ new Wotg.Plugins.Simple({
                     return obj[parameter];
                 }, window);
                 if (!(leaf instanceof Object)) {
+                    callback($.map(Object.keys(leaf).sort(), function(word) {
+                        return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
+                    }));
+                } else {
                     callback($.map([], function() {
                         return null;
                     }));
-                    return;
                 }
-                callback($.map(Object.keys(leaf).sort(), function(word) {
-                    return word.toLowerCase().indexOf(term.toLowerCase()) === 0 ? word : null;
-                }));
+                tree = null;
+                leaf = null;
+                root = null;
             },
             index: 2,
             replace: function(word) {
