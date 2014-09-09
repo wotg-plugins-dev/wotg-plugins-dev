@@ -177,7 +177,7 @@ new Wotg.Plugins.Simple({
                 launch: function(console, content) {
                     console.log(
                         new Function('', 'console.log(' + content + '); return ' +
-                            Object.prototype.toString.call(content) === '[object Object]' ? Object.keys(content) : content)()
+                            Object.prototype.toString.call(window[content]) === '[object Object]' ? Object.keys(content) : content)()
                     );
                 }
             }
