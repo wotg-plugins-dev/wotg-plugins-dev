@@ -6,16 +6,28 @@ new Wotg.Plugins.Simple({
     var commands = [];
     var pluginsCommands = [];
 
-    /*==================================================================================
-    =            JQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
-    ==================================================================================*/
+    jQtcAdd(pluginPath);
+    cssAdd(pluginPath);
 
-    function jQtcInit() {
+    console.log(this);
+    console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
+
+    /*==================================================================================
+    =            jQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
+    ==================================================================================*/
+    function jQtcAdd(pluginPath) {
         var jQueryWaiting = setInterval(function() {
             if (!window.jQuery) return;
             Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js');
             clearInterval(jQueryWaiting);
         }, 500);
+    }
+
+    function cssAdd(pluginPath) {
+        var css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = pluginPath + 'ConsoleAutocomplete.css';
+        document.head.appendChild(css);
     }
 
     function makeSuggestions() {
@@ -133,15 +145,6 @@ new Wotg.Plugins.Simple({
             }
         }]);
     }
-
-    events.add('initialize', function() {
-        var css = document.createElement('link');
-        css.rel = 'stylesheet';
-        css.href = pluginPath + 'ConsoleAutocomplete.css';
-        document.head.appendChild(css);
-        jQtcInit();
-        console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
-    });
 
     events.add('afterLaunch', function() {
         // Make array of available commands
