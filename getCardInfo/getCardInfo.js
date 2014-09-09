@@ -7,7 +7,7 @@ new Wotg.Plugins.Simple({
     /*===============================================================
     =            https://github.com/eligrey/FileSaver.js            =
     ===============================================================*/
-    Wotg.config().addScript(this.getPluginPath('FileSaver.js.js'));
+    Wotg.config().addScript(this.getPluginPath('FileSaver.js'));
 
     events.add('afterLaunch', function() {
         var csvTable = 'v.' + ver + '\n';
