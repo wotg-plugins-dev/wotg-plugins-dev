@@ -9,7 +9,7 @@ new Wotg.Plugins.Simple({
     ===============================================================*/
     Wotg.config().addScript(this.getPluginPath('FileSaver.js.js'));
 
-    api.events.add('afterLaunch', function() {
+    events.add('afterLaunch', function() {
         var csvTable = 'v.' + ver + '\n';
 
         var flushedCards = ['sv_su122a', 'go_arbeitedufuerdensieg', 'so_boltatvragupomogat', 'go_dersiegwirdunsersein', 'gp_feldmedizinerder14pd', 'uv_m3lee', 'uv_m5stuart', 'uv_m7priest', 'sv_t127', 'gp_nachaichtrnbrigadeder1pd', 'so_nashisilyneischislimy', 'gv_pzkpfw35(t)', 'sp_saperiukrainskogofronta', 'up_sniperplatoonofthe82division', 'gv_stug3', 'sv_su26', 'sv_su76', 'uv_t57', 'uv_t30', 'sv_t44', 'gv_wespe', 'gv_vk3001(p)', 'sv_btsv', 'sv_bt2', 'go_flammenwerfervor', 'gv_pzkpfwii', 'gv_88pak43jagdtiger'];
