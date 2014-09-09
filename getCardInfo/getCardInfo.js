@@ -33,19 +33,15 @@ new Wotg.Plugins.Simple({
 
         var csvRow = 'full;short;';
 
-
-        var card = Wotg.controller().protos.get(cards[0]);
-        var propList = card.props;
-
-        for (var k = 0; k < propList.length; k++) {
-            var prop = propList[k];
+        for (var prop in Wotg.Card.Proto.prototype) {
+            if (typeof Wotg.Card.Proto.prototype[prop] === 'function') continue;
             // Удаляем пустые свойства
-            if (prop === 'craft' || prop === 'promo' || prop === 'class' || prop === 'repaircost') {
-                propList.splice(k--, 1);
-                continue;
-            }
+            // if (prop === 'craft' || prop === 'promo' || prop === 'class' || prop === 'repaircost') {
+            //     continue;
+            // }
             csvRow += prop + ';';
         }
+
         csvTable += csvRow + '\n';
 
 
@@ -93,6 +89,6 @@ new Wotg.Plugins.Simple({
         var blob = new Blob([csvTable], {
             type: 'text/plain;charset=utf-8'
         });
-        saveAs(blob, 'cardsInfo' + ver + '.csv'); // Формат csv, разделитель ;
+        saveAs(blob, 'cardsInfo.v.' + ver + '.csv'); // Формат csv, разделитель ;
     });
 });
