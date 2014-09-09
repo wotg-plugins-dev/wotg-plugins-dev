@@ -9,8 +9,7 @@ new Wotg.Plugins.Simple({
     jQtcAdd(pluginPath);
     cssAdd(pluginPath);
 
-    console.log(this);
-    console.log(plugin.title + ' version ' + plugin.version + ' from ' + plugin.repository + ' initialized');
+    console.log(this.title + ' version ' + this.version + ' from ' + this.repository + ' initialized');
 
     /*==================================================================================
     =            jQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
