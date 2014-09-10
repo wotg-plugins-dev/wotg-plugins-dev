@@ -110,6 +110,11 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		
 		for (var i = 0 ; i < list.length; i++) {
 			if (Wotg.controller().protos.get(list[i].card).type.toLowerCase() != 'hq') {
+				if (list[i].slot > 23) {
+					jslog('слишком большой слот:',list[i])
+					list[i].slot = list[i].slot-15;
+				}
+			}
 				this.createCard(list[i]);
 			} else {
 				this.createHq(list[i], false, false);
@@ -149,9 +154,9 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		10: new Point(728, 500),
 		11: new Point(972, 500),
 		12: new Point(1217, 500),
-		13: new Point(159, 779),
-		14: new Point(650, 779),
-		15: new Point(1139, 779),
+		13: new Point(159, 679),
+		14: new Point(650, 679),
+		15: new Point(1139, 679),
 		
 		16: new Point(484, 140), 
 		17: new Point(1217, 140),//101
