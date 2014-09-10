@@ -109,12 +109,12 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		this.createHqHq(rootData);
 		
 		for (var i = 0 ; i < list.length; i++) {
-			if (Wotg.controller().protos.get(list[i].card).type.toLowerCase() != 'hq') {
-				if (list[i].slot > 23) {
-					jslog('слишком большой слот:',list[i])
-					list[i].slot = list[i].slot-15;
-				}
+			if (list[i].slot > 23) {
+				jslog('слишком большой слот:',list[i])
+				list[i].slot = list[i].slot-15;
 			}
+			if (Wotg.controller().protos.get(list[i].card).type.toLowerCase() != 'hq') {
+
 				this.createCard(list[i]);
 			} else {
 				this.createHq(list[i], false, false);
