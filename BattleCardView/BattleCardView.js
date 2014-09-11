@@ -100,9 +100,9 @@ new Wotg.Plugins.Simple({
       */
 
     /** @name Wotg.Battle.Gui.StaticElements */
- /*   declare('Wotg.Battle.Gui.StaticElements', {
+   plugin.refactor('Wotg.Battle.Gui.StaticElements', {
         initialize: function () {
-            var frames = new Animation.Frames(Wotg.controller().images.get('flag-animation'), 60, 60);
+            /*var frames = new Animation.Frames(Wotg.controller().images.get('flag-animation'), 60, 60);
 
             this.sheets = atom.object.map({
                 GERMANY: Array.range(37, 0),
@@ -120,7 +120,7 @@ new Wotg.Plugins.Simple({
             this.flagShapes = {
                 enemy: Wotg.battle().markup.find('FlagEnemy').getShape(),
                 own: Wotg.battle().markup.find('FlagOwn').getShape()
-            };
+            };*/
             this.texts = {
                 own: {
                     deck: this.text({ z: 5, path: 'PackOwn.Deck', tooltip: "battle.tooltips.deck.own" }),
@@ -151,11 +151,11 @@ new Wotg.Plugins.Simple({
 
         },
         createFlag: function (country, isOpponent) {
-            return new Wotg.Battle.Gui.Flag(Wotg.battle().layer, {
+            /*return new Wotg.Battle.Gui.Flag(Wotg.battle().layer, {
                 sheet: this.sheets[country],
                 shape: this.flagShapes[(isOpponent) ? 'enemy': 'own']
-            });
-        },
+            });*/
+        }/*,
 
         text: function (config) {
             var node = config.path ? Wotg.battle().markup.find(config.path) : null,
@@ -209,8 +209,8 @@ new Wotg.Plugins.Simple({
                 }
             }
             this.images = null;
-        }
-    });        */
+        }*/
+    });        
 
 
 
