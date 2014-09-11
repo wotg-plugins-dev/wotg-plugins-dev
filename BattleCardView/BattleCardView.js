@@ -45,8 +45,8 @@ new Wotg.Plugins.Simple({
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
-    .move('UserPhotoOwn', [  0, -567 ])
-    .move('UserNameOwn', [  0, -567 ])
+    .move('UserPhotoOwn', [  -64, -567 ])
+    .move('UserNameOwn', [  -64, -567 ])
     //.place('consumableOwn1', [1207, 143, 60, 60])  172      156
     .move('consumableOwn1', [  -266, -366 ])
     .move('consumableOwn2', [  -266, -366 ])
