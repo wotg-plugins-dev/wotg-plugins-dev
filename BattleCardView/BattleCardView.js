@@ -6,7 +6,8 @@ new Wotg.Plugins.Simple({
 		'test': 'image.png'
 	});*/
 	
-		
+	//Wotg.Card.Markup.Hand
+	//
 	
 	console.log('BattleCardView', { Wotg: Wotg, plugin: plugin, atom: atom });
     
@@ -55,20 +56,178 @@ new Wotg.Plugins.Simple({
     .move('consumableEnemy1', [  264, 182 ])
     .move('consumableEnemy2', [  264, 182 ])
     .move('consumableEnemy3', [  264, 182 ])
-    .move('SkipBtn', [  100, 50 ])
+    .move('SkipBtn', [  100, 50 ]);
+    
+   
+   // plugin.markupChange(Wotg.Card.Markup.Hand)
+   // .
+            
 
-
-            ;
-
-    var node = plugin.markupChange(Wotg.Battle.Markup).find('FlagOwn');
-    if(node) {
-    	delete node;
-    }
+    
 
     events.add('afterLaunch', function () {
     		Wotg.controller().popups.openOverlayOpacity = 0.4;
 		//console.log(plugin.getImage('added-image'));
 		//console.log(Wotg.controller().images.get('battle-card-pack-own'));
+	});
+
+    
+    
+    	/**
+	 * @namespace Wotg.Card.Views
+	 * @name Wotg.Card.Views.Hand
+	 * @extends Wotg.Card.View
+	 */
+/*	declare( 'Wotg.Card.Views.Hand', Wotg.Card.View, {
+	
+		markup: Wotg.Card.Markup.Hand,
+	
+		flagFrames: { usa: 0, ussr: 1, germany: 2 },
+		typeFrames: { vehicle: 0, platoon: 0, order: 1 },
+		hqSubtypes: { consolidated: 0, any: 1, attack: 2, guards: 3  },
+	
+		initialize: function method () {
+			method.previous.apply(this, arguments);
+			this.imageCrop = this.model.proto.type == 'order' ?
+				new Rectangle(0, 0, 172, 172):
+				new Rectangle(15, 0, 250, 250);
+		},
+	
+		redraw: function () {
+			var model = this.model;
+	
+			this.buffer.ctx.clearAll();
+			this.lazyDraw(this.lazyArt);
+	
+			this.setFrame('Background'  , 0);
+	
+			this.setText ('Title', Wotg.lang('cards.' + model.getProperty('idC') + '.short') );
+			this.setValue('Cost', model.getProperty('cost'));
+			if (model.isOpponent) {
+				this.setFrame('Power', 0);
+				this.dava.find('Power.Value').text.color = '#e54343';
+			} else {
+				this.setFrame('Power', 1);
+			}
+			if (model.getProperty('type') == 'order') {
+				this.setFrame('Background', 1);
+				this.hide('Increase' );
+				this.hide('Power'    );
+				this.hide('Toughness');
+			} else {
+				if (model.getProperty('resources')) {
+					this.show('Increase');
+					this.setValue('Increase', model.getProperty('resources'), true);
+				} else {
+					this.hide('Increase');
+				}
+				this.setValue('Power'    , model.getProperty('power'));
+				this.setValue('Toughness', model.getProperty('toughness'));
+				this.dava.find('Increase.Value').setShadow(null);
+				if (model.getProperty('type') == 'platoon'){
+					if (model.getProperty('isDefense')){
+						//this.setFrame('Background', 1);
+						this.setFrame('Power', 2);
+						this.setValue('Power', model.getProperty('defense'));
+					}
+					if (model.getProperty('isAttack')) {
+						this.setFrame('Power', 3);
+					}
+				}
+			}
+	
+			this.setFrame('NationFlag'  , this.flagFrames[model.getProperty('country')]);
+			this.setFrame('Subtype'     , this.getSubtypeFrame(model.isOpponent));
+	
+			// if(!this.proto.premium)
+			this.hide('PremiumFrame');
+			// else this.show('PremiumFrame');
+			this.hide('Amount');
+	
+			this.dava.redraw(this.buffer.ctx);
+	
+			this.buffer.ctx.drawImage(
+				Wotg.controller().cardText.getTextBuffer(model.proto, null, model.isOpponent),
+				this.dava.find('Text').getShape()
+			);
+			this.events.fire("redraw");
+		}
+	
+	});
+
+    */
+    
+    	/**
+	 * @namespace Wotg.Card.Views
+	 * @name Wotg.Card.Views.Battle
+	 * @extends Wotg.Card.View
+	 */
+	plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+	
+		redraw: function () {
+			var model = this.model;
+	
+			this.buffer.ctx.clearAll();
+			this.lazyDraw(this.lazyArt);
+	
+			this.setText ('Title'       , Wotg.lang('cards.' + model.getProperty('idC') + '.short') );
+	
+			if (model.getProperty('increase')) {
+				this.show('Increase');
+				this.setValue('Increase',model.getProperty('increase'), true);
+			} else {
+				this.hide('Increase');
+			}
+	
+			this.setValue('Power'       , model.getProperty('power'));
+			this.setValue('Toughness'   , model.getProperty('toughness'));
+	
+			this.setFrame('NationFlag'  , this.flagFrames[model.getProperty('country')]);
+	
+			this.setFrame('Subtype'     , this.getSubtypeFrame(model.isOpponent));
+	
+			for (var i = 0; i <= 3; i++) {
+				this.hide('Triggers.Trigger' + i);
+			}
+			if(model.getProperty('triggers')) {
+				var triggers = model.getProperty('triggers'),
+					currentIndex = 0;
+				for (var i = 0; i < triggers.length; i++) {
+					if (this.effectsFrames[triggers[i]] != undefined) {
+						this.showEffect(currentIndex, triggers[i]);
+						currentIndex++;
+					} else if (triggers[i].indexOf('burning') != -1){
+						this.showEffect(currentIndex, 'burning');
+						currentIndex++;
+					}
+				}
+			}
+			if (model.isOpponent) {
+				this.setFrame('Power', 0);
+				this.setFrame('Frames', 1);
+				this.dava.find('Power.Value').text.color = '#e54343';
+			} else {
+				this.setFrame('Power', 1);
+				this.setFrame('Frames', 0);
+			}
+	
+			/*if (model.getProperty('untapped')) {
+				this.hide('NoShoot');
+			}  else {
+				this.show('NoShoot');
+			}
+			if (!model.getProperty('moved')) {
+				this.hide('NoMove');
+			} else {
+				this.show('NoMove');
+			}*/
+	
+			this.hide('PremiumFrame');
+	
+			this.dava.redraw(this.buffer.ctx);
+	
+		}
+	
 	});
 
     	
