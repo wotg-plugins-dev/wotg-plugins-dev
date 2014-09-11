@@ -15,13 +15,13 @@ new Wotg.Plugins.Simple({
     =            jQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
     ==================================================================================*/
     function jQtcAdd(pluginPath) {
-        var counter = 0;
+        var counter = 25;
         var jQueryWaiting = setInterval(function() {
             counter--;
             // Consider there is no jQuery
             if (counter < 0) {
                 Wotg.config().addScript(pluginPath + 'jquery.js', function() {
-                    Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js', console.log('test'));
+                    Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js', console.log('Load jQuery'));
                 });
                 clearInterval(jQueryWaiting);
                 return;
@@ -40,7 +40,15 @@ new Wotg.Plugins.Simple({
     }
 
     function makeSuggestions() {
+        if (!window.jQuery) {
+            console.log('jQuery not yet loaded');
+            return;
+        }
         var conIn = $('.console-input');
+        if (!conIn.textcomplete) {
+            console.log('jQuery textcomplete not yet loaded');
+            return;
+        }
         // Console command
         conIn.textcomplete([{
             match: /^(\w*)$/,
