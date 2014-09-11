@@ -66,8 +66,9 @@ new Wotg.Plugins.Simple({
     }
 
     events.add('afterLaunch', function () {
+    		Wotg.controller().popups.openOverlayOpacity = 0.4;
 		//console.log(plugin.getImage('added-image'));
-		console.log(Wotg.controller().images.get('battle-card-pack-own'));
+		//console.log(Wotg.controller().images.get('battle-card-pack-own'));
 	});
 
     	
