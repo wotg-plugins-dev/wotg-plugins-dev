@@ -60,7 +60,7 @@ new Wotg.Plugins.Simple({
 
     var node = plugin.markupChange(Wotg.Battle.Markup).find('FlagOwn');
     if(node) {
-    	remove node;
+    	delete node;
     }
 
     events.add('afterLaunch', function () {
