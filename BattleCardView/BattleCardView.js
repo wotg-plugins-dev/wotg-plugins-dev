@@ -41,7 +41,7 @@ new Wotg.Plugins.Simple({
     .move('PackOwn', [  11, -556 ])
     .move('PackOwn.Deck', [  -11, -26 ])
     .move('PackOwn.Grave', [  -11, -26 ])
-    .move('UserPhotoOwn', [ 15, 0])
+    .move('UserPhotoOwn', [ 0, 15])
    // .deleteNode('FlagOwn'/*, [  0, -582 ]*/)
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
