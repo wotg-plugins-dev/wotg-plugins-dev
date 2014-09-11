@@ -683,7 +683,7 @@ new Wotg.Plugins.Simple({
 
         // Использование расходников
         Wotg.controller().connection.events.add('message/consumables/use', function(message) {
-
+        	if (!message.activities) return;
             var playerno = message.player.playerno;
             for (i = 0; i < message.activities.length; i++) {
                 var activity = message.activities[i];
