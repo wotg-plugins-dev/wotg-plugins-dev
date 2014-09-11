@@ -162,7 +162,7 @@ new Wotg.Plugins.Simple({
 	 * @name Wotg.Card.Views.Battle
 	 * @extends Wotg.Card.View
 	 */
-	plugin.refactor( 'Wotg.Card.Views.Battle', Wotg.Card.View, {
+	plugin.refactor( 'Wotg.Card.Views.Battle', {
 	
 		redraw: function () {
 			var model = this.model;
