@@ -48,11 +48,13 @@ new Wotg.Plugins.Simple({
     .move('UserPhotoOwn', [  0, -582 ])
     .move('UserNameOwn', [  0, -582 ])
     //.place('consumableOwn1', [1207, 143, 60, 60])  172      156
-   // .move('consumableOwn2', [  0, -550 ])
-    //.move('consumableOwn3', [  0, -550 ])
-    .place('consumableEnemy1', [1207, 299, 22, 22])
-   // .move('consumableEnemy2', [  0, -550 ])
-   // .move('consumableEnemy3', [  0, -550 ])
+    .move('consumableOwn1', [  -266, -366 ])
+    .move('consumableOwn2', [  -266, -366 ])
+    .move('consumableOwn3', [  -266, -366 ])
+    //.place('consumableEnemy1', [1207, 299, 22, 22])
+    .move('consumableEnemy1', [  264, 182 ])
+    .move('consumableEnemy2', [  264, 182 ])
+    .move('consumableEnemy3', [  264, 182 ])
     .move('SkipBtn', [  100, 50 ])
 
 
