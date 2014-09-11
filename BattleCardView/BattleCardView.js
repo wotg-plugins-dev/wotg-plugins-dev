@@ -25,7 +25,7 @@ new Wotg.Plugins.Simple({
     .move('PackOwn', [  11, -556 ])
     .move('PackOwn.Deck', [  -11, -26 ])
     .move('PackOwn.Grave', [  -11, -26 ])
-    .delete('FlagOwn'/*, [  0, -582 ]*/)
+    .deleteNode('FlagOwn'/*, [  0, -582 ]*/)
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
@@ -49,7 +49,7 @@ new Wotg.Plugins.Simple({
 	});
 
     plugin.refactor( 'Wotg.Plugins.DavaChange', {
-    	delete: function (id) {
+    	deleteNode: function (id) {
     		var node = this.find(id);
     		if(node){
     			delete node;
