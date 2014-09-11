@@ -6,8 +6,21 @@ new Wotg.Plugins.Simple({
 		'test': 'image.png'
 	});*/
 	
+		
+	
 	console.log('BattleCardView', { Wotg: Wotg, plugin: plugin, atom: atom });
-    console.log('update');
+    
+    plugin.refactor( 'Wotg.Plugins.DavaChange', {
+    	deleteNode: function (id) {
+    		var node = this.find(id);
+    		if(node){
+    			delete node;
+    		}
+    	}
+    });
+    
+    
+    
 
 	events.add('initialize', function () {
 		console.log('BattleCardView initialized');
@@ -48,14 +61,7 @@ new Wotg.Plugins.Simple({
 		console.log(Wotg.controller().images.get('battle-card-pack-own'));
 	});
 
-    plugin.refactor( 'Wotg.Plugins.DavaChange', {
-    	deleteNode: function (id) {
-    		var node = this.find(id);
-    		if(node){
-    			delete node;
-    		}
-    	}
-    });	
+    	
 
     /** @name Wotg.Battle.Gui.Reserves */
     plugin.refactor( 'Wotg.Battle.Gui.Reserves', {
