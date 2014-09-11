@@ -210,7 +210,8 @@ new Wotg.Plugins.Simple({
 				this.setFrame('Power', 1);
 				this.setFrame('Frames', 0);
 			}
-	
+			this.hide('NoShoot');
+			this.hide('NoMove');
 			/*if (model.getProperty('untapped')) {
 				this.hide('NoShoot');
 			}  else {
