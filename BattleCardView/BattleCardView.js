@@ -10,7 +10,7 @@ new Wotg.Plugins.Simple({
 	
 	console.log('BattleCardView', { Wotg: Wotg, plugin: plugin, atom: atom });
     
-    plugin.refactor( 'Wotg.Plugins.DavaChange', {
+   /* plugin.refactor( 'Wotg.Plugins.DavaChange', {
     	deleteNode: function (id) {
     		var node = this.find(id);
     		if(node){
@@ -18,7 +18,7 @@ new Wotg.Plugins.Simple({
     		}
     	}
     });
-    
+    */
     
     
 
@@ -30,6 +30,9 @@ new Wotg.Plugins.Simple({
 		'battle-card-pack-own': 'battle/card-pack-own.png'
 	});
 
+	
+
+
     plugin.markupChange(Wotg.Battle.Markup)
 
     //.move('HandOwn', [  -240, 0 ])
@@ -38,7 +41,7 @@ new Wotg.Plugins.Simple({
     .move('PackOwn', [  11, -556 ])
     .move('PackOwn.Deck', [  -11, -26 ])
     .move('PackOwn.Grave', [  -11, -26 ])
-    .deleteNode('FlagOwn'/*, [  0, -582 ]*/)
+   // .deleteNode('FlagOwn'/*, [  0, -582 ]*/)
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
@@ -55,6 +58,10 @@ new Wotg.Plugins.Simple({
 
             ;
 
+    var node = plugin.markupChange(Wotg.Battle.Markup).find('FlagOwn');
+    if(node) {
+    	remove node;
+    }
 
     events.add('afterLaunch', function () {
 		//console.log(plugin.getImage('added-image'));
