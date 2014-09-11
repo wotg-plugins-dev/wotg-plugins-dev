@@ -21,7 +21,7 @@ new Wotg.Plugins.Simple({
             // Consider there is no jQuery
             if (counter < 0) {
                 Wotg.config().addScript(pluginPath + 'jquery.js', function() {
-                    Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js', console.log('test');)
+                    Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js', console.log('test'))
                 });
                 clearInterval(jQueryWaiting);
                 return;
