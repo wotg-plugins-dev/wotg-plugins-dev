@@ -25,7 +25,7 @@ new Wotg.Plugins.Simple({
     .move('PackOwn', [  11, -556 ])
     .move('PackOwn.Deck', [  -11, -26 ])
     .move('PackOwn.Grave', [  -11, -26 ])
-    .move('FlagOwn', [  0, -582 ])
+    .delete('FlagOwn', [  0, -582 ])
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
@@ -47,6 +47,15 @@ new Wotg.Plugins.Simple({
 		//console.log(plugin.getImage('added-image'));
 		console.log(Wotg.controller().images.get('battle-card-pack-own'));
 	});
+
+    plugin.refactor( 'Wotg.Plugins.DavaChange', {
+    	delete: function (id) {
+    		var node = this.find(id);
+    		if(node){
+    			delete node;
+    		}
+    	}
+    });	
 
     /** @name Wotg.Battle.Gui.Reserves */
     plugin.refactor( 'Wotg.Battle.Gui.Reserves', {
