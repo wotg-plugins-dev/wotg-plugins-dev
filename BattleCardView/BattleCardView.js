@@ -257,6 +257,54 @@ new Wotg.Plugins.Simple({
         }
     });
 
+	plugin.refactor( 'Wotg.Battle.Animations', {
+		/*deathSheetTime: 32,
+		explosionSheetTime: 64,
+		currentDeathZ: 200,
+		initialize : function(){
+			this.deathSheet = new Animation.Sheet({
+				frames:  new Animation.Frames( Wotg.controller().images.get('battle-card-death'), 160, 160 ),
+				delay : this.deathSheetTime
+			});
+			this.explosionSheet = new Animation.Sheet({
+				frames:  new Animation.Frames( Wotg.controller().images.get('battle-explosion'), 220, 220),
+				delay : this.deathSheetTime
+			});
+		},
+		shot: function (params) {
+			Wotg.sound('bullet-flight');
+			new Wotg.Battle.Animations.Bullet( Wotg.battle().layer, {
+				zIndex: 4,
+				source: params.source.shape.center,
+				target: params.target.shape.center,
+				onComplete: function(params) {
+					Wotg.sound('bullet-hit');
+					new Wotg.Battle.Animations.Explosion(Wotg.battle().layer, {
+						card : params.target,
+						sheet: this.explosionSheet
+					});
+					params.onComplete();
+				}.bind(this, params)
+			});
+		},*/
+		death : function(params) {
+			//do nothing
+				/*var animation = new Wotg.Battle.Animations.Death(Wotg.battle().layer, {
+				sheet: this.deathSheet,
+				grave: Wotg.battle().markup.find((!params.source.card.viewModel.isOpponent) ? 'PackOwn' : 'PackEnemy').getShape().center,
+				zIndex: (this.currentDeathZ += 0.0000001),
+				shape: params.source.shape,
+				onStart: params.onStart || function () {},
+				onEnd: function(){
+					params.onComplete && params.onComplete();
+					animation && animation.destroy();
+					animation = null;
+				}
+			});*/
+	
+		}
+	});
+
     /*plugin.markupChange(Wotg.Card.Markup.Battle)
 		.move('Power'    , [  0, 97 ])
 		.move('Toughness', [ 70, 20 ]);
