@@ -440,7 +440,7 @@ new Wotg.Plugins.Simple({
 				}
 			}else{
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
-					deckQtyEl.texts[i].config.color = 'white';
+					deckQtyEl.texts[i].config.color = Wotg.Battle.Markup.markup.find('PackOwn.Deck').textcolor;
 				}
 			}
 			gui.deck.setText(model.deck);
