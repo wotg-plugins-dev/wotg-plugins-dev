@@ -88,7 +88,7 @@ new Wotg.Plugins.Simple({
     Wotg.Card.Markup.MHand.markup.children[10].children[0].textcolor = "white";
     // Wotg.Card.Markup.MHand.markup.children[10].children[0].textalign = "left";
     // Wotg.Card.Markup.MHand.markup.children[10].children[0].font = 'Copperplate, Papyrus, fantasy';
-    Wotg.Card.Markup.MHand.markup.children[10].children[0].rect = [2, 4, 60, 20];
+    // Wotg.Card.Markup.MHand.markup.children[10].children[0].rect = [2, 4, 60, 20];
     //Toughness
     Wotg.Card.Markup.MHand.markup.children[11].rect = [90, 34, 23, 23];
     Wotg.Card.Markup.MHand.markup.children[11].children[0].fontsize = 14;
