@@ -50,19 +50,19 @@ new Wotg.Plugins.Simple({
     }];
 
     //Указываем другую рамку карты
-    Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = "Sandrem:DeckEditor20:mcard";
+    Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = plugin.repository+":"+plugin.title+":mcard";
     Wotg.Card.Markup.MHand.markup.children[1].rect = [0, 0, 176, 65];
     //Указываем другую иконку атаки
-    Wotg.Card.Markup.MHand.markup.children[10].sprite.texture = "Sandrem:DeckEditor20:mattackSmall";
+    Wotg.Card.Markup.MHand.markup.children[10].sprite.texture = plugin.repository+":"+plugin.title+":mattackSmall";
     Wotg.Card.Markup.MHand.markup.children[10].rect = [0, 0, 23, 23];
     //Указываем другую иконку зашиты
-    Wotg.Card.Markup.MHand.markup.children[11].sprite.texture = "Sandrem:DeckEditor20:mDEF_small";
+    Wotg.Card.Markup.MHand.markup.children[11].sprite.texture = plugin.repository+":"+plugin.title+":mDEF_small";
     Wotg.Card.Markup.MHand.markup.children[11].rect = [0, 0, 23, 23];
     //Указываем другую иконку прироста
-    Wotg.Card.Markup.MHand.markup.children[8].sprite.texture = "Sandrem:DeckEditor20:mIncrease_smallFull";
+    Wotg.Card.Markup.MHand.markup.children[8].sprite.texture = plugin.repository+":"+plugin.title+":mIncrease_smallFull";
     Wotg.Card.Markup.MHand.markup.children[8].rect = [0, 0, 23, 23];
     //Указываем другую иконку стоимости
-    Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = "Sandrem:DeckEditor20:mResourseSmall";
+    Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = plugin.repository+":"+plugin.title+":mResourseSmall";
     Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
 
     //Правим разметку под новый размер
