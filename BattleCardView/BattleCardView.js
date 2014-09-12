@@ -433,7 +433,7 @@ new Wotg.Plugins.Simple({
 				model = this.getModel().set(this.data.value);
 	
 			if( parseInt(model.deck) > 30 ){	
-				for (var i = 0; i < this.texts.length; i++){
+				for (var i = 0; i < gui.deck.texts.length; i++){
 					gui.deck.texts[i].config.color = '#cb1d20';
 				}
 			}else{
