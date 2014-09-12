@@ -81,7 +81,7 @@ new Wotg.Plugins.Simple({
     //Wotg.Card.Markup.MHand.markup.children[5].fontsize = 14;
     //Count
     // Wotg.Card.Markup.MPack.markup.children[11].rect = [150, 40, 20, 25];
-    Wotg.Card.Markup.MPack.markup.children[11].rect = [2, 40, 20, 25];
+    Wotg.Card.Markup.MPack.markup.children[11].rect = [-10, 40, 20, 25];
     //Power
     Wotg.Card.Markup.MHand.markup.children[10].rect = [65, 24, 28, 28];
     Wotg.Card.Markup.MHand.markup.children[10].children[0].fontsize = 18;
@@ -100,7 +100,7 @@ new Wotg.Plugins.Simple({
     Wotg.Card.Markup.MHand.markup.children[8].rect = [140, 24, 28, 28];
     Wotg.Card.Markup.MHand.markup.children[8].children[0].fontsize = 18;
     Wotg.Card.Markup.MHand.markup.children[8].children[0].textcolor = "white";
-    Wotg.Card.Markup.MHand.markup.children[8].children[0].rect = [5, 4, 20, 20];
+    // Wotg.Card.Markup.MHand.markup.children[8].children[0].rect = [5, 4, 20, 20];
     //Cost
     Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
     Wotg.Card.Markup.MHand.markup.children[9].children[0].fontsize = 14;
