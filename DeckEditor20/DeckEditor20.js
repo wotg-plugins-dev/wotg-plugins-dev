@@ -74,7 +74,7 @@ new Wotg.Plugins.Simple({
 
     //Меняем разметку
     //Art
-    Wotg.Card.Markup.MHand.markup.children[0].rect = [8, 6, 55, 55];
+    Wotg.Card.Markup.MHand.markup.children[0].rect = [8, 5, 55, 55];
     //Title
     Wotg.Card.Markup.MHand.markup.children[5].rect = [66, 7, 103, 17];
     Wotg.Card.Markup.MHand.markup.children[5].textcolor = "rgba(255,255,255,1)";
