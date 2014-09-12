@@ -437,7 +437,7 @@ new Wotg.Plugins.Simple({
 			if( parseInt(model.deck) > 30 ){	
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
 					deckQtyEl.texts[i].config.color = '#d32c2f';//'#cb1d20';
-					deckQtyEl.texts[i].config.fontsize = '22';
+					deckQtyEl.texts[i].config.size = 22;
 					//fontsize
 				//	deckQtyEl.texts[i].config.shadow = 'white';
 					deckQtyEl.texts[i].config.bold = true;
