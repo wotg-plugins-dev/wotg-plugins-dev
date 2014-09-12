@@ -147,20 +147,13 @@ new Wotg.Plugins.Simple({
             } else {
                 if (model.getProperty('resources')) {
                     this.show('Increase');
-                    this.setValue('Increase', "", true);
+                    this.setValue('Increase', model.getProperty('resources'));
                 } else {
                     this.hide('Increase');
                 }
                 var increase;
-                console.log(model.getProperty('resources'));
-                if (model.getProperty('resources') == 0) {
-                    increase = "";
-                } else {
-                    increase = "/+" + model.getProperty('resources')
-                };
-                console.log(increase);
-                this.setValue('Power', model.getProperty('power') + "/" + model.getProperty('toughness') + increase);
-                this.setValue('Toughness', "");
+                this.setValue('Power', model.getProperty('power'));
+                this.setValue('Toughness', model.getProperty('toughness'));
                 //this.dava.find('Increase.Value').setShadow(null);
                 if (model.getProperty('type') == 'platoon') {
                     if (model.getProperty('isDefense')) {
