@@ -432,8 +432,17 @@ new Wotg.Plugins.Simple({
 				gui = Wotg.battle().gui.staticElements.texts[this.guiIndex],
 				model = this.getModel().set(this.data.value);
 	
+			if( parseInt(model.deck) > 30 ){	
+				for (var i = 0; i < this.texts.length; i++){
+					gui.deck.texts[i].config.color = '#cb1d20';
+				}
+			}else{
+				for (var i = 0; i < this.texts.length; i++){
+					gui.deck.texts[i].config.color = 'white';
+				}
+			}
 			gui.deck.setText(model.deck);
-			gui.grave.setText('bla'+model.graveyard);
+			gui.grave.setText(model.graveyard);
 			gui.resources.setText(model.resources);
 			gui.resourcesInc.setText(model.increase);
 	
