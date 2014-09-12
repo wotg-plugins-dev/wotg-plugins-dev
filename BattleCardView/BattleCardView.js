@@ -434,13 +434,13 @@ new Wotg.Plugins.Simple({
 	
 	
 			var deckQtyEl = gui.deck;	
-			if( parseInt(model.deck) <= 5 ){	
+			if( parseInt(model.deck) > 30 ){	
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
 					deckQtyEl.texts[i].config.color = '#d32c2f';//'#cb1d20';
-					deckQtyEl.texts[i].config.size = 24;
+					deckQtyEl.texts[i].config.fontsize = '22';
 					//fontsize
 				//	deckQtyEl.texts[i].config.shadow = 'white';
-				//	deckQtyEl.texts[i].config.bold = true;
+					deckQtyEl.texts[i].config.bold = true;
 				}
 			}else{
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
