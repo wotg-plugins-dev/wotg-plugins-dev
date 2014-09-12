@@ -432,13 +432,15 @@ new Wotg.Plugins.Simple({
 				gui = Wotg.battle().gui.staticElements.texts[this.guiIndex],
 				model = this.getModel().set(this.data.value);
 	
+	
+			var deckQtyEl = gui.deck;	
 			if( parseInt(model.deck) > 30 ){	
-				for (var i = 0; i < gui.deck.texts.length; i++){
-					gui.deck.texts[i].config.color = '#cb1d20';
+				for (var i = 0; i < deckQtyEl.texts.length; i++){
+					deckQtyEl.texts[i].config.color = '#cb1d20';
 				}
 			}else{
-				for (var i = 0; i < this.texts.length; i++){
-					gui.deck.texts[i].config.color = 'white';
+				for (var i = 0; i < deckQtyEl.texts.length; i++){
+					deckQtyEl.texts[i].config.color = 'white';
 				}
 			}
 			gui.deck.setText(model.deck);
