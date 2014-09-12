@@ -38,15 +38,15 @@ new Wotg.Plugins.Simple({
 	      "shift": [0, 0]
 	    }];	
 
-	Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = "Sandrem:DeckEditor20Stable:mcard";
+	Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = plugin.repository+":"+plugin.title+":mcard";
 	Wotg.Card.Markup.MHand.markup.children[1].rect = [0, 0, 176, 65];    
-	Wotg.Card.Markup.MHand.markup.children[10].sprite.texture = "Sandrem:DeckEditor20Stable:mattackSmall";
+	Wotg.Card.Markup.MHand.markup.children[10].sprite.texture = plugin.repository+":"+plugin.title+":mattackSmall";
 	Wotg.Card.Markup.MHand.markup.children[10].rect = [0, 0, 23, 23];   
-	Wotg.Card.Markup.MHand.markup.children[11].sprite.texture = "Sandrem:DeckEditor20Stable:mDEF_small";
+	Wotg.Card.Markup.MHand.markup.children[11].sprite.texture = plugin.repository+":"+plugin.title+":mDEF_small";
 	Wotg.Card.Markup.MHand.markup.children[11].rect = [0, 0, 23, 23]; 	
-	Wotg.Card.Markup.MHand.markup.children[8].sprite.texture = "Sandrem:DeckEditor20Stable:mIncrease_smallFull";
+	Wotg.Card.Markup.MHand.markup.children[8].sprite.texture = plugin.repository+":"+plugin.title+":mIncrease_smallFull";
 	Wotg.Card.Markup.MHand.markup.children[8].rect = [0, 0, 23, 23];	
-	Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = "Sandrem:DeckEditor20Stable:mResourseSmall";
+	Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = plugin.repository+":"+plugin.title+":mResourseSmall";
 	Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];	
 	Wotg.Card.Markup.MPack.markup.rect = [0, 0, 176, 65];
 	Wotg.Card.Markup.MPack.markup.children[0].rect = [0, 0, 176, 65];
