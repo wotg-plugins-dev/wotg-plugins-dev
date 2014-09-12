@@ -15,6 +15,8 @@ new Wotg.Plugins.Simple({
     //TODO: Найти более красивый способ	
     Wotg.Card.Markup.MPack = JSON.parse(JSON.stringify(Wotg.Card.Markup.Pack));
     Wotg.Card.Markup.MHand = JSON.parse(JSON.stringify(Wotg.Card.Markup.Hand));
+    console.info(Wotg.Card.Markup.MHand);
+    console.info(Wotg.Card.Markup.MPack);
 
     //Меняем рамку карты в редакторе
     Wotg.Card.Markup.MHand.sprites.body_handCard = [{
@@ -90,7 +92,7 @@ new Wotg.Plugins.Simple({
     Wotg.Card.Markup.MHand.markup.children[11].rect = [90, 34, 23, 23];
     // Wotg.Card.Markup.MHand.markup.children[11].children[0].fontsize = 14;
     // Wotg.Card.Markup.MHand.markup.children[11].children[0].textcolor = "rgba(159,143,111,1)";
-    Wotg.Card.Markup.MHand.markup.children[11].children[0].rect = [2, 4, 20, 20];
+    Wotg.Card.Markup.MHand.markup.children[11].children[0].rect = [20, 4, 20, 20];
     //Increase
     Wotg.Card.Markup.MHand.markup.children[8].rect = [115, 34, 23, 23];
     // Wotg.Card.Markup.MHand.markup.children[8].children[0].fontsize = 14;
