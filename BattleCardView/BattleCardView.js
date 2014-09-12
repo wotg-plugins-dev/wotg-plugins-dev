@@ -441,6 +441,8 @@ new Wotg.Plugins.Simple({
 					//fontsize
 				//	deckQtyEl.texts[i].config.shadow = 'white';
 					deckQtyEl.texts[i].config.bold = true;
+					plugin.markupChange(Wotg.Battle.Markup).move('PackOwn.Deck', [  0, -4 ]);
+
 				}
 			}else{
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
