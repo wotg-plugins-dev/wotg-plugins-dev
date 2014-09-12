@@ -434,19 +434,20 @@ new Wotg.Plugins.Simple({
 	
 	
 			var deckQtyEl = gui.deck;	
-			if( parseInt(model.deck) > 30 ){	
+			if( parseInt(model.deck) <= 5 ){	
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
 					deckQtyEl.texts[i].config.color = '#d32c2f';//'#cb1d20';
 					deckQtyEl.texts[i].config.size = 22;
 					//fontsize
 				//	deckQtyEl.texts[i].config.shadow = 'white';
 					deckQtyEl.texts[i].config.bold = true;
-					plugin.markupChange(Wotg.Battle.Markup).move('PackOwn.Deck', [  0, -40 ]);
+				//	plugin.markupChange(Wotg.Battle.Markup).move('PackOwn.Deck', [  0, -40 ]);
 
 				}
 			}else{
 				for (var i = 0; i < deckQtyEl.texts.length; i++){
 					deckQtyEl.texts[i].config.color = (new Wotg.Lib.Dava.Node(Wotg.Battle.Markup.markup)).find('PackOwn.Deck').markup.textcolor;
+					deckQtyEl.texts[i].config.size = (new Wotg.Lib.Dava.Node(Wotg.Battle.Markup.markup)).find('PackOwn.Deck').markup.fontsize;
 				}
 			}
 			gui.deck.setText(model.deck);
