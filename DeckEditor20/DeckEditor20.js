@@ -206,13 +206,14 @@ new Wotg.Plugins.Simple({
             atom.dom.create('div').text(Wotg.lang('cards.' + proto.id + '.short')).addClass('editorTitle').css({
                 position: 'absolute',
                 top: '10px',
-                left: '66px'
+                left: '66px',
+                'font-size': 'small'
             }).appendTo(this.atomElem);
             // Power
             if (proto.power) {
                 atom.dom.create('div').text(proto.power).addClass('editorPower').css({
                     position: 'absolute',
-                    top: '60px',
+                    top: '44px',
                     left: '66px'
                 }).appendTo(this.atomElem);
             }
