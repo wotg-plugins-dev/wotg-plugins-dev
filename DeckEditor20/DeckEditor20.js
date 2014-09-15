@@ -222,7 +222,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.power)
                 .addClass('editorText')
                 .addClass('editorPower')
-                .css('background-image', 'url(plugin.getPluginPath("images/red.png"))')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/red.png') + '")')
                 .appendTo(this.atomElem);
             }
             // Toughness
