@@ -125,6 +125,7 @@ new Wotg.Plugins.Simple({
             this.hide('Cost');
             this.hide('Power');
             this.hide('Toughness');
+            this.hide('Title');
 
             this.dava.redraw(this.buffer.ctx);
 
