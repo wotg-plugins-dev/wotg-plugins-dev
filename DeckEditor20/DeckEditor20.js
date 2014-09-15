@@ -4,7 +4,7 @@ new Wotg.Plugins.Simple({
 }, function(plugin, events) {
 
     plugin.addImages({
-        'mcard': 'mcard_tricolor.png',
+        'mcard': 'mcard.png',
         'mattackSmall': 'mattackSmall.png',
         'mDEF_small': 'mDEF_small.png',
         'mIncrease_smallFull': 'mIncrease_smallFull.png',
