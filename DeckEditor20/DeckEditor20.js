@@ -202,6 +202,7 @@ new Wotg.Plugins.Simple({
             //Расположение отрисовки
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
+            debugger
             atom.dom.create('div').text(this.locTitle).css({
                 position: 'absolute',
                 top: '10px',
