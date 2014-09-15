@@ -121,10 +121,10 @@ new Wotg.Plugins.Simple({
             //Тут пока всё прячем
             this.hide('NationFlag');
             this.hide('Subtype');
-            // this.hide('Increase');
-            //this.hide('Cost');
-            //this.hide('Power');
-            // this.hide('Toughness');
+            this.hide('Increase');
+            this.hide('Cost');
+            this.hide('Power');
+            this.hide('Toughness');
 
             this.dava.redraw(this.buffer.ctx);
 
