@@ -2,6 +2,10 @@ new Wotg.Plugins.Simple({
     title: 'DeckEditor20',
     version: '0.2.4'
 }, function(plugin, events) {
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = plugin.getPluginPath('DeckEditor.css');
+    document.head.appendChild(css);
 
     plugin.addImages({
         'mcard': 'mcard.png',
