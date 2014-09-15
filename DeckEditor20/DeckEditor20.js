@@ -134,8 +134,6 @@ new Wotg.Plugins.Simple({
 				this.dava.find('Text').getShape()
 			);*/
 
-            debugger
-
             this.events.fire("redraw");
         }
 
@@ -205,6 +203,7 @@ new Wotg.Plugins.Simple({
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
             this.atomElem.first.model = this;
+            debugger
             //Подсветка если не Штаб
             //if(proto.type != "hq") {
             this.mouse = new Mouse(this.atomElem);
