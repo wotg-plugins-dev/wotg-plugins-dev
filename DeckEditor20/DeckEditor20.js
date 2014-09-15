@@ -209,11 +209,13 @@ new Wotg.Plugins.Simple({
                 left: '66px'
             }).appendTo(this.atomElem);
             // Power
-            atom.dom.create('div').text(proto.power).addClass('editorTitle').css({
-                position: 'absolute',
-                top: '60px',
-                left: '66px'
-            }).appendTo(this.atomElem);
+            if (proto.power) {
+                atom.dom.create('div').text(proto.power).addClass('editorTitle').css({
+                    position: 'absolute',
+                    top: '60px',
+                    left: '66px'
+                }).appendTo(this.atomElem);
+            }
             this.atomElem.first.model = this;
             //Подсветка если не Штаб
             //if(proto.type != "hq") {
