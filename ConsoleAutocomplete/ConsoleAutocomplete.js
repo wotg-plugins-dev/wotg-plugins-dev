@@ -15,7 +15,7 @@ new Wotg.Plugins.Simple({
     =            jQuery Textcomplete http://yuku-t.com/jquery-textcomplete/            =
     ==================================================================================*/
     function jQtcAdd(pluginPath) {
-        var counter = 25;
+        var counter = 300;
         var jQueryWaiting = setInterval(function() {
             counter--;
             // Consider there is no jQuery
@@ -29,7 +29,7 @@ new Wotg.Plugins.Simple({
             if (!window.jQuery) return;
             Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js');
             clearInterval(jQueryWaiting);
-        }, 500);
+        }, 1000);
     }
 
     function cssAdd(pluginPath) {
