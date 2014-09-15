@@ -1,16 +1,16 @@
-.editorTitle {
+.editorText {
     position: absolute;
+}
+.editorTitle {
     top: 10px;
     left: 66px;
     font-size: small;
 }
 .editorPower {
-    position: absolute;
     top: 44px;
     left: 66px;
 }
 .editorToughness {
-    position: absolute;
     top: 44px;
     left: 86px;
 }

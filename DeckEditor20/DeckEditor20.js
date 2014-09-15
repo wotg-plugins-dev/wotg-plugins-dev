@@ -213,27 +213,23 @@ new Wotg.Plugins.Simple({
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
             // Title
-            atom.dom.create('div').text(Wotg.lang('cards.' + proto.id + '.short')).addClass('editorTitle').css({
-                position: 'absolute',
-                top: '10px',
-                left: '66px',
-                'font-size': 'small'
-            }).appendTo(this.atomElem);
+            atom.dom.create('div').text(Wotg.lang('cards.' + proto.id + '.short'))
+            .addClass('editorText')
+            .addClass('editorTitle')
+            .appendTo(this.atomElem);
             // Power
             if (proto.power) {
-                atom.dom.create('div').text(proto.power).addClass('editorPower').css({
-                    position: 'absolute',
-                    top: '44px',
-                    left: '66px'
-                }).appendTo(this.atomElem);
+                atom.dom.create('div').text(proto.power)
+                .addClass('editorText')
+                .addClass('editorPower')
+                .appendTo(this.atomElem);
             }
             // Toughness
             if (proto.toughness) {
-                atom.dom.create('div').text(proto.toughness).addClass('editorToughness').css({
-                    position: 'absolute',
-                    top: '44px',
-                    left: '86px'
-                }).appendTo(this.atomElem);
+                atom.dom.create('div').text(proto.toughness)
+                .addClass('editorText')
+                .addClass('editorToughness')
+                .appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
             //Подсветка если не Штаб
