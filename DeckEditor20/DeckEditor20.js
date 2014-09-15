@@ -202,8 +202,12 @@ new Wotg.Plugins.Simple({
             //Расположение отрисовки
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
+            atom.dom.create('div').text(this.locTitle).css({
+                positon:'absolute',
+                top: '10px',
+                left: '60px'
+            }).appendTo(this.atomElem);
             this.atomElem.first.model = this;
-            debugger
             //Подсветка если не Штаб
             //if(proto.type != "hq") {
             this.mouse = new Mouse(this.atomElem);
