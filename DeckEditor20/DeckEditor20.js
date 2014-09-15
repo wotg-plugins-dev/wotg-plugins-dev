@@ -75,36 +75,6 @@ new Wotg.Plugins.Simple({
     //Меняем разметку
     //Art
     Wotg.Card.Markup.MHand.markup.children[0].rect = [8, 5, 55, 55];
-    //Title
-    Wotg.Card.Markup.MHand.markup.children[5].rect = [66, 6, 103, 17];
-    Wotg.Card.Markup.MHand.markup.children[5].textcolor = "rgba(255,255,255,1)";
-    //Wotg.Card.Markup.MHand.markup.children[5].fontsize = 14;
-    //Count
-    // Wotg.Card.Markup.MPack.markup.children[11].rect = [150, 40, 20, 25];
-    Wotg.Card.Markup.MPack.markup.children[11].rect = [-10, 40, 20, 25];
-    //Power
-    Wotg.Card.Markup.MHand.markup.children[10].rect = [65, 24, 28, 28];
-    Wotg.Card.Markup.MHand.markup.children[10].children[0].fontsize = 18;
-    // Wotg.Card.Markup.MHand.markup.children[10].children[0].textcolor = "rgba(159,143,111,1)";
-    Wotg.Card.Markup.MHand.markup.children[10].children[0].textcolor = "white";
-    // Wotg.Card.Markup.MHand.markup.children[10].children[0].textalign = "left";
-    // Wotg.Card.Markup.MHand.markup.children[10].children[0].font = 'Copperplate, Papyrus, fantasy';
-    Wotg.Card.Markup.MHand.markup.children[10].children[0].rect = [2, 4, 20, 20];
-    //Toughness
-    Wotg.Card.Markup.MHand.markup.children[11].rect = [106, 24, 28, 28];
-    Wotg.Card.Markup.MHand.markup.children[11].children[0].fontsize = 18;
-    Wotg.Card.Markup.MHand.markup.children[11].children[0].textcolor = "white";
-    // Wotg.Card.Markup.MHand.markup.children[11].children[0].textcolor = "rgba(159,143,111,1)";
-    Wotg.Card.Markup.MHand.markup.children[11].children[0].rect = [2, 4, 20, 20];
-    //Increase
-    Wotg.Card.Markup.MHand.markup.children[8].rect = [140, 24, 28, 28];
-    Wotg.Card.Markup.MHand.markup.children[8].children[0].fontsize = 18;
-    Wotg.Card.Markup.MHand.markup.children[8].children[0].textcolor = "white";
-    Wotg.Card.Markup.MHand.markup.children[8].children[0].rect = [2, 4, 20, 20];
-    //Cost
-    Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
-    Wotg.Card.Markup.MHand.markup.children[9].children[0].fontsize = 14;
-    Wotg.Card.Markup.MHand.markup.children[9].children[0].rect = [2, 7, 20, 20];
 
     //TODO: Убрать
     events.add('beforeLaunch', function() {
