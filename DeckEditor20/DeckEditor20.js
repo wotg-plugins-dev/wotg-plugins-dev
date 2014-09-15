@@ -76,11 +76,6 @@ new Wotg.Plugins.Simple({
     //Art
     Wotg.Card.Markup.MHand.markup.children[0].rect = [8, 5, 55, 55];
 
-    //TODO: Убрать
-    events.add('beforeLaunch', function() {
-        //Для отладки
-    });
-
     declare('Wotg.Card.Views.MHand', Wotg.Card.View, {
 
         markup: Wotg.Card.Markup.MHand,
