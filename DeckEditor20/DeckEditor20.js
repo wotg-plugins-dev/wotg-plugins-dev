@@ -203,9 +203,9 @@ new Wotg.Plugins.Simple({
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
             atom.dom.create('div').text(this.locTitle).css({
-                positon:'absolute',
+                position: 'absolute',
                 top: '10px',
-                left: '60px'
+                left: '66px'
             }).appendTo(this.atomElem);
             this.atomElem.first.model = this;
             //Подсветка если не Штаб
