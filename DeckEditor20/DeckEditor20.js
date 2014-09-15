@@ -210,7 +210,7 @@ new Wotg.Plugins.Simple({
             }).appendTo(this.atomElem);
             // Power
             if (proto.power) {
-                atom.dom.create('div').text(proto.power).addClass('editorTitle').css({
+                atom.dom.create('div').text(proto.power).addClass('editorPower').css({
                     position: 'absolute',
                     top: '60px',
                     left: '66px'
