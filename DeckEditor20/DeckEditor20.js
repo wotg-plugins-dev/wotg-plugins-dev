@@ -122,7 +122,7 @@ new Wotg.Plugins.Simple({
             this.hide('NationFlag');
             this.hide('Subtype');
             this.hide('Increase');
-            this.hide('Cost');
+            // this.hide('Cost');
             this.hide('Power');
             this.hide('Toughness');
             this.hide('Title');
@@ -215,6 +215,14 @@ new Wotg.Plugins.Simple({
                     position: 'absolute',
                     top: '44px',
                     left: '66px'
+                }).appendTo(this.atomElem);
+            }
+            // Toughness
+            if (proto.toughness) {
+                atom.dom.create('div').text(proto.toughness).addClass('editorToughness').css({
+                    position: 'absolute',
+                    top: '44px',
+                    left: '86px'
                 }).appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
