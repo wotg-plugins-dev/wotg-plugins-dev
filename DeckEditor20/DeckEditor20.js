@@ -134,6 +134,8 @@ new Wotg.Plugins.Simple({
 				this.dava.find('Text').getShape()
 			);*/
 
+            debugger
+
             this.events.fire("redraw");
         }
 
