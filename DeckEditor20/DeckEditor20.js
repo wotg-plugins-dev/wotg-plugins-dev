@@ -202,9 +202,16 @@ new Wotg.Plugins.Simple({
             //Расположение отрисовки
             this.atomElem = atom.dom.create("div");
             atom.dom(this.buffer).appendTo(this.atomElem);
+            // Title
             atom.dom.create('div').text(Wotg.lang('cards.' + proto.id + '.short')).addClass('editorTitle').css({
                 position: 'absolute',
                 top: '10px',
+                left: '66px'
+            }).appendTo(this.atomElem);
+            // Power
+            atom.dom.create('div').text(proto.power).addClass('editorTitle').css({
+                position: 'absolute',
+                top: '60px',
                 left: '66px'
             }).appendTo(this.atomElem);
             this.atomElem.first.model = this;
