@@ -1,5 +1,6 @@
 .editorText {
     position: absolute;
+    font-family: Copperplate, "Copperplate Gothic Light", Papyrus, Impact, fantasy;
 }
 .editorTitle {
     top: 10px;
