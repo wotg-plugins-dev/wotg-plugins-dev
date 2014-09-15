@@ -75,6 +75,12 @@ new Wotg.Plugins.Simple({
     //Меняем разметку
     //Art
     Wotg.Card.Markup.MHand.markup.children[0].rect = [8, 5, 55, 55];
+    //Count
+    Wotg.Card.Markup.MPack.markup.children[11].rect = [150, 40, 20, 25];
+    //Cost
+    Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
+    Wotg.Card.Markup.MHand.markup.children[9].children[0].fontsize = 14;
+    Wotg.Card.Markup.MHand.markup.children[9].children[0].rect = [2, 7, 20, 20];    
 
     declare('Wotg.Card.Views.MHand', Wotg.Card.View, {
 
