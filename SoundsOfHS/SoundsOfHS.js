@@ -13,7 +13,7 @@ new Wotg.Plugins.Simple({
     var modDefaultVolume = getVolume('vol'); // Громкость звуков мода (от 0 до 1)
 
     function getVolume(key) {
-        var DEFAULT = 1;
+        var DEFAULT = 0.3;
         var value = Number(plugin.getConfig(key));
         if (!value && value !== 0 || value < 0 || value > 1) {
             value = DEFAULT;
