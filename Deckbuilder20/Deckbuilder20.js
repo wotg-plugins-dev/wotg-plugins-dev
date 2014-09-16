@@ -34,10 +34,10 @@ new Wotg.Plugins.Simple({
 	    }];	
 
 	//Указываем другую рамку карты
-	Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = "Sandrem:Deckbuilder20:mcard";
+	Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = "Deckbuilder20:mcard";
 	Wotg.Card.Markup.MHand.markup.children[1].rect = [0, 0, 176, 65];    
 	//Указываем другую иконку стоимости
-	Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = "Sandrem:Deckbuilder20:mResourseSmall";
+	Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = "Deckbuilder20:mResourseSmall";
 	Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];	
 
 	//Правим разметку под новый размер
