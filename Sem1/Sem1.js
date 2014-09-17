@@ -122,15 +122,31 @@ new Wotg.Plugins.Simple({
                 }
             }
             if (model.isOpponent) {
+                //контратака
+                if (model.getProperty('cancounter')) {
+                    this.setFrame('Power', 0);
+                }else{
+                    this.setFrame('Power', 2);
+                }
+                //перемещение
                 this.hide('moveIndicator');
-                this.setFrame('Power', 0);
+
                 this.setFrame('Frames', 1);
                 this.dava.find('Power.Value').text.color = '#e54343';
             } else {
+                //атака
+                if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
+                    this.setFrame('Power', 1);
+                }else{
+                    this.setFrame('Power', 2);
+                }
+                //перемещение
+                if( model.getProperty('movable') && (!model.getProperty('moved')) && (model.effects.indexOf('t_cant_move') < 0)){
+                    this.show('moveIndicator');
+                }else{
+                    this.hide('moveIndicator');
+                }
 
-
-
-                this.setFrame('Power', 1);
                 this.setFrame('Frames', 0);
             }
 
