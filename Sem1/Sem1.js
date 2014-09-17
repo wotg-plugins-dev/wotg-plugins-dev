@@ -19,7 +19,7 @@ new Wotg.Plugins.Simple({
         "id": "moveIndicator",
         "sprite": {
           "name": "moveIndicator",
-          "texture": "sem1",
+          "texture": "Sem1:sem1",
           "frame": 0
         },
         "rect": [40, 3, 20, 34]
