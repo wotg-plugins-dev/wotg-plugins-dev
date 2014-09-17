@@ -53,6 +53,37 @@ new Wotg.Plugins.Simple({
 
 
 
+    events.add('afterLaunch', function () {
+
+    	//обработчик сообщений
+        Wotg.controller().connection.events.add('message/game/playunit', function (message) {
+            var m_can_attack 	= false;
+            var m_can_order 	= false;
+            var m_can_move 		= false;
+            var m_can_activity 	= false;
+            if ( m_semafore_skip && message.actions )
+            {
+                // Есть варианты атаки
+             	if (m_attack && message.actions.attacks && message.actions.attacks.length)
+                	m_can_attack = true;
+                // Есть варианты приказов
+                if (m_order && message.actions.orders && message.actions.orders.length)
+                	m_can_order = true;
+                // Есть варианты перемещения
+                if (m_move && message.actions.moves && message.actions.moves.length)
+                	m_can_move = true;
+                // Есть варианты абилок
+                if (m_ability && message.actions.abilities && message.actions.abilities.length)
+                	m_can_activity = true;
+
+		        m_status = m_can_attack || m_can_order || m_can_move || m_can_activity;
+            }
+
+            //console.log('Status: '+m_status+' Can Attack: '+ m_can_attack + ' Can play order: '+ m_can_order + ' Can make move: ' +m_can_move +' m_can_activity: '+m_can_activity);
+        });
+    });
+
+
     /**
      * @namespace Wotg.Card.Views
      * @name Wotg.Card.Views.Battle
@@ -61,8 +92,11 @@ new Wotg.Plugins.Simple({
     plugin.refactor( 'Wotg.Card.Views.Battle', {
 
         atkIndicatorFrames : {
-            attack : 2,
-            defense : 1
+            opponent: 0,
+            counter: 0,
+            attack : 1,
+            noAttack : 2,
+            noCounter : 2
         },
 
         redraw: function () {
@@ -110,10 +144,10 @@ new Wotg.Plugins.Simple({
             if (model.isOpponent) {
                 //контратака
                 if (model.getProperty('cancounter')) {
-                    this.setFrame('Power', 0);
+                    this.setFrame('Power', atkIndicatorFrames.counter);
                     this.dava.find('Power.Value').text.color = '#e54343';
                 }else{
-                    this.setFrame('Power', 2);
+                    this.setFrame('Power', atkIndicatorFrames.noCounter);
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
@@ -124,10 +158,10 @@ new Wotg.Plugins.Simple({
             } else {
                 //атака
                 if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
-                    this.setFrame('Power', 1);
+                    this.setFrame('Power', atkIndicatorFrames.attack);
                     this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
                 }else{
-                    this.setFrame('Power', 2);
+                    this.setFrame('Power', atkIndicatorFrames.noAttack);
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
@@ -162,4 +196,51 @@ new Wotg.Plugins.Simple({
         }
 
     });
+
+    /**
+     * @namespace Wotg.Card.Views
+     * @name Wotg.Card.Views.HqBattle
+     * @extends Wotg.Card.View
+     */
+    plugin.refactor( 'Wotg.Card.Views.HqBattle', {
+
+        atkIndicatorFrames : {
+            opponent : 0,
+            attack : 1,
+            noAttack : 2
+        },
+
+        redraw: function () {
+            var model = this.model;
+
+            this.buffer.ctx.clearAll();
+            this.lazyDraw(this.lazyArt);
+
+            this.setText ('Title'       , Wotg.lang('cards.' + model.getProperty('idC')+ '.short') );
+
+            this.setValue('Increase'    , model.getProperty('increase'), true);
+            this.setValue('Power'       , model.getProperty('power'));
+            this.setValue('Toughness'   , model.getProperty('toughness'));
+
+            //this.setFrame('NationFlag'  , this.flagFrames[proto.country]);
+            this.hide('NationFlag');
+            this.setFrame('Subtype'     , this.hqSubtypes[(model.isOpponent)?'enemy':'own'][model.getProperty('subtype')]);
+            this.dava.redraw(this.buffer.ctx);
+
+            if (model.isOpponent) {
+                this.setFrame('Power', atkIndicatorFrames.opponent);
+                this.dava.find('Power.Value').text.color = '#e54343';
+            } else {
+                if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
+                    this.setFrame('Power', atkIndicatorFrames.attack);
+                    this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
+                }else{
+                    this.setFrame('Power', atkIndicatorFrames.noAttack);
+                    this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
+                }
+            }
+        }
+
+    });
+
 });
