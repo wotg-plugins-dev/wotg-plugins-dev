@@ -6,12 +6,12 @@ new Wotg.Plugins.Simple({
 
     //новые картинки для индикации атаки и передвижения
     plugin.addImages({
-		'sem1': 'semaphore/semafor3.png'
+		'sem1': 'semaphore/semafor4.png'
 	});
 
     //картинка индикатора движения
     Wotg.Card.Markup.Battle.sprites.moveIndicator = [{
-      "rect": [36, 42, 17, 30],
+      "rect": [53, 42, 17, 30],
       "shift": [0, 0]
     }];
 
