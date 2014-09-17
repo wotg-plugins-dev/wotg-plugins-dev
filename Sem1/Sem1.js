@@ -166,6 +166,17 @@ new Wotg.Plugins.Simple({
 
     });
 
+
+    //заменяем иконку ОМ для штаба
+    plugin.markupChange(Wotg.Card.Markup.HqBattle)
+    .change('Power', function(node){
+         node.sprite = {
+          "name": "atkIndicator",
+          "texture": "bzz86:Sem1:sem1",
+          "frame": 1
+        }
+    });
+
     /**
      * @namespace Wotg.Card.Views
      * @name Wotg.Card.Views.HqBattle
