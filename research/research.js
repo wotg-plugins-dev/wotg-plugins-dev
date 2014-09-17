@@ -7,9 +7,15 @@ new Wotg.Plugins.Simple({
 		'test': 'image.png'
 	});
 */
+jslog(plugin);
+plugin.Name = 'Альтернативное Исследование';
+plugin.pluginVersion = '0.1.0';
+plugin.info = 'Стабильная версия';
+plugin.url = 'http://forum.worldoftanks.ru/index.php?/forum/483-моды-скины-плагины/';
+
 function jslog(text) {
 	
-	console.log.apply( console, ['[JS Log] '].append(arguments) );
+	//console.log.apply( console, ['[JS Log] '].append(arguments) );
 	
 }
 
@@ -22,69 +28,70 @@ function jslog(text) {
 	//	atom.dom(plugin.getImage('test')).appendTo('body');
 	//	console.log(plugin.getImage('test'));
 	console.log('J_S afterLaunch');
-	
 	});
-	//========
-atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
+	
+	plugin.refactor( 'Wotg.Components.Footer.Manager', {
+        // Меняем один из методов класса
+        'createNotifications': function method() {
+        	method.previous.apply( this, arguments );
+        	jslog(this, plugin.pluginVersion);
+        	var previousVersion = plugin.getConfig('ver');
+        	if (plugin.pluginVersion != previousVersion) {
+        		var text = 'Плагин ' + plugin.Name + ' обновлен до версии ' + plugin.pluginVersion + '\n'+
+        		    plugin.info +
+        		    (plugin.url?'\n'+'\n' +'Подробности на форуме:' + plugin.url:'');
+        		    
+        		this.notifications.add({
+				type: 'info',
+				text: text
+			});
+			plugin.setConfig('ver',plugin.pluginVersion);
+        	}
 
-	getPos: function() {
-		return this.manager.HQcardSlotsCoords[this.slot];
+	
+        }
+        });
+        
+	//========
+	plugin.refactor( 'Wotg.Research.CardItem', {
+        // Меняем один из методов класса
+        'getPos': function method() {
+        	if (this.slot > 23) {
+			jslog('слишком большой слот:',this)
+			return this.manager.cardSlotsCoords[this.slot-15]
+		}
+		if (this.data.isHqCard) return this.manager.cardSlotsCoords[this.slot+15]
+		else         	   return this.manager.cardSlotsCoords[this.slot];
 	}
-});
+	});
 
 	//удалить если будут меняться координаты штаба 
 	plugin.refactor( 'Wotg.Research.HQItem', {
         // Меняем один из методов класса
         'getPos': function method() {
+        	jslog(this);
+        	if (this.isRootTree) return this.manager.hqSlotsCoords[this.slot];
         	if (this.isCurrent) {
-        		jslog(this,this.data.parents.length );
+
+        		if (this.manager.viewMode == 'compact') {
+        			var slotCoords = this.manager.JSsmallHq;
+        		} else {
+        			var slotCoords = this.manager.JSbigHq;	
+        		}
         		if (this.data.parents.length == 0) {
-        			return new Point(this.manager.JShqSlotsCoords[0].x,0);
-        		} else	return this.manager.JShqSlotsCoords[0];
-        		return this.manager.JShqSlotsCoords[0];
+        			return slotCoords[0];
+        		} else	return slotCoords[1];
+        		
         	}
-		if (this.isRootTree) return this.manager.hqSlotsCoords[this.slot];
+        	if (this.data.isParent) {
+			return this.manager.cardSlotsCoords[0];
+        	}
 		return this.manager.cardSlotsCoords[this.slot];
 	}
 	});
-	
-	plugin.refactor( 'Wotg.Research.Manager', {
-        // Меняем один из методов класса
-        'setViewMode': function method(viewMode) {
-        	method.previous.apply( this, arguments );
-        	this.viewMode = viewMode;
-        if (viewMode == 'compact') {
-			this.JShqSlotsCoords = this.JSsmallHq;
-		//	this.HQcardSlotsCoords = this.HQsmallCards;
-		} else {
-			this.JShqSlotsCoords = this.JSbigHq;
-		//	this.HQcardSlotsCoords = this.HQbigCards;
-		}
-	}
-	});
-        	
-        	
-	plugin.refactor( 'Wotg.Research.Manager', {
-        // Меняем один из методов класса
 
-	'createHqHq': function  (data) {
-		
-		
-		if (data.parenthq) {
-			var parenthq = this.model.getCardById(data.parenthq);
-			if (parenthq.slot != 0)	parenthq.slot=15+parenthq.slot;
-			this.createHq(parenthq, false, false);
-		}
-		
-		var elem = new Wotg.Research.HQItem(this.app.layer, {
-			manager: this,
-			data: data,
-			isCurrent: true,
-			isRootTree: false
-		});
-		this.app.mouseHandler.subscribe(elem);
-		this.elems.push(elem);
-	},
+	plugin.refactor( 'Wotg.Research.Manager', {
+        // Меняем один из методов класса
         'createResearchTreeForHQ': function method(hqId) {
            	//this.backButton.text = Wotg.controller().lang.get('research.backToRoot');
 		this.isRoot = false;
@@ -106,15 +113,17 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		//imgNode.setComponent(component);
 		*/
 		//=====
-		this.createHqHq(rootData);
 		
+		
+		if (rootData.parenthq) {
+			var parenthq = this.model.getCardById(rootData.parenthq);
+			parenthq.isParent = true;
+			this.createHq(parenthq, false, false);
+		}
+		rootData.isParent = false;
+		this.createHq(rootData, true, false);
 		for (var i = 0 ; i < list.length; i++) {
-			if (list[i].slot > 23) {
-				jslog('слишком большой слот:',list[i])
-				list[i].slot = list[i].slot-15;
-			}
 			if (Wotg.controller().protos.get(list[i].card).type.toLowerCase() != 'hq') {
-
 				this.createCard(list[i]);
 			} else {
 				this.createHq(list[i], false, false);
@@ -123,11 +132,7 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		
 		list =listHq;
 		for (var i = 0 ; i < list.length; i++) { 
-			if (list[i].slot<16)	list[i].slot = list[i].slot+15;
-			if (list[i].slot > 23) {
-				jslog('слишком большой слот:',list[i])
-				list[i].slot = list[i].slot-15;
-			}
+			list[i].isHqCard = true;
 			this.createCard(list[i]);
 		}
 		
@@ -165,22 +170,19 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		20: new Point(484, 1),
 		21: new Point(1217, 1),
 		22: new Point(237, 1),
-		23: new Point(972, 1),
-		28: new Point(650, 0),
-		29: new Point(650, 0),
-		30: new Point(650, 0)
-		
-
+		23: new Point(972, 1)
 	},
 	'JShqSlotsCoords' :{},
 	//координаты штаба
 	'JSbigHq' : {
-		0: new Point(690, 140)
+		0: new Point(690, 0),
+		1: new Point(690, 140)
 		
 	},
 	//координаты штаба compact
 	'JSsmallHq':{
-		0: new Point(375, 125)
+		0: new Point(375, 0),
+		1: new Point(375, 125)
 	},
 	//прокачиваемые карты  compact
 	'smallCards': {
@@ -208,10 +210,7 @@ atom.declare( 'Wotg.Research.HqCardItem', Wotg.Research.CardItem, {
 		20: new Point(225, 1),
 		21: new Point(620, 1),
 		22: new Point(77, 1),
-		23: new Point(850, 1),
-		28: new Point(348, 0),
-		29: new Point(348, 0),
-		30: new Point(348, 0)
+		23: new Point(850, 1)
 	},
     	'createBackButton': function method() {
     		method.previous.apply( this, arguments );
