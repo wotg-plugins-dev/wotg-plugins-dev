@@ -38,7 +38,7 @@ new Wotg.Plugins.Simple({
           "texture": "bzz86:Sem1:sem1",
           "frame": 0
         },
-        "rect": [37, 124, 17, 30]
+        "rect": [37, 122, 17, 30]
       });
 
     //заменяем иконку ОМ
