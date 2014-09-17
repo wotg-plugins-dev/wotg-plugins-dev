@@ -122,13 +122,76 @@ new Wotg.Plugins.Simple({
                 }
             }
             if (model.isOpponent) {
+                this.hide('moveIndicator');
                 this.setFrame('Power', 0);
                 this.setFrame('Frames', 1);
                 this.dava.find('Power.Value').text.color = '#e54343';
             } else {
+
+
+
                 this.setFrame('Power', 1);
                 this.setFrame('Frames', 0);
             }
+
+
+            //обработка индикации атаки и перемещения
+           /* if (m_card_attack && this.card.props.untapped && this.card.owner.sid == unsafeWindow.Wotg.battle().player.sid && (this.card.effects.indexOf('t_cant_attack') < 0))
+            {
+                draw.ctx.drawImage({
+                    image:	this.resources.get('images').get('battle-card-semafor-icons'),
+                    draw: 	this.atkShape,
+                    crop: 	new Rectangle(32, 0, 16, 16)
+                });
+            }
+            if (m_card_counter && this.card.props.cancounter && this.card.owner.sid != unsafeWindow.Wotg.battle().player.sid)
+            {
+                draw.ctx.drawImage({
+                    image:	this.resources.get('images').get('battle-card-semafor-icons'),
+                    draw: 	this.atkShape,
+                    crop: 	new Rectangle(16, 0, 16, 16)
+                });
+            }
+            if (m_card_flame && this.card.props.burning)
+            {
+                draw.ctx.drawImage({
+                    image: 	this.resources.get('images').get('battle-card-semafor-icons'),
+                    draw: 	this.flameShape,
+                    crop: 	new Rectangle(0, 0, 16, 16)
+                });
+            }
+            if (m_card_move && this.card.owner.sid == unsafeWindow.Wotg.battle().player.sid && this.card.props.movable && (this.card.effects.indexOf ('t_cant_move') < 0) &&
+                ((typeof this.card.props.moves != 'undefined') && ( (this.card.props.maxmoves && (this.card.props.moves < this.card.props.maxmoves)) || (!this.card.props.maxmoves && !this.card.props.moves) ))
+               )
+            {
+                // 2 Перемещения
+                if (this.card.props.maxmoves - this.card.props.moves > 1 )
+                    draw.ctx.drawImage({
+                        image: 	this.resources.get('images').get('battle-card-semafor-icons'),
+                        draw: 	this.movShapeD,
+                        crop: 	new Rectangle(48, 0, 16, 16)
+                    });
+                draw.ctx.drawImage({
+                    image: 	this.resources.get('images').get('battle-card-semafor-icons'),
+                    draw: 	this.movShape,
+                    crop: 	new Rectangle(48, 0, 16, 16)
+                });
+            }
+            if (m_card_scouted && this.card.props.scouted && this.card.owner.sid != unsafeWindow.Wotg.battle().player.sid) // Техника засвеченна
+            {
+                var shift = 0;
+                if ( this.card.triggers.indexOf('camouflage') >= 0) // Есть маскировка
+                    shift = 16;
+                draw.ctx.drawImage({
+                    image: 	this.resources.get('images').get('battle-card-semafor-icons'),
+                    draw: 	this.lampShape,
+                    crop: 	new Rectangle(64+shift, 0, 16, 16)
+                });
+            } */
+
+
+
+            //скрываем стандартные значки
             this.hide('NoShoot');
             this.hide('NoMove');
             /*if (model.getProperty('untapped')) {
