@@ -6,12 +6,12 @@ new Wotg.Plugins.Simple({
 
     //новые картинки для индикации атаки и передвижения
     plugin.addImages({
-		'sem1': 'semaphore/semafor1.png'
+		'sem1': 'semaphore/semafor3.png'
 	});
 
     //картинка индикатора движения
     Wotg.Card.Markup.Battle.sprites.moveIndicator = [{
-      "rect": [36, 42, 15, 30],
+      "rect": [36, 42, 17, 30],
       "shift": [0, 0]
     }];
 
@@ -29,20 +29,6 @@ new Wotg.Plugins.Simple({
     }
     ];
 
-    /*"attackSmall": [{
-      "rect": [1030, 206, 36, 39],
-      "shift": [0, 0]
-    }, {
-      "rect": [1030, 126, 36, 39],
-      "shift": [0, 0]
-    }, {
-      "rect": [1030, 166, 36, 39],
-      "shift": [0, 0]
-    }, {
-      "rect": [1071, 0, 36, 39],
-      "shift": [0, 0]
-    }]*/
-
     //добавляем индикатор движения на карту
     Wotg.Card.Markup.Battle.markup.children.push({
         "children": [],
@@ -52,7 +38,7 @@ new Wotg.Plugins.Simple({
           "texture": "bzz86:Sem1:sem1",
           "frame": 0
         },
-        "rect": [38, 115, 20, 34]
+        "rect": [37, 117, 17, 30]
       });
 
     //заменяем иконку ОМ
