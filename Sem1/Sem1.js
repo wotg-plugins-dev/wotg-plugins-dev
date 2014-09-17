@@ -11,9 +11,37 @@ new Wotg.Plugins.Simple({
 
     //картинка индикатора движения
     Wotg.Card.Markup.Battle.sprites.moveIndicator = [{
-      "rect": [36, 36, 20, 39],
+      "rect": [36, 42, 15, 30],
       "shift": [0, 0]
     }];
+
+    Wotg.Card.Markup.Battle.sprites.atkIndicator = [{
+      "rect": [0, 39, 36, 39],      //red
+      "shift": [0, 0]
+    },
+    {
+      "rect": [0, 0, 36, 39],       //green
+      "shift": [0, 0]
+    },
+    {
+      "rect": [36, 0, 36, 39],     //grey
+      "shift": [0, 0]
+    }
+    ];
+
+    /*"attackSmall": [{
+      "rect": [1030, 206, 36, 39],
+      "shift": [0, 0]
+    }, {
+      "rect": [1030, 126, 36, 39],
+      "shift": [0, 0]
+    }, {
+      "rect": [1030, 166, 36, 39],
+      "shift": [0, 0]
+    }, {
+      "rect": [1071, 0, 36, 39],
+      "shift": [0, 0]
+    }]*/
 
     //добавляем индикатор движения на карту
     Wotg.Card.Markup.Battle.markup.children.push({
@@ -27,6 +55,17 @@ new Wotg.Plugins.Simple({
         "rect": [38, 115, 20, 34]
       });
 
+    //заменяем иконку ОМ
+    plugin.markupChange(Wotg.Card.Markup.Battle)
+    .change('Power', function(node){
+         node.sprite = {
+          "name": "atkIndicator",
+          "texture": "bzz86:Sem1:sem1",
+          "frame": 1
+        }
+    });
+
+
 
     /**
      * @namespace Wotg.Card.Views
@@ -34,6 +73,11 @@ new Wotg.Plugins.Simple({
      * @extends Wotg.Card.View
      */
     plugin.refactor( 'Wotg.Card.Views.Battle', {
+
+        atkIndicatorFrames : {
+            attack : 2,
+            defense : 1
+        },
 
         redraw: function () {
             var model = this.model;
@@ -51,6 +95,10 @@ new Wotg.Plugins.Simple({
             }
 
             this.setValue('Power'       , model.getProperty('power'));
+
+            //to change 'Power' icon
+            //this.setFrame('Power', this.kindFrames[model.getProperty('kind')]);
+
             this.setValue('Toughness'   , model.getProperty('toughness'));
 
             this.setFrame('NationFlag'  , this.flagFrames[model.getProperty('country')]);
