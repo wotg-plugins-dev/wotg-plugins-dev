@@ -9,11 +9,13 @@ new Wotg.Plugins.Simple({
 		'sem1': 'semaphore/semafor1.png'
 	});
 
+    //картинка индикатора движения
     Wotg.Card.Markup.Battle.sprites.moveIndicator = [{
-      "rect": [36, 136, 20, 39],
+      "rect": [36, 36, 20, 39],
       "shift": [0, 0]
     }];
 
+    //добавляем индикатор движения на карту
     Wotg.Card.Markup.Battle.markup.children.push({
         "children": [],
         "id": "moveIndicator",
@@ -22,7 +24,7 @@ new Wotg.Plugins.Simple({
           "texture": "bzz86:Sem1:sem1",
           "frame": 0
         },
-        "rect": [40, 3, 20, 34]
+        "rect": [38, 125, 20, 34]
       });
 
 
