@@ -6,7 +6,7 @@ new Wotg.Plugins.Simple({
 
     //новые картинки для индикации атаки и передвижения
     plugin.addImages({
-		'sem1': 'semaphore/semafor3.png'
+		'sem1': 'semaphore/semafor5.png'
 	});
 
     //картинка индикатора движения
