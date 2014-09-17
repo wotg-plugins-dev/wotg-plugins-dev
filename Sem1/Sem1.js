@@ -24,7 +24,7 @@ new Wotg.Plugins.Simple({
           "texture": "bzz86:Sem1:sem1",
           "frame": 0
         },
-        "rect": [38, 125, 20, 34]
+        "rect": [38, 115, 20, 34]
       });
 
 
