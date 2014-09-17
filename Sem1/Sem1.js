@@ -220,7 +220,7 @@ new Wotg.Plugins.Simple({
             //this.setFrame('NationFlag'  , this.flagFrames[proto.country]);
             this.hide('NationFlag');
             this.setFrame('Subtype'     , this.hqSubtypes[(model.isOpponent)?'enemy':'own'][model.getProperty('subtype')]);
-            this.dava.redraw(this.buffer.ctx);
+
 
             if (model.isOpponent) {
                 this.setFrame('Power', this.atkIndicatorFrames['opponent']);
@@ -234,6 +234,8 @@ new Wotg.Plugins.Simple({
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
             }
+
+            this.dava.redraw(this.buffer.ctx);
         }
 
     });
