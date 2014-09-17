@@ -53,37 +53,6 @@ new Wotg.Plugins.Simple({
 
 
 
-    events.add('afterLaunch', function () {
-
-    	//обработчик сообщений
-        Wotg.controller().connection.events.add('message/game/playunit', function (message) {
-            var m_can_attack 	= false;
-            var m_can_order 	= false;
-            var m_can_move 		= false;
-            var m_can_activity 	= false;
-            if ( m_semafore_skip && message.actions )
-            {
-                // Есть варианты атаки
-             	if (m_attack && message.actions.attacks && message.actions.attacks.length)
-                	m_can_attack = true;
-                // Есть варианты приказов
-                if (m_order && message.actions.orders && message.actions.orders.length)
-                	m_can_order = true;
-                // Есть варианты перемещения
-                if (m_move && message.actions.moves && message.actions.moves.length)
-                	m_can_move = true;
-                // Есть варианты абилок
-                if (m_ability && message.actions.abilities && message.actions.abilities.length)
-                	m_can_activity = true;
-
-		        m_status = m_can_attack || m_can_order || m_can_move || m_can_activity;
-            }
-
-            //console.log('Status: '+m_status+' Can Attack: '+ m_can_attack + ' Can play order: '+ m_can_order + ' Can make move: ' +m_can_move +' m_can_activity: '+m_can_activity);
-        });
-    });
-
-
     /**
      * @namespace Wotg.Card.Views
      * @name Wotg.Card.Views.Battle
