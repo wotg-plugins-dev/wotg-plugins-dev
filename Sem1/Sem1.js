@@ -114,7 +114,7 @@ new Wotg.Plugins.Simple({
                     this.dava.find('Power.Value').text.color = '#e54343';
                 }else{
                     this.setFrame('Power', 2);
-                    this.dava.find('Power.Value').text.color = 'grey';
+                    this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
                 this.hide('moveIndicator');
@@ -128,7 +128,7 @@ new Wotg.Plugins.Simple({
                     this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
                 }else{
                     this.setFrame('Power', 2);
-                    this.dava.find('Power.Value').text.color = 'grey';
+                    this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
                 if( model.getProperty('movable') && (!model.getProperty('moved')) && (model.effects.indexOf('t_cant_move') < 0)){
