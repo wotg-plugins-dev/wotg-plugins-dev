@@ -113,10 +113,10 @@ new Wotg.Plugins.Simple({
             if (model.isOpponent) {
                 //контратака
                 if (model.getProperty('cancounter')) {
-                    this.setFrame('Power', atkIndicatorFrames.counter);
+                    this.setFrame('Power', this.atkIndicatorFrames[counter]);
                     this.dava.find('Power.Value').text.color = '#e54343';
                 }else{
-                    this.setFrame('Power', atkIndicatorFrames.noCounter);
+                    this.setFrame('Power', this.atkIndicatorFrames[noCounter]);
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
@@ -127,10 +127,10 @@ new Wotg.Plugins.Simple({
             } else {
                 //атака
                 if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
-                    this.setFrame('Power', atkIndicatorFrames.attack);
+                    this.setFrame('Power', this.atkIndicatorFrames[attack]);
                     this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
                 }else{
-                    this.setFrame('Power', atkIndicatorFrames.noAttack);
+                    this.setFrame('Power', this.atkIndicatorFrames[noAttack]);
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
                 //перемещение
@@ -197,14 +197,14 @@ new Wotg.Plugins.Simple({
             this.dava.redraw(this.buffer.ctx);
 
             if (model.isOpponent) {
-                this.setFrame('Power', atkIndicatorFrames.opponent);
+                this.setFrame('Power', this.atkIndicatorFrames[opponent]);
                 this.dava.find('Power.Value').text.color = '#e54343';
             } else {
                 if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
-                    this.setFrame('Power', atkIndicatorFrames.attack);
+                    this.setFrame('Power', this.atkIndicatorFrames[attack]);
                     this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
                 }else{
-                    this.setFrame('Power', atkIndicatorFrames.noAttack);
+                    this.setFrame('Power', this.atkIndicatorFrames[noAttack]);
                     this.dava.find('Power.Value').text.color = 'rgba(191,206,191,1)';
                 }
             }
