@@ -167,6 +167,21 @@ new Wotg.Plugins.Simple({
     });
 
 
+    //спрайт для штаба
+    Wotg.Card.Markup.HqBattle.sprites.atkIndicator = [{
+      "rect": [0, 39, 36, 39],      //red
+      "shift": [0, 0]
+    },
+    {
+      "rect": [0, 0, 36, 39],       //green
+      "shift": [0, 0]
+    },
+    {
+      "rect": [36, 0, 36, 39],     //grey
+      "shift": [0, 0]
+    }
+    ];
+
     //заменяем иконку ОМ для штаба
     plugin.markupChange(Wotg.Card.Markup.HqBattle)
     .change('Power', function(node){
