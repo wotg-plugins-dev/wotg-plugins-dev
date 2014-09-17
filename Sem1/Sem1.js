@@ -10,7 +10,7 @@ new Wotg.Plugins.Simple({
 	});
 
     Wotg.Card.Markup.Battle.sprites.moveIndicator = [{
-      "rect": [36, 36, 20, 39],
+      "rect": [36, 136, 20, 39],
       "shift": [0, 0]
     }];
 
