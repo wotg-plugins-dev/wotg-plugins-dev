@@ -38,7 +38,7 @@ new Wotg.Plugins.Simple({
           "texture": "bzz86:Sem1:sem1",
           "frame": 0
         },
-        "rect": [37, 117, 17, 30]
+        "rect": [37, 124, 17, 30]
       });
 
     //заменяем иконку ОМ
@@ -111,20 +111,24 @@ new Wotg.Plugins.Simple({
                 //контратака
                 if (model.getProperty('cancounter')) {
                     this.setFrame('Power', 0);
+                    this.dava.find('Power.Value').text.color = '#e54343';
                 }else{
                     this.setFrame('Power', 2);
+                    this.dava.find('Power.Value').text.color = 'grey';
                 }
                 //перемещение
                 this.hide('moveIndicator');
 
                 this.setFrame('Frames', 1);
-                this.dava.find('Power.Value').text.color = '#e54343';
+
             } else {
                 //атака
                 if (model.getProperty('untapped') && (model.effects.indexOf('t_cant_attack') < 0)) {
                     this.setFrame('Power', 1);
+                    this.dava.find('Power.Value').text.color = 'rgba(110,207,72,1)';
                 }else{
                     this.setFrame('Power', 2);
+                    this.dava.find('Power.Value').text.color = 'grey';
                 }
                 //перемещение
                 if( model.getProperty('movable') && (!model.getProperty('moved')) && (model.effects.indexOf('t_cant_move') < 0)){
