@@ -230,6 +230,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.toughness)
                 .addClass('editorText')
                 .addClass('editorToughness')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
                 .appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
