@@ -14,10 +14,10 @@ new Wotg.Plugins.Simple({
     plugin.markupChange(Wotg.Battle.Markup)
     .place('HandOwn', [299, 693, 995, 160])
     .move('HandEnemy', [  30, 0 ])
-    .place('PackOwn', [123, 47, 280, 253]) //   "rect": [99, 611, 296, 263]
+    .place('PackOwn', [110, 55, 280, 253])  //  "rect": [99, 611, 296, 263]
     //.move('PackOwn', [  11, -556 ])
-    .move('PackOwn.Deck', [  -11, -26 ])
-    .move('PackOwn.Grave', [  -11, -26 ])
+    .move('PackOwn.Deck', [  -24, -18 ])
+    .move('PackOwn.Grave', [  -24, -18 ])
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
