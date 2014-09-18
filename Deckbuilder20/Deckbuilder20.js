@@ -5,7 +5,8 @@ new Wotg.Plugins.Simple({
 
 	plugin.addImages({
 		'mcard': 'mcard.png',
-		'mResourseSmall': 'mResourseSmall.png'
+		'mResourseSmall': 'mResourseSmall.png',
+		'mLevelBackground': 'mLevelBackground.png'
 	});	
 
 	//Копируем существующие разметки
@@ -33,12 +34,26 @@ new Wotg.Plugins.Simple({
 	      "shift": [0, 0]
 	    }];	
 
+	//Добавляем флн для уровня
+	Wotg.Card.Markup.MHand.sprites.LevelBackground = [{
+	      "rect": [0, 0, 25, 15],
+	      "shift": [0, 0]
+	    }];	
+
 	//Указываем другую рамку карты
 	Wotg.Card.Markup.MHand.markup.children[1].sprite.texture = "Deckbuilder20:mcard";
 	Wotg.Card.Markup.MHand.markup.children[1].rect = [0, 0, 176, 65];    
 	//Указываем другую иконку стоимости
 	Wotg.Card.Markup.MHand.markup.children[9].sprite.texture = "Deckbuilder20:mResourseSmall";
-	Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];	
+	Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
+	//Указываем фон для уровня
+	Wotg.Card.Markup.MHand.markup.children[12] = {};
+	Wotg.Card.Markup.MHand.markup.children[12].id = "LevelBackground";
+	Wotg.Card.Markup.MHand.markup.children[12].rect = [8, 45, 30, 15];	
+	Wotg.Card.Markup.MHand.markup.children[12].sprite = {};
+	Wotg.Card.Markup.MHand.markup.children[12].sprite.frame = 0;
+	Wotg.Card.Markup.MHand.markup.children[12].sprite.name = "LevelBackground";
+	Wotg.Card.Markup.MHand.markup.children[12].sprite.texture = "Deckbuilder20:mLevelBackground";
 
 	//Правим разметку под новый размер
 	Wotg.Card.Markup.MPack.markup.rect = [0, 0, 176, 65];
@@ -64,6 +79,10 @@ new Wotg.Plugins.Simple({
 	Wotg.Card.Markup.MHand.markup.children[9].rect = [0, 0, 24, 26];
 	Wotg.Card.Markup.MHand.markup.children[9].children[0].fontsize = 14;
 	Wotg.Card.Markup.MHand.markup.children[9].children[0].rect = [2, 7, 20, 20];		
+	//Level
+	Wotg.Card.Markup.MHand.markup.children[13] = JSON.parse(JSON.stringify(Wotg.Card.Markup.TreeLeaf.markup.children[5]));
+	Wotg.Card.Markup.MHand.sprites.level_cifers_SuperSmall = JSON.parse(JSON.stringify(Wotg.Card.Markup.TreeLeaf.sprites.level_cifers_SuperSmall));
+	Wotg.Card.Markup.MHand.markup.children[13].rect = [8, 48, 23, 13];
 
 	declare( 'Wotg.Card.Views.MHand', Wotg.Card.View, {
 
@@ -88,6 +107,9 @@ new Wotg.Plugins.Simple({
 			this.setText ('Title', Wotg.lang('cards.' + model.getProperty('idC') + '.short') );
 
 			this.setValue('Cost', model.getProperty('cost'));
+
+			this.setFrame('Level'     , model.proto.level-1);
+
 			if (model.getProperty('type') == 'order') {
 				this.hide('Increase' );
 				this.hide('Power'    );
