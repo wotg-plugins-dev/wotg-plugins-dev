@@ -175,7 +175,7 @@ new Wotg.Plugins.Simple({
                         var card = battleCards[i];
                         //console.log(i + ": " + card.proto.id);
                         i++;
-                        if(card.model.props.location == 'BATTLEFIELD' && card.owner.playerrno == battle.player.playerno){
+                        if(card.model.props.location == 'BATTLEFIELD' && card.owner.playerno == battle.player.playerno){
                             //console.log("battlefield" + ": " + card.proto.id);
 
                             if(activator.checkAttackTargetPossible(card, oppHq)){
