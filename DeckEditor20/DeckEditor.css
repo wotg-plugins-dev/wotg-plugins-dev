@@ -9,6 +9,11 @@
 .editorPower {
     top: 44px;
     left: 66px;
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 5px 0;
 }
 .editorToughness {
     top: 44px;
