@@ -34,9 +34,11 @@ new Wotg.Plugins.Simple({
    		Wotg.controller().popups.openOverlayOpacity = 0.4;
 	});
 
+
+    var indicatorImage = plugin.getConfig('sem') || '1';
     //новые картинки для индикации атаки и передвижения
     plugin.addImages({
-		'sem1': 'semaphore/semaphore.png'
+		'sem1': 'semaphore/semaphore'+indicatorImage+'.png'
 	});
 
     //картинка индикатора движения
