@@ -84,10 +84,6 @@ new Wotg.Plugins.Simple({
             }
 
             this.setValue('Power'       , model.getProperty('power'));
-
-            //to change 'Power' icon
-            //this.setFrame('Power', this.kindFrames[model.getProperty('kind')]);
-
             this.setValue('Toughness'   , model.getProperty('toughness'));
 
             this.setFrame('NationFlag'  , this.flagFrames[model.getProperty('country')]);
