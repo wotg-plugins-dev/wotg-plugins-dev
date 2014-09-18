@@ -34,9 +34,9 @@ new Wotg.Plugins.Simple({
    		Wotg.controller().popups.openOverlayOpacity = 0.4;
 	});
 
-//новые картинки для индикации атаки и передвижения
+    //новые картинки для индикации атаки и передвижения
     plugin.addImages({
-		'sem1': 'semaphore/semafor5.png'
+		'sem1': 'semaphore/semaphore.png'
 	});
 
     //картинка индикатора движения
@@ -65,7 +65,7 @@ new Wotg.Plugins.Simple({
         "id": "moveIndicator",
         "sprite": {
           "name": "moveIndicator",
-          "texture": "bzz86:Sem1:sem1",
+          "texture": "bzz86:BattleCardView:sem1",
           "frame": 0
         },
         "rect": [37, 122, 17, 30]
@@ -76,7 +76,7 @@ new Wotg.Plugins.Simple({
     .change('Power', function(node){
          node.sprite = {
           "name": "atkIndicator",
-          "texture": "bzz86:Sem1:sem1",
+          "texture": "bzz86:BattleCardView:sem1",
           "frame": 1
         }
     });
@@ -203,7 +203,7 @@ new Wotg.Plugins.Simple({
     .change('Power', function(node){
          node.sprite = {
           "name": "atkIndicator",
-          "texture": "bzz86:Sem1:sem1",
+          "texture": "bzz86:BattleCardView:sem1",
           "frame": 1
         }
     });
