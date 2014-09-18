@@ -217,8 +217,15 @@ new Wotg.Plugins.Simple({
             .addClass('editorText')
             .addClass('editorTitle')
             .appendTo(this.atomElem);
+            // Defence
+            if (proto.defence) {
+                atom.dom.create('div').text(proto.defence)
+                .addClass('editorText')
+                .addClass('editorPower')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
+                .appendTo(this.atomElem);
+            } else if (proto.power) {
             // Power
-            if (proto.power) {
                 atom.dom.create('div').text(proto.power)
                 .addClass('editorText')
                 .addClass('editorPower')
@@ -230,7 +237,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.toughness)
                 .addClass('editorText')
                 .addClass('editorToughness')
-                .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/green.png') + '")')
                 .appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
