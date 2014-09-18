@@ -222,7 +222,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.defense)
                 .addClass('editorText')
                 .addClass('editorPower')
-                .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/black.png') + '")')
                 .appendTo(this.atomElem);
             } else if (proto.power) {
             // Power
@@ -237,7 +237,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.toughness)
                 .addClass('editorText')
                 .addClass('editorToughness')
-                .css('background-image', 'url("' + plugin.getPluginPath('images/black.png') + '")')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
                 .appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
