@@ -218,8 +218,8 @@ new Wotg.Plugins.Simple({
             .addClass('editorTitle')
             .appendTo(this.atomElem);
             // Defence
-            if (proto.defence) {
-                atom.dom.create('div').text(proto.defence)
+            if (proto.defense) {
+                atom.dom.create('div').text(proto.defense)
                 .addClass('editorText')
                 .addClass('editorPower')
                 .css('background-image', 'url("' + plugin.getPluginPath('images/blue.png') + '")')
@@ -237,7 +237,7 @@ new Wotg.Plugins.Simple({
                 atom.dom.create('div').text(proto.toughness)
                 .addClass('editorText')
                 .addClass('editorToughness')
-                .css('background-image', 'url("' + plugin.getPluginPath('images/green.png') + '")')
+                .css('background-image', 'url("' + plugin.getPluginPath('images/black.png') + '")')
                 .appendTo(this.atomElem);
             }
             this.atomElem.first.model = this;
