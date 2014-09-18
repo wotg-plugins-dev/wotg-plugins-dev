@@ -31,6 +31,16 @@ new Wotg.Plugins.Simple({
     .move('consumableEnemy3', [  264, 182 ])
     .move('SkipBtn', [  100, 50 ]);
 
+
+    plugin.markupChange(Wotg.Markup.Battle)
+    .change('PackOwn.Deck', function(node){
+        node.textcolor = "#b4393c";
+    })
+    .change('PackOwn.Grave', function(node){
+        node.textcolor = "#c2c3b5";
+    });
+
+
     events.add('afterLaunch', function () {
    		Wotg.controller().popups.openOverlayOpacity = 0.4;
 	});
