@@ -9,13 +9,13 @@ new Wotg.Plugins.Simple({
 */
 jslog(plugin);
 plugin.Name = 'Альтернативное Исследование';
-plugin.pluginVersion = '0.1.0';
-plugin.info = 'Стабильная версия';
+plugin.pluginVersion = '0.1.1';
+plugin.info = 'Стабильная версия + исправленные баги.';
 plugin.url = 'http://forum.worldoftanks.ru/index.php?/forum/483-моды-скины-плагины/';
 
 function jslog(text) {
-	
-	//console.log.apply( console, ['[JS Log] '].append(arguments) );
+	if (plugin.getConfig('debug') == 'true')
+		console.log.apply( console, ['[JS Log] '].append(arguments) );
 	
 }
 
@@ -65,9 +65,10 @@ function jslog(text) {
 	}
 	});
 
-	//удалить если будут меняться координаты штаба 
-	plugin.refactor( 'Wotg.Research.HQItem', {
+    	plugin.refactor( 'Wotg.Research.HQItem', {
         // Меняем один из методов класса
+        'size'       : new Size(285, 80), // непонятно работает ли
+        'sizeCurrent': new Size(215, 131), //342,200 ----- 300,84 //размер штаба
         'getPos': function method() {
         	jslog(this);
         	if (this.isRootTree) return this.manager.hqSlotsCoords[this.slot];
@@ -92,6 +93,10 @@ function jslog(text) {
 
 	plugin.refactor( 'Wotg.Research.Manager', {
         // Меняем один из методов класса
+        'setViewMode': function method(viewMode) {		
+        	method.previous.apply( this, arguments );		
+        	this.viewMode = viewMode;
+        },
         'createResearchTreeForHQ': function method(hqId) {
            	//this.backButton.text = Wotg.controller().lang.get('research.backToRoot');
 		this.isRoot = false;
@@ -132,7 +137,8 @@ function jslog(text) {
 		
 		list =listHq;
 		for (var i = 0 ; i < list.length; i++) { 
-			list[i].isHqCard = true;
+			//list[i].isHqCard = true;
+			list[i].slot = i+16;
 			this.createCard(list[i]);
 		}
 		
@@ -164,13 +170,13 @@ function jslog(text) {
 		15: new Point(1139, 679),
 		
 		16: new Point(484, 140), 
-		17: new Point(1217, 140),//101
+		17: new Point(972, 140),//101
 		18: new Point(237, 140),
-		19: new Point(972, 140),
+		19: new Point(1217, 140),
 		20: new Point(484, 1),
-		21: new Point(1217, 1),
+		21: new Point(972, 1),
 		22: new Point(237, 1),
-		23: new Point(972, 1)
+		23: new Point(1217, 1)
 	},
 	'JShqSlotsCoords' :{},
 	//координаты штаба
@@ -288,11 +294,7 @@ function jslog(text) {
 		return new Point (x*width,y*hight+40);
 	}
     });
-    
-    plugin.refactor( 'Wotg.Research.HQItem', {
-    	'size'       : new Size(285, 80), // непонятно работает ли
-        'sizeCurrent': new Size(215, 131) //342,200 ----- 300,84 //размер штаба
-    });
+
     plugin.refactor( 'Wotg.Research.Lines', {
 	drawLine: function(from, to) {
 		var rect = new Rectangle(from,to);
