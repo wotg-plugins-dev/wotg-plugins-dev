@@ -17,7 +17,7 @@ new Wotg.Plugins.Simple({
     .place('PackOwn', [125, 55, 280, 253])  //  "rect": [99, 611, 296, 263]
     //.move('PackOwn', [  11, -556 ])
     .move('PackOwn.Deck', [  -26, -18 ])
-    .move('PackOwn.Grave', [  -30, -18 ])
+    .move('PackOwn.Grave', [  -29, -18 ])
     .move('PlatoonsOwn', [  0, 116 ])
     .move('YourTimer', [  0, -355 ])
     .move('ResourcesOwn', [  0, -355 ])
