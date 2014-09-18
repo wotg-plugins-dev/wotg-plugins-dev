@@ -29,10 +29,7 @@ new Wotg.Plugins.Simple({
     .move('consumableEnemy1', [  264, 182 ])
     .move('consumableEnemy2', [  264, 182 ])
     .move('consumableEnemy3', [  264, 182 ])
-    .move('SkipBtn', [  100, 50 ]);
-
-
-    plugin.markupChange(Wotg.Markup.Battle)
+    .move('SkipBtn', [  100, 50 ])
     .change('PackOwn.Deck', function(node){
         node.textcolor = "#b4393c";
     })
