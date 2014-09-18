@@ -34,8 +34,6 @@ new Wotg.Plugins.Simple({
     .move('consumableEnemy3', [  264, 182 ])
     .move('SkipBtn', [  100, 50 ]);
 
-    "rect":
-
     events.add('afterLaunch', function () {
    		Wotg.controller().popups.openOverlayOpacity = 0.4;
 	});
