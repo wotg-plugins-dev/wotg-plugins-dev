@@ -9,7 +9,7 @@ new Wotg.Plugins.Simple({
 */
 jslog(plugin);
 plugin.Name = 'Альтернативное Исследование';
-plugin.pluginVersion = '0.1.2';
+plugin.pluginVersion = '0.1.3';
 plugin.info = 'Стабильная версия + фикс пасхалки';
 plugin.url = 'http://forum.worldoftanks.ru/index.php?/forum/483-моды-скины-плагины/';
 
@@ -289,8 +289,9 @@ function jslog(text) {
 		var columns = 12,
 		width = 127,
 		hight = 127,
-		x = this.slotX % columns,
-		y= (this.slotX-x) / columns;
+		x = this.data.slotX % columns,
+		y= (this.data.slotX-x) / columns;
+		//jslog(slotX);
 		return new Point (x*width,y*hight+40);
 	}
     });
