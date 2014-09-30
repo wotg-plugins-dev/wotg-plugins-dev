@@ -26,10 +26,14 @@ new Wotg.Plugins.Simple({
                 clearInterval(jQueryWaiting);
                 return;
             }
-            if (!window.jQuery) return;
+            if (jQueryNotLoaded()) return;
             Wotg.config().addScript(pluginPath + 'jquery.textcomplete.js');
             clearInterval(jQueryWaiting);
         }, 1000);
+    }
+
+    function jQueryNotLoaded() {
+        return window.jQuery === undefined;
     }
 
     function cssAdd(pluginPath) {
@@ -40,7 +44,7 @@ new Wotg.Plugins.Simple({
     }
 
     function makeSuggestions() {
-        if (!window.jQuery) {
+        if (jQueryNotLoaded()) {
             console.log('jQuery not yet loaded');
             return;
         }
