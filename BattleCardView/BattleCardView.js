@@ -8,8 +8,8 @@ new Wotg.Plugins.Simple({
 	});
 
     plugin.replaceImages({
-		'battle-card-pack-own': 'battle/card-pack-own.png' ,
-        'dava-card': 'dava/card.png'
+		'battle-card-pack-own': 'battle/card-pack-own.png' /*,
+        'dava-card': 'dava/card.png'                         */
 	});
 
     plugin.markupChange(Wotg.Battle.Markup)
