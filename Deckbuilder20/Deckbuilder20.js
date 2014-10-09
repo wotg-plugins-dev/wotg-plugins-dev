@@ -1,6 +1,6 @@
 new Wotg.Plugins.Simple({
 	title  : 'Deckbuilder20',
-	version: '0.2.4'
+	version: '0.2.5'
 }, function (plugin, events) {
 
 	plugin.addImages({
